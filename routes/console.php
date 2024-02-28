@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command('app:init', function () {
+    $this->call('migrate:fresh');
+    $this->call('db:seed');
+})->purpose('Initialize the application');
