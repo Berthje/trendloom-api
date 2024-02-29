@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
+            $table->string('discount');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('minimum_purchase')->nullable();
+            $table->integer('maximum_discount')->nullable();
+            $table->integer('max_use')->nullable();
             $table->timestamps();
         });
     }
