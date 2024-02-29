@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('brand_coupons', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('coupon_id');
             $table->timestamps();
         });
     }
