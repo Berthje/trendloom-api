@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string("sku")->unique();
             $table->string("status");
             $table->string("ean_barcode")->unique();
-            $table->foreignId("brand_id")->constrained("brands");
-            $table->foreignId("category_id")->constrained("categories");
+            $table->foreignId("brand_id");
+            $table->foreignId("category_id");
             $table->timestamps();
         });
     }
