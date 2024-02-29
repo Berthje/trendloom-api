@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('product_media', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->string('image_url');
+            $table->boolean('is_primary')->default(false)->nullable();
             $table->timestamps();
         });
     }
