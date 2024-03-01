@@ -15,9 +15,19 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $data = $this->getDataFromCsv('data\csv\products.csv');
+        $model = new Product();
 
         foreach ($data as $row) {
-            dd($row);
+            $model->create([
+                'name' => $row['name'],
+                'description' => $row['description'],
+                'price' => $row['price'],
+                'sku' => $row['sku'],
+                'status' => $row['status'],
+                'ean_barcode' => $row['ean_barcode'],
+                'brand_id' => $row['brand_id'],
+                'category_id' => $row['category_id'],
+            ]);
         }
     }
 
