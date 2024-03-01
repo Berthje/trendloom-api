@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use function App\Helpers\getDataFromCsv;
+use App\Models\Product;
+use App\Helpers\CsvHandler;
 
 class ProductSeeder extends Seeder
 {
@@ -13,11 +14,15 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = getDataFromCsv(storage_path('data/csv/products.csv'));
-        $model = new Product();
+        $data = $this->getDataFromCsv('data\csv\products.csv');
 
         foreach ($data as $row) {
             dd($row);
         }
+    }
+
+    private function getDataFromCsv($csv){
+        $csvHandler = new CsvHandler();
+        return $csvHandler->getDataFromCsv($csv);
     }
 }
