@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
                 'status' => $row['status'],
                 'ean_barcode' => $row['ean_barcode'],
                 'brand_id' => $row['brand_id'],
-                'category_id' => $row['category_id'],
+                'category_id' => intval($row['category_id']),
             ]);
         }
     }
