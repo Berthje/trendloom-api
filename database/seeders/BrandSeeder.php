@@ -15,7 +15,7 @@ class BrandSeeder extends Seeder
     public function run(): void
     {
         $data = $this->getDataFromCsv('data\csv\brands.csv');
-        $model = new Category();
+        $model = new Brand();
 
         foreach ($data as $row) {
             $model->create([
