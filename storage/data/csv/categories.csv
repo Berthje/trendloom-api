@@ -1,46 +1,46 @@
 name;description;parent_category_id
-Women;Lorem ipsum;
-Men;Lorem ipsum;
-Kids;Lorem ipsum;
-Brands;Lorem ipsum;
-Clothing;Lorem ipsum;1
-Shoes;Lorem ipsum;1
-Accessories;Lorem ipsum;1
-Tops & T-Shirts;Lorem ipsum;5
-Jeans;Lorem ipsum;5
-Jackets & Blazers;Lorem ipsum;5
-Pants;Lorem ipsum;5
-Trench Coats;Lorem ipsum;5
-Dresses;Lorem ipsum;5
-Blouses;Lorem ipsum;5
-Cardigans & Knitwear;Lorem ipsum;5
-Jumpsuits;Lorem ipsum;5
-Skirts;Lorem ipsum;5
-Clothing;Lorem ipsum;2
-Shoes;Lorem ipsum;2
-Accessories;Lorem ipsum;2
-T-Shirts;Lorem ipsum;18
-Jeans;Lorem ipsum;18
-Pants;Lorem ipsum;18
-Sweatshirts & Hoodies;Lorem ipsum;18
-Polos;Lorem ipsum;18
-Long Coats;Lorem ipsum;18
-Shirts;Lorem ipsum;18
-Shorts;Lorem ipsum;18
-Tracksuits;Lorem ipsum;18
-High Heels;Lorem ipsum;6
-Sneakers;Lorem ipsum;6
-Low Shoes;Lorem ipsum;6
-Sneakers;Lorem ipsum;19
-Low Shoes;Lorem ipsum;19
-Sport Shoes;Lorem ipsum;19
-Bags;Lorem ipsum;7
-Jewelry;Lorem ipsum;7
-Belts;Lorem ipsum;7
-Sunglasses;Lorem ipsum;7
-Watches;Lorem ipsum;20
-Sunglasses;Lorem ipsum;20
-Jewelry;Lorem ipsum;20
-Boys;Lorem ipsum;3
-Girls;Lorem ipsum;3
-Baby;Lorem ipsum;3
+Women;Fashionable attire for women.;
+Men;Stylish clothing and accessories for men.;
+Kids;Adorable outfits for children.;
+Brands;Products from top-notch brands.;
+Clothing;Various stylish garments for all.;1
+Shoes;Stylish footwear for every occasion.;1
+Accessories;Fashionable add-ons to complete your look.;1
+Tops & T-Shirts;Trendy tops and t-shirts for women.;5
+Jeans;Classic and trendy jeans for women.;5
+Jackets & Blazers;Stylish jackets and blazers for women.;5
+Pants;Comfortable and fashionable pants for women.;5
+Trench Coats;Classic trench coats for women.;5
+Dresses;Elegant dresses for women.;5
+Blouses;Stylish blouses for women.;5
+Cardigans & Knitwear;Cozy cardigans and knitwear for women.;5
+Jumpsuits;Trendy jumpsuits for women.;5
+Skirts;Fashionable skirts for women.;5
+Clothing;Trendy clothing options for men.;2
+Shoes;Stylish footwear for men.;2
+Accessories;Fashionable add-ons for men.;2
+T-Shirts;Versatile t-shirts for men.;18
+Jeans;Comfortable and stylish jeans for men.;18
+Pants;Stylish pants for men.;18
+Sweatshirts & Hoodies;Cozy sweatshirts and hoodies for men.;18
+Polos;Classic polos for men.;18
+Long Coats;Stylish long coats for men.;18
+Shirts;Elegant shirts for men.;18
+Shorts;Comfortable shorts for men.;18
+Tracksuits;Sporty tracksuits for men.;18
+High Heels;Elegant high heels for women.;6
+Sneakers;Stylish sneakers for women.;6
+Low Shoes;Casual low shoes for women.;6
+Sneakers;Stylish sneakers for men.;19
+Low Shoes;Casual low shoes for men.;19
+Sport Shoes;Sporty shoes for men.;19
+Bags;Stylish bags for women.;7
+Jewelry;Elegant jewelry for women.;7
+Belts;Stylish belts for women.;7
+Sunglasses;Trendy sunglasses for women.;7
+Watches;Elegant watches for men and women.;20
+Sunglasses;Trendy sunglasses for men.;20
+Jewelry;Stylish jewelry for men.;20
+Boys;Fashionable clothing for boys.;3
+Girls;Adorable clothing for girls.;3
+Baby;Cute clothing for babies.;3
