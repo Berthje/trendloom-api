@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
+use App\Helpers\CsvHandler;
 
 class CategorySeeder extends Seeder
 {
@@ -15,12 +17,26 @@ class CategorySeeder extends Seeder
         $data = $this->getDataFromCsv('data\csv\categories.csv');
         $model = new Category();
 
+        // First, insert top-level categories
         foreach ($data as $row) {
-            $model->create([
-                'name' => $row['name'],
-                'description' => $row['description'],
-                'parent_category_id' => $row['parent_category_id'],
-            ]);
+            if (empty($row['parent_category_id'])) {
+                $model->create([
+                    'name' => $row['name'],
+                    'description' => $row['description'],
+                    'parent_category_id' => null,
+                ]);
+            }
+        }
+
+        // Then, insert child categories
+        foreach ($data as $row) {
+            if (!empty($row['parent_category_id'])) {
+                $model->create([
+                    'name' => $row['name'],
+                    'description' => $row['description'],
+                    'parent_category_id' => intval($row['parent_category_id']),
+                ]);
+            }
         }
     }
 
