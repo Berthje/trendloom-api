@@ -81,7 +81,6 @@ return new class extends Migration
 
         Schema::table('customers', function (Blueprint $table) {
             $table->foreign('address_id')->references('id')->on('addresses');
-            $table->foreign('role_id')->references('id')->on('roles');
         });
 
         //Roles
