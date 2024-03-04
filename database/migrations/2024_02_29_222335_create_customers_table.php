@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('address_id');
-            $table->unsignedBigInteger('role_id')->default(1);
             $table->timestamps();
         });
     }
