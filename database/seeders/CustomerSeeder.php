@@ -18,8 +18,11 @@ class CustomerSeeder extends Seeder
         $data = $this->getDataFromCsv('data\csv\customers.csv');
         $model = new Customer();
 
+        $userRole = Role::where('name', 'user')->first();
+        $adminRole = Role::where('name', 'admin')->first();
+
         foreach ($data as $row) {
-            $model->create([
+            $customer = $model->create([
                 'first_name' => $row['first_name'],
                 'last_name' => $row['last_name'],
                 'email' => $row['email'],
@@ -27,6 +30,12 @@ class CustomerSeeder extends Seeder
                 'password' => $row['password'],
                 'address_id' => $row['address_id'],
             ]);
+
+            $customer->roles()->attach($userRole);
+
+            if ($row['email'] === 'laytonbrth@gmail.com') {
+                $customer->roles()->attach($adminRole);
+            }
         }
     }
 

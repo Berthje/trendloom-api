@@ -11,6 +11,6 @@ class Customer extends Model
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'customer_roles');
+        return $this->belongsToMany(Role::class, 'user_roles');
     }
 }
