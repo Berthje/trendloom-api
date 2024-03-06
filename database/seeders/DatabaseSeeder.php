@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CustomerSeeder::class,
             BrandLanguageSeeder::class,
             ProductLanguageSeeder::class,
+            CategoryLanguageSeeder::class,
         ]);
     }
 }
