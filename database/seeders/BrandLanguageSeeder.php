@@ -15,7 +15,7 @@ class BrandLanguageSeeder extends Seeder
     public function run(): void
     {
         $data = $this->getDataFromCsv('data\csv\brands_language.csv');
-        $model = new Brand();
+        $model = new BrandLanguage();
 
         foreach ($data as $row) {
             $model->create([
