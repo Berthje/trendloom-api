@@ -1,0 +1,17 @@
+product_id;language_id;name;description;price;tags
+1;1;Air Max 270;Experience comfort and style with Nike's Air Max 270 shoes.;149.99;
+2;1;Revolution 5;Run with ease in Nike's Revolution 5 running shoes.;89.99;
+3;1;Ultraboost 21;Boost your running performance with Adidas Ultraboost 21.;179.99;
+4;1;Tiro 21 Training Pants;Train in comfort with Adidas Tiro 21 Training ;49.99;
+5;1;Denim Dungarees;Embrace the denim trend with ONLY's Denim Dungarees.;69.99;
+6;1;Floral Print Dress;Step into spring with ONLY's Floral Print Dress.;59.99;
+7;1;Slim Fit Jeans;Upgrade your denim game with Jack & Jones' Slim Fit Jeans.;79.99;
+8;1;Cotton Crew Neck Sweater;Stay cozy with Jack & Jones' Cotton Crew Neck Sweater.;29.99;
+1;2;Air Max 270;Ervaar comfort en stijl met Nike's Air Max 270 schoenen.;149.99;
+2;2;Revolution 5;Loop met gemak in Nike's Revolution 5 hardloopschoenen.;89.99;
+3;2;Ultraboost 21;Verbeter je hardloopprestaties met Adidas Ultraboost 21.;179.99;
+4;2;Tiro 21 Training Pants;Train in comfort met Adidas Tiro 21 Trainingsbroek;49.99;
+5;2;Denim Dungarees;Omarm de denim trend met ONLY's Denim Dungarees.;69.99;
+6;2;Floral Print Dress;Stap de lente in met ONLY's Floral Print Dress.;59.99;
+7;2;Slim Fit Jeans;Upgrade je denim game met Jack & Jones' Slim Fit Jeans.;79.99;
+8;2;Cotton Crew Neck Sweater;Blijf gezellig met Jack & Jones' Cotton Crew Neck Sweater.;29.99;
