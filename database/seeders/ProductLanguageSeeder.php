@@ -4,25 +4,27 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\BrandLanguage;
+use App\Models\ProductLanguage;
 use App\Helpers\CsvHandler;
 
-class BrandLanguageSeeder extends Seeder
+class ProductLanguageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $data = $this->getDataFromCsv('data\csv\brand_languages.csv');
+        $data = $this->getDataFromCsv('data\csv\product_languages.csv');
         $model = new BrandLanguage();
 
         foreach ($data as $row) {
             $model->create([
-                'brand_id' => $row['brand_id'],
+                'product_id' => $row['product_id'],
                 'language_id' => $row['language_id'],
                 'name' => $row['name'],
                 'description' => $row['description'],
+                'price' => $row['price'],
+                'tags' => $row['tags'],
             ]);
         }
     }
