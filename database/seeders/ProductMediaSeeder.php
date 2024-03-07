@@ -15,7 +15,7 @@ class ProductMediaSeeder extends Seeder
      */
     public function run(CsvHandler $csvHandler): void
     {
-        $data = $csvHandler->getDataFromCsv('data\csv\category_media.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\product_media.csv');
         $model = new ProductMedia();
 
         foreach ($data as $row) {
