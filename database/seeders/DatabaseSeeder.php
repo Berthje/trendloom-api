@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             CategoryMediaSeeder::class,
             ProductMediaSeeder::class,
             OrderSeeder::class,
+            OrderItemSeeder::class,
         ]);
     }
 }
