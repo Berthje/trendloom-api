@@ -1,0 +1,3 @@
+customer_id;address_id;coupon_id;order_date;status;amount_products;total_price;payment_method;shipping_method;tracking_number
+1;1;;2022-10-10 10:30:00;shipping;5;359.95;Credit Card;Fedex;1234567890
+1;1;;2022-10-10 14:45:00;delivered;3;229.97;PayPal;UPS;0987654321

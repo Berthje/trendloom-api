@@ -1,0 +1,9 @@
+name;description;price;sku;status;ean_barcode;brand_id;category_id
+Air Max 270;Experience comfort and style with Nike's Air Max 270 shoes.;149.99;NIKE-270;active;1234567890123;1;19
+Revolution 5;Run with ease in Nike's Revolution 5 running shoes.;89.99;NIKE-REV5;active;1234567890124;1;19
+Ultraboost 21;Boost your running performance with Adidas Ultraboost 21.;179.99;ADIDAS-UB21;active;1234567890125;2;19
+Tiro 21 Training Pants;Train in comfort with Adidas Tiro 21 Training Pants.;49.99;ADIDAS-TIRO21;active;1234567890126;2;23
+Denim Dungarees;Embrace the denim trend with ONLY's Denim Dungarees.;69.99;ONLY-DD;active;1234567890127;3;9
+Floral Print Dress;Step into spring with ONLY's Floral Print Dress.;59.99;ONLY-FPD;active;1234567890128;3;13
+Slim Fit Jeans;Upgrade your denim game with Jack & Jones' Slim Fit Jeans.;79.99;JJ-SFJ;active;1234567890129;4;22
+Cotton Crew Neck Sweater;Stay cozy with Jack & Jones' Cotton Crew Neck Sweater.;29.99;JJ-CCNS;active;1234567890130;4;24

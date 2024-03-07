@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories_language', function (Blueprint $table) {
+        Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('language_id');
+            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('role_id');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories_language');
+        Schema::dropIfExists('user_roles');
     }
 };

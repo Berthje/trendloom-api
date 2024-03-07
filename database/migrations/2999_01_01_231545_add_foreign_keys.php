@@ -40,17 +40,17 @@ return new class extends Migration
 
         //Languages
 
-        Schema::table('brands_language', function (Blueprint $table) {
+        Schema::table('brand_languages', function (Blueprint $table) {
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('language_id')->references('id')->on('languages');
         });
 
-        Schema::table('categories_language', function (Blueprint $table) {
+        Schema::table('category_languages', function (Blueprint $table) {
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('language_id')->references('id')->on('languages');
         });
 
-        Schema::table('products_language', function (Blueprint $table) {
+        Schema::table('product_languages', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('language_id')->references('id')->on('languages');
         });
@@ -81,6 +81,13 @@ return new class extends Migration
 
         Schema::table('customers', function (Blueprint $table) {
             $table->foreign('address_id')->references('id')->on('addresses');
+        });
+
+        //Roles
+
+        Schema::table('user_roles', function (Blueprint $table) {
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('role_id')->references('id')->on('roles');
         });
 
         //Orders
@@ -132,15 +139,15 @@ return new class extends Migration
     });
 
     //Languages
-    Schema::table('brands_language', function (Blueprint $table) {
+    Schema::table('brand_languages', function (Blueprint $table) {
         $table->dropForeign(['brand_id', 'language_id']);
     });
 
-    Schema::table('categories_language', function (Blueprint $table) {
+    Schema::table('category_languages', function (Blueprint $table) {
         $table->dropForeign(['category_id', 'language_id']);
     });
 
-    Schema::table('products_language', function (Blueprint $table) {
+    Schema::table('product_languages', function (Blueprint $table) {
         $table->dropForeign(['product_id', 'language_id']);
     });
 

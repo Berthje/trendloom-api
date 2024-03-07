@@ -1,0 +1,91 @@
+name;description;category_id;language_id
+Women;Fashionable attire for women.;1;1
+Men;Stylish clothing and accessories for men.;2;1
+Kids;Adorable outfits for children.;3;1
+Brands;Products from top-notch brands.;4;1
+Clothing;Various stylish garments for all.;5;1
+Shoes;Stylish footwear for every occasion.;6;1
+Accessories;Fashionable add-ons to complete your look.;7;1
+Tops & T-Shirts;Trendy tops and t-shirts for women.;8;1
+Jeans;Classic and trendy jeans for women.;9;1
+Jackets & Blazers;Stylish jackets and blazers for women.;10;1
+Pants;Comfortable and fashionable pants for women.;11;1
+Trench Coats;Classic trench coats for women.;12;1
+Dresses;Elegant dresses for women.;13;1
+Blouses;Stylish blouses for women.;14;1
+Cardigans & Knitwear;Cozy cardigans and knitwear for women.;15;1
+Jumpsuits;Trendy jumpsuits for women.;16;1
+Skirts;Fashionable skirts for women.;17;1
+Clothing;Trendy clothing options for men.;18;1
+Shoes;Stylish footwear for men.;19;1
+Accessories;Fashionable add-ons for men.;20;1
+T-Shirts;Versatile t-shirts for men.;21;1
+Jeans;Comfortable and stylish jeans for men.;22;1
+Pants;Stylish pants for men.;23;1
+Sweatshirts & Hoodies;Cozy sweatshirts and hoodies for men.;24;1
+Polos;Classic polos for men.;25;1
+Long Coats;Stylish long coats for men.;26;1
+Shirts;Elegant shirts for men.;27;1
+Shorts;Comfortable shorts for men.;28;1
+Tracksuits;Sporty tracksuits for men.;29;1
+High Heels;Elegant high heels for women.;30;1
+Sneakers;Stylish sneakers for women.;31;1
+Low Shoes;Casual low shoes for women.;32;1
+Sneakers;Stylish sneakers for men.;33;1
+Low Shoes;Casual low shoes for men.;34;1
+Sport Shoes;Sporty shoes for men.;35;1
+Bags;Stylish bags for women.;36;1
+Jewelry;Elegant jewelry for women.;37;1
+Belts;Stylish belts for women.;38;1
+Sunglasses;Trendy sunglasses for women.;39;1
+Watches;Elegant watches for men and women.;40;1
+Sunglasses;Trendy sunglasses for men.;41;1
+Jewelry;Stylish jewelry for men.;42;1
+Boys;Fashionable clothing for boys.;43;1
+Girls;Adorable clothing for girls.;44;1
+Baby;Cute clothing for babies.;45;1
+Vrouwen;Modieuze kleding voor vrouwen.;1;2
+Mannen;Stijlvolle kleding en accessoires voor mannen.;2;2
+Kinderen;Schattige outfits voor kinderen.;3;2
+Merken;Producten van topmerken.;4;2
+Kleding;Verschillende stijlvolle kledingstukken voor iedereen.;5;2
+Schoenen;Stijlvolle schoenen voor elke gelegenheid.;6;2
+Accessoires;Modieuze accessoires om je look compleet te maken.;7;2
+Tops & T-Shirts;Trendy tops en t-shirts voor vrouwen.;8;2
+Jeans;Klassieke en trendy jeans voor vrouwen.;9;2
+Jassen & Blazers;Stijlvolle jassen en blazers voor vrouwen.;10;2
+Broeken;Comfortabele en modieuze broeken voor vrouwen.;11;2
+Trenchcoats;Klassieke trenchcoats voor vrouwen.;12;2
+Jurken;Elegante jurken voor vrouwen.;13;2
+Blouses;Stijlvolle blouses voor vrouwen.;14;2
+Vesten & Breigoed;Gezellige vesten en breigoed voor vrouwen.;15;2
+Jumpsuits;Trendy jumpsuits voor vrouwen.;16;2
+Rokken;Modieuze rokken voor vrouwen.;17;2
+Kleding;Trendy kledingopties voor mannen.;18;2
+Schoenen;Stijlvolle schoenen voor mannen.;19;2
+Accessoires;Modieuze accessoires voor mannen.;20;2
+T-Shirts;Veelzijdige t-shirts voor mannen.;21;2
+Jeans;Comfortabele en stijlvolle jeans voor mannen.;22;2
+Broeken;Stijlvolle broeken voor mannen.;23;2
+Sweatshirts & Hoodies;Gezellige sweatshirts en hoodies voor mannen.;24;2
+Poloshirts;Klassieke poloshirts voor mannen.;25;2
+Lange Jassen;Stijlvolle lange jassen voor mannen.;26;2
+Overhemden;Elegante overhemden voor mannen.;27;2
+Korte Broeken;Comfortabele korte broeken voor mannen.;28;2
+Trainingspakken;Sportieve trainingspakken voor mannen.;29;2
+Hoge Hakken;Elegante hoge hakken voor vrouwen.;30;2
+Sneakers;Stijlvolle sneakers voor vrouwen.;31;2
+Lage Schoenen;Casual lage schoenen voor vrouwen.;32;2
+Sneakers;Stijlvolle sneakers voor mannen.;33;2
+Lage Schoenen;Casual lage schoenen voor mannen.;34;2
+Sportschoenen;Sportieve schoenen voor mannen.;35;2
+Tassen;Stijlvolle tassen voor vrouwen.;36;2
+Sieraden;Elegante sieraden voor vrouwen.;37;2
+Riemen;Stijlvolle riemen voor vrouwen.;38;2
+Zonnebrillen;Trendy zonnebrillen voor vrouwen.;39;2
+Horloges;Elegante horloges voor mannen en vrouwen.;40;2
+Zonnebrillen;Trendy zonnebrillen voor mannen.;41;2
+Sieraden;Stijlvolle sieraden voor mannen.;42;2
+Jongens;Modieuze kleding voor jongens.;43;2
+Meisjes;Schattige kleding voor meisjes.;44;2
+Baby's;Schattige kleding voor baby's.;45;2
