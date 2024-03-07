@@ -12,9 +12,9 @@ class ProductStockSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\product_stock.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\product_stock.csv');
         $model = new ProductStock();
 
         foreach ($data as $row) {
@@ -24,11 +24,5 @@ class ProductStockSeeder extends Seeder
                 'quantity_in_stock' => $row['quantity_in_stock'],
             ]);
         }
-    }
-
-    private function getDataFromCsv($csv)
-    {
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }

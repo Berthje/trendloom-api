@@ -12,9 +12,9 @@ class CategorySeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\categories.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\categories.csv');
         $model = new Category();
 
         // First, insert top-level categories
@@ -40,7 +40,8 @@ class CategorySeeder extends Seeder
         }
     }
 
-    private function getDataFromCsv($csv){
+    private function getDataFromCsv($csv)
+    {
         $csvHandler = new CsvHandler();
         return $csvHandler->getDataFromCsv($csv);
     }

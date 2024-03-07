@@ -13,9 +13,9 @@ class CustomerSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\customers.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\customers.csv');
         $model = new Customer();
 
         $userRole = Role::where('name', 'user')->first();
@@ -37,11 +37,5 @@ class CustomerSeeder extends Seeder
                 $customer->roles()->attach($adminRole);
             }
         }
-    }
-
-    private function getDataFromCsv($csv)
-    {
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }

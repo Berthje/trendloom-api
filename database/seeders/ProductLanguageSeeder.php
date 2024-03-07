@@ -12,9 +12,9 @@ class ProductLanguageSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\product_languages.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\product_languages.csv');
         $model = new ProductLanguage();
 
         foreach ($data as $row) {
@@ -27,10 +27,5 @@ class ProductLanguageSeeder extends Seeder
                 'tags' => $row['tags'],
             ]);
         }
-    }
-
-    private function getDataFromCsv($csv){
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }

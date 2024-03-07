@@ -12,9 +12,9 @@ class RoleSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\roles.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\roles.csv');
         $model = new Role();
 
         foreach ($data as $row) {
@@ -22,10 +22,5 @@ class RoleSeeder extends Seeder
                 'name' => $row['name'],
             ]);
         }
-    }
-
-    private function getDataFromCsv($csv){
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }

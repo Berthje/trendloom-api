@@ -12,9 +12,9 @@ class BrandSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\brands.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\brands.csv');
         $model = new Brand();
 
         foreach ($data as $row) {
@@ -24,10 +24,5 @@ class BrandSeeder extends Seeder
                 'logo_url' => $row['logo_url'],
             ]);
         }
-    }
-
-    private function getDataFromCsv($csv){
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }

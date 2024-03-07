@@ -12,9 +12,9 @@ class ProductSizeSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\product_sizes.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\product_sizes.csv');
         $model = new ProductSize();
 
         foreach ($data as $row) {
@@ -23,10 +23,5 @@ class ProductSizeSeeder extends Seeder
                 'size' => $row['size'],
             ]);
         }
-    }
-
-    private function getDataFromCsv($csv){
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }

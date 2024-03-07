@@ -12,9 +12,9 @@ class AddressSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\addresses.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\addresses.csv');
         $model = new Address();
 
         foreach ($data as $row) {
@@ -26,11 +26,5 @@ class AddressSeeder extends Seeder
                 'country' => $row['country'],
             ]);
         }
-    }
-
-    private function getDataFromCsv($csv)
-    {
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }

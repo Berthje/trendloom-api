@@ -12,9 +12,9 @@ class ProductSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(CsvHandler $csvHandler): void
     {
-        $data = $this->getDataFromCsv('data\csv\products.csv');
+        $data = $csvHandler->getDataFromCsv('data\csv\products.csv');
         $model = new Product();
 
         foreach ($data as $row) {
@@ -29,10 +29,5 @@ class ProductSeeder extends Seeder
                 'category_id' => intval($row['category_id']),
             ]);
         }
-    }
-
-    private function getDataFromCsv($csv){
-        $csvHandler = new CsvHandler();
-        return $csvHandler->getDataFromCsv($csv);
     }
 }
