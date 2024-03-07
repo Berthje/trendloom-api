@@ -22,7 +22,7 @@ class OrderItemSeeder extends Seeder
                 'order_id' => $row['order_id'],
                 'product_id' => $row['product_id'],
                 'quantity' => $row['quantity'],
-                'price' => $row['price'],
+                'size' => $row['size'],
             ]);
         }
     }
