@@ -21,7 +21,7 @@ class OrderSeeder extends Seeder
             $model->create([
                 'customer_id' => $row['customer_id'],
                 'address_id' => $row['address_id'],
-                'coupon_id' => $row['coupon_id'],
+                'coupon_id' => $row['coupon_id'] === '' ? NULL : $row['coupon_id'],
                 'order_date' => $row['order_date'],
                 'status' => $row['status'],
                 'amount_products' => $row['amount_products'],
