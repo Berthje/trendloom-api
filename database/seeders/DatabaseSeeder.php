@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             AddressSeeder::class,
             ProductSeeder::class,
             CustomerSeeder::class,
+            WishlistSeeder::class,
             ProductSizeSeeder::class,
             ProductStockSeeder::class,
             BrandLanguageSeeder::class,
