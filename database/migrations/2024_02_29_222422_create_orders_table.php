@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('address_id');
             $table->unsignedBigInteger('coupon_id')->nullable();
-            $table->date('order_date');
+            $table->dateTime('order_date');
             $table->enum('status', ['shipping', 'paid', 'cancelled', 'delivered', 'returned', 'refunded']);
             $table->integer('amount_products');
             $table->decimal('total_price', 8, 2);
