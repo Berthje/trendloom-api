@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\ProductStock;
 use Illuminate\Database\Seeder;
 
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             BrandLanguageSeeder::class,
             ProductLanguageSeeder::class,
             CategoryLanguageSeeder::class,
+            CategoryMediaSeeder::class,
         ]);
     }
 }

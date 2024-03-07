@@ -20,7 +20,7 @@ class CategoryMediaSeeder extends Seeder
         foreach ($data as $row) {
             $model->create([
                 'category_id' => $row['category_id'],
-                'media_url' => $row['media_url'],
+                'image_url' => $row['image_url'],
             ]);
         }
     }
