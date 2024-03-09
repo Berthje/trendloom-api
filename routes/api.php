@@ -2,6 +2,27 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\BrandCouponController;
+use App\Http\Controllers\BrandLanguageController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoryCouponController;
+use App\Http\Controllers\CategoryLanguageController;
+use App\Http\Controllers\CategoryMediaController;
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderItemController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductCouponController;
+use App\Http\Controllers\ProductLanguageController;
+use App\Http\Controllers\ProductMediaController;
+use App\Http\Controllers\ProductSizeController;
+use App\Http\Controllers\ProductStockController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
