@@ -9,8 +9,16 @@ class Customer extends Model
 {
     use HasFactory;
 
-    public function roles()
+    protected $fillable = ['first_name', 'last_name', 'email', 'phone_number', 'password', 'address_id'];
+
+    protected $hidden = ['password'];
+
+    protected $casts = [
+        'password' => 'hashed',
+    ];
+
+    public function addresses()
     {
-        return $this->belongsToMany(Role::class, 'user_roles');
+        return $this->hasMany(Address::class);
     }
 }
