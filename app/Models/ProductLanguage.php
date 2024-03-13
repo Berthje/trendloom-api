@@ -14,4 +14,14 @@ class ProductLanguage extends Model
     protected $casts = [
         'tags' => 'array',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }

@@ -17,8 +17,8 @@ class Customer extends Model
         'password' => 'hashed',
     ];
 
-    public function roles()
+    public function addresses()
     {
-        return $this->belongsToMany(Role::class, 'user_roles');
+        return $this->hasMany(Address::class);
     }
 }
