@@ -1,8 +1,8 @@
-order_id;product_id;quantity;size
-1;1;1;EU 43
-1;4;2;M
-1;7;1;L
-1;8;1;M
-2;6;1;S
-2;2;1;44
-2;7;1;S
+order_id;product_id;product_details;quantity;size
+1;1;;1;EU 43
+1;4;;2;M
+1;7;;1;L
+1;8;;1;M
+2;6;;1;S
+2;2;;1;44
+2;7;;1;S
