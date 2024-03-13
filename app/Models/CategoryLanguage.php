@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryLanguage extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'description', 'category_id', 'language_id'];
 }
