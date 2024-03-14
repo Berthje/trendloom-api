@@ -85,7 +85,7 @@ return new class extends Migration
 
         //Roles
 
-        Schema::table('user_roles', function (Blueprint $table) {
+        Schema::table('customer_roles', function (Blueprint $table) {
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('role_id')->references('id')->on('roles');
         });
