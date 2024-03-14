@@ -1,5 +1,5 @@
 <?php
-namespace App\Modules\Products;
+namespace App\Modules\Products\Services;
 
 use App\Models\Product;
 use App\Modules\Core\Services\Service;
