@@ -21,4 +21,8 @@ class Customer extends Model
     {
         return $this->hasMany(Address::class);
     }
+
+    public function roles() {
+        return $this->belongsToMany(Role::class, "customer_roles");
+    }
 }
