@@ -6,8 +6,6 @@ use App\Modules\Products\Services\ProductService;
 
 class ProductController extends ApiServiceController
 {
-    protected $service;
-    
     public function __construct(ProductService $service) {
         $this->service = $service;
     }
@@ -21,7 +19,7 @@ class ProductController extends ApiServiceController
     }
 
     public function getProductById($productId) {
-        $this->service->get($productId);
+        return $this->service->get($productId);
     }
 
     public function updateProduct($productId) {

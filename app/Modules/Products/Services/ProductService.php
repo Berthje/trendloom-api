@@ -43,8 +43,8 @@ class ProductService extends Service {
 
     protected function getRelationFields() {
         return [
-            'brand',
-            'category'
+            'brand:id,name,description,logo_url',
+            'category:id,name,description,parent_category_id'
         ];
     }
 }
