@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
+
 
 class Handler extends ExceptionHandler
 {
@@ -26,5 +29,16 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function (NotFoundHttpException $e, Request $request) {
+            if ($request->is('api/*')) {
+                // TO REFACTOR USING IT IN EXCEPTION SERVICECONTROLLER AS WELL
+                return response()->json([
+                    'success' => false,
+                    'errors' => ["page" => ["Not found."]]
+                ], 404);
+            }
+        });
     }
+
 }
