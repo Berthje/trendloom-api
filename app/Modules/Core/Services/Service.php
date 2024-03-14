@@ -20,11 +20,17 @@ abstract class Service {
         return [];
     }
 
-    public function find($id) {
-        return $this->model->select($this->fields)->with($this->getRelationFields())->find($id);
+    public function get($id, $ruleKey = "get") {
+        $this->validate(['id' => $id], $ruleKey);
+
+        if ($this->hasErrors()) {
+            return;
+        }
+
+        return $this->model->with($this->getRelationFields())->find($id);
     }
 
-    public function create($data, $ruleKey = "add") {
+    public function add($data, $ruleKey = "add") {
         $this->validate($data, $ruleKey);
 
         if ($this->HasErrors()) {
@@ -32,6 +38,26 @@ abstract class Service {
         }
 
         return $this->model->create($data);
+    }
+
+    public function update($id, $data, $ruleKey = "update") {
+        $this->validate($data, $ruleKey);
+
+        if ($this->HasErrors()) {
+            return;
+        }
+
+        return $this->model->where('id', $id)->update($data);
+    }
+
+    public function delete($id, $ruleKey = "delete") {
+        $this->validate(['id' => $id], $ruleKey);
+
+        if ($this->HasErrors()) {
+            return;
+        }
+
+        return $this->model->where('id', $id)->delete();
     }
 
     public function validate($data, $ruleKey) {
