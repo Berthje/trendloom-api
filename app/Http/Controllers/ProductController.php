@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Modules\Product\Services\ProductService;
+use App\Modules\Products\Services\ProductService;
 
 class ProductController extends ApiServiceController
 {
