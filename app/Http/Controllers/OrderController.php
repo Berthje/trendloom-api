@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Modules\Orders\Services\OrderService;
+use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class OrderController extends ApiServiceController
 {
     public function __construct(OrderService $service) {
         $this->service = $service;
