@@ -29,6 +29,6 @@ class OrderController extends ApiServiceController
 
     //I will choose not to delete orders and instead mark them as cancelled
     public function cancelOrder($brandId) {
-        return $this->cancel($brandId);
+        return $this->service->cancel($brandId);
     }
 }
