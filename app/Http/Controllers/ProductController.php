@@ -27,6 +27,6 @@ class ProductController extends ApiServiceController
     }
 
     public function deleteProduct($productId) {
-        //TODO: implement this method
+        return $this->delete($productId);
     }
 }
