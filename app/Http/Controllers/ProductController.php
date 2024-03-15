@@ -19,7 +19,7 @@ class ProductController extends ApiServiceController
     }
 
     public function getProductById($productId) {
-        return $this->service->get($productId);
+        return $this->get($productId);
     }
 
     public function updateProduct($productId) {

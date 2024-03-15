@@ -24,7 +24,7 @@ abstract class Service {
         $this->validate(['id' => $id], $ruleKey);
 
         if ($this->hasErrors()) {
-            return $this->getErrors();
+            return;
         }
 
         return $this->model->with($this->getRelationFields())->find($id);
