@@ -179,7 +179,7 @@ Route::get('/orders', [OrderController::class, 'getAllOrders']);
 Route::get('/orders/{id}', [OrderController::class, 'getOrderById']);
 Route::post('/orders', [OrderController::class, 'createOrder']);
 Route::put('/orders/{id}', [OrderController::class, 'updateOrder']);
-Route::delete('/orders/{id}', [OrderController::class, 'deleteOrder']);
+Route::put('/orders/{id}/cancel', [OrderController::class, 'cancelOrder']);
 
 /*
 |--------------------------------------------------------------------------
