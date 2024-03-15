@@ -30,7 +30,7 @@ abstract class Service {
         return $this->model->with($this->getRelationFields())->find($id);
     }
 
-    public function add($data, $ruleKey = "add") {
+    public function create($data, $ruleKey = "add") {
         $this->validate($data, $ruleKey);
 
         if ($this->HasErrors()) {
