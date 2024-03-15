@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Modules\Products\Services\ProductService;
+use Illuminate\Http\Request;
 
 class ProductController extends ApiServiceController
 {
@@ -22,8 +23,8 @@ class ProductController extends ApiServiceController
         return $this->get($productId);
     }
 
-    public function updateProduct($productId) {
-        return $this->update($productId);
+    public function updateProduct(Request $request, $productId) {
+        return $this->update($request, $productId);
     }
 
     public function deleteProduct($productId) {
