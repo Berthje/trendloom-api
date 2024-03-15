@@ -48,9 +48,6 @@ class OrderService extends Service {
             'shipping_method' => 'sometimes|string',
             'tracking_number' => 'sometimes|string'
         ],
-        "delete" => [
-            'id' => 'required|exists:orders,id',
-        ],
         "get" => [
             'id' => 'required|exists:orders,id',
         ]
