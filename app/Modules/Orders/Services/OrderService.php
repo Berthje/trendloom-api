@@ -57,8 +57,7 @@ class OrderService extends Service {
         return [
             'customer:id,first_name,last_name,email,phone_number',
             'address:id,address,city,state,zip,country',
-            'coupon:id,code,discount,start_date,end_date,minimum_purchase,maximum_discount,max_use',
-            'order_products' => 'id,order_id,product_id,quantity,price',
+            'coupon:id,code,discount,start_date,end_date,minimum_purchase,maximum_discount,max_use'
         ];
     }
 
