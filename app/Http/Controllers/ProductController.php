@@ -11,11 +11,11 @@ class ProductController extends ApiServiceController
     }
 
     public function getAllProducts() {
-        //TODO: implement this method
+        return $this->getAll();
     }
 
     public function createProduct() {
-        //TODO: implement this method
+        return $this->create();
     }
 
     public function getProductById($productId) {
@@ -23,7 +23,7 @@ class ProductController extends ApiServiceController
     }
 
     public function updateProduct($productId) {
-        //TODO: implement this method
+        return $this->update($productId);
     }
 
     public function deleteProduct($productId) {

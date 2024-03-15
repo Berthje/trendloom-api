@@ -60,6 +60,10 @@ abstract class Service {
         return $this->model->where('id', $id)->delete();
     }
 
+    public function getAll() {
+        return $this->model->with($this->getRelationFields())->get();
+    }
+
     public function validate($data, $ruleKey) {
         $rules = isset($this->rules[$ruleKey]) ? $this->rules[$ruleKey] : $this->rules;
 

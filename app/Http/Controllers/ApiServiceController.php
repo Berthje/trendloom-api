@@ -42,6 +42,12 @@ class ApiServiceController extends Controller
         return $this->handleResponse($model, Response::HTTP_OK);
     }
 
+    public function getAll() {
+        $models = $this->service->getAll();
+
+        return response()->json($models, Response::HTTP_OK);
+    }
+
     private function handleResponse($model, $statusCode) {
         if ($this->service->hasErrors()) {
             $errors = $this->service->getErrors();
