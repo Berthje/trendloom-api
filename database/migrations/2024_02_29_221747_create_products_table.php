@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger("brand_id");
             $table->unsignedBigInteger("category_id");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
