@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Modules\Core\Services\Service;
 use Illuminate\Http\Response;
 
 class ApiServiceController extends Controller
