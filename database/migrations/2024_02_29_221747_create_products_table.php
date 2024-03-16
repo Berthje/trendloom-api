@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("status");
             $table->string("ean_barcode")->unique();
             $table->unsignedBigInteger("brand_id");
-            $table->unsignedBigInteger("category_id");
+            $table->unsignedBigInteger("category_id")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
