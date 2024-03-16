@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Modules\Brands\Services\CustomerService;
+use App\Modules\Customers\Services\CustomerService;
 use Illuminate\Http\Request;
 
 class CustomerController extends ApiServiceController
