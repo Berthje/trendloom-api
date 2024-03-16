@@ -18,13 +18,13 @@ return new class extends Migration
         });
 
         Schema::table('category_media', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
 
         //Coupons
 
         Schema::table('category_coupons', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('coupon_id')->references('id')->on('coupons');
         });
 
@@ -46,7 +46,7 @@ return new class extends Migration
         });
 
         Schema::table('category_languages', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('language_id')->references('id')->on('languages');
         });
 
@@ -59,7 +59,7 @@ return new class extends Migration
 
         Schema::table('products', function (Blueprint $table) {
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
 
         Schema::table('product_sizes', function (Blueprint $table) {
@@ -74,7 +74,7 @@ return new class extends Migration
         //Categories
 
         Schema::table('categories', function (Blueprint $table) {
-            $table->foreign('parent_category_id')->references('id')->on('categories');
+            $table->foreign('parent_category_id')->references('id')->on('categories')->onDelete('cascade');
         });
 
         //Customers
