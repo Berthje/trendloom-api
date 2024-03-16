@@ -86,7 +86,7 @@ return new class extends Migration
         //Roles
 
         Schema::table('customer_roles', function (Blueprint $table) {
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles');
         });
 
@@ -95,18 +95,18 @@ return new class extends Migration
         Schema::table('orders', function (Blueprint $table) {
             $table->foreign('address_id')->references('id')->on('addresses');
             $table->foreign('coupon_id')->references('id')->on('coupons');
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
 
         Schema::table('order_items', function (Blueprint $table) {
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products');
         });
 
         //Wishlists
 
         Schema::table('wishlists', function (Blueprint $table) {
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products');
         });
     }

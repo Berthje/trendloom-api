@@ -26,7 +26,7 @@ class CustomerService extends Service {
             'last_name' => 'sometimes|string',
             'email' => 'sometimes|email|unique:customers,email',
             'phone_number' => 'sometimes|string',
-            'password' => 'sometimes|string|min:6|different:password',
+            'password' => 'sometimes|string|min:6',
             'address_id' => 'sometimes|exists:addresses,id'
         ],
         "delete" => [
