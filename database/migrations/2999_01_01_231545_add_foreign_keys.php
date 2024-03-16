@@ -42,17 +42,17 @@ return new class extends Migration
 
         Schema::table('brand_languages', function (Blueprint $table) {
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('language_id')->references('id')->on('languages');
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
         });
 
         Schema::table('category_languages', function (Blueprint $table) {
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('language_id')->references('id')->on('languages');
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
         });
 
         Schema::table('product_languages', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('language_id')->references('id')->on('languages');
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
         });
 
         //Products
