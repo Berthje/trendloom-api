@@ -22,18 +22,18 @@ class CustomerController extends ApiServiceController
         return $this->create($request);
     }
 
-    public function getCustomerById($brandId)
+    public function getCustomerById($customerId)
     {
-        return $this->get($brandId);
+        return $this->get($customerId);
     }
 
-    public function updateCustomer(Request $request, $brandId)
+    public function updateCustomer(Request $request, $customerId)
     {
-        return $this->update($request, $brandId);
+        return $this->update($request, $customerId);
     }
 
-    public function deleteCustomer($brandId)
+    public function deleteCustomer($customerId)
     {
-        return $this->delete($brandId);
+        return $this->delete($customerId);
     }
 }
