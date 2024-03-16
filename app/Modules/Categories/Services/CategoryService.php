@@ -19,8 +19,8 @@ class CategoryService extends Service {
             'parent_category_id' => 'sometimes|exists:categories,id|nullable|integer'
         ],
         "update" => [
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
+            'name' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string',
             'parent_category_id' => 'sometimes|exists:categories,id|nullable|integer'
         ],
         "delete" => [
