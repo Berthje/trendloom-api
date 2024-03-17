@@ -53,6 +53,7 @@ return new class extends Migration
         Schema::table('product_languages', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
+            $table->unique(['product_id', 'language_id']);
         });
 
         //Products
