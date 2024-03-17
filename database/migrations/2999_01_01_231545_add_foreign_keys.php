@@ -87,7 +87,7 @@ return new class extends Migration
 
         Schema::table('customer_roles', function (Blueprint $table) {
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
 
         //Orders
