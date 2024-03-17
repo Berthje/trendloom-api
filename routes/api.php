@@ -235,7 +235,7 @@ Route::delete('/product-languages/{id}', [ProductLanguageController::class, 'del
 |--------------------------------------------------------------------------
 */
 
-Route::get('/product-media', [ProductMediaController::class, 'getAllProductMedias']);
+Route::get('/product-media', [ProductMediaController::class, 'getAllProductMedia']);
 Route::get('/product-media/{id}', [ProductMediaController::class, 'getProductMediaById']);
 Route::post('/product-media', [ProductMediaController::class, 'createProductMedia']);
 Route::put('/product-media/{id}', [ProductMediaController::class, 'updateProductMedia']);
