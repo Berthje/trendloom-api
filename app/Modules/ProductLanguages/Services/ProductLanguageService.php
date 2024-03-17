@@ -30,10 +30,10 @@ class ProductLanguageService extends Service {
             'tags' => 'sometimes|array'
         ],
         "delete" => [
-            'id' => 'required|exists:brands,id',
+            'id' => 'required|exists:product_languages,id',
         ],
         "get" => [
-            'id' => 'required|exists:brands,id',
+            'id' => 'required|exists:product_languages,id',
         ]
     ];
 
