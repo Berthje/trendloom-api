@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ProductMediaController extends ApiServiceController
 {
-    public function __construct(ProductMedia $service)
+    public function __construct(ProductMediaService $service)
     {
         $this->service = $service;
     }
