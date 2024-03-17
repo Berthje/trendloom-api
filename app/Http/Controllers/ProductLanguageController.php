@@ -32,7 +32,7 @@ class ProductLanguageController extends ApiServiceController
         return $this->update($request, $productLanguageId);
     }
 
-    public function deleteBrand($productLanguageId)
+    public function deleteProductLanguage($productLanguageId)
     {
         return $this->delete($productLanguageId);
     }
