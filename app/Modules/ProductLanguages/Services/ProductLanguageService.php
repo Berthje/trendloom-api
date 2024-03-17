@@ -19,7 +19,7 @@ class ProductLanguageService extends Service {
             'name' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|numeric',
-            'tags' => 'required|string|array'
+            'tags' => 'required|array'
         ],
         "update" => [
             'product_id' => 'sometimes|exists:products,id',
@@ -27,7 +27,7 @@ class ProductLanguageService extends Service {
             'name' => 'sometimes|string',
             'description' => 'sometimes|string',
             'price' => 'sometimes|numeric',
-            'tags' => 'sometimes|string|array'
+            'tags' => 'sometimes|array'
         ],
         "delete" => [
             'id' => 'required|exists:brands,id',
@@ -36,4 +36,11 @@ class ProductLanguageService extends Service {
             'id' => 'required|exists:brands,id',
         ]
     ];
+
+    protected function getRelationFields() {
+        return [
+            'product:id,name,description,price,sku,status,ean_barcode',
+            'language:id,name,code',
+        ];
+    }
 }
