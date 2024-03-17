@@ -16,11 +16,11 @@ class CouponService extends Service {
         "add" => [
             'code' => 'required|string',
             'discount' => 'required|numeric',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
+            'start_date' => 'required|date|before:end_date|after:today|date_format:Y-m-d H:i:s',
+            'end_date' => 'required|date|after:start_date|date_format:Y-m-d H:i:s',
             'minimum_purchase' => 'required|numeric',
             'maximum_discount' => 'required|numeric',
-            'max_use' => 'required|numeric'
+            'max_use' => 'required|numeric|integer|min:1'
         ],
         "update" => [
             'code' => 'sometimes|string',
