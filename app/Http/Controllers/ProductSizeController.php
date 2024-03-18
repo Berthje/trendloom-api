@@ -17,22 +17,22 @@ class ProductSizeController extends ApiServiceController
         return $this->getAll();
     }
 
-    public function createProductSiz(Request $request)
+    public function createProductSize(Request $request)
     {
         return $this->create($request);
     }
 
-    public function getProductSizById($productSize)
+    public function getProductSizeById($productSize)
     {
         return $this->get($productSize);
     }
 
-    public function updateProductSiz(Request $request, $productSize)
+    public function updateProductSize(Request $request, $productSize)
     {
         return $this->update($request, $productSize);
     }
 
-    public function deleteProductSiz($productSize)
+    public function deleteProductSize($productSize)
     {
         return $this->delete($productSize);
     }
