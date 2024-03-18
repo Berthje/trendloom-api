@@ -1,14 +1,17 @@
 <?php
+
 namespace App\Modules\Categories\Services;
 
 use App\Models\Category;
 use App\Modules\Core\Services\Service;
 
-class CategoryService extends Service {
-    protected $fields= ['name', 'description', 'parent_category_id'];
+class CategoryService extends Service
+{
+    protected $fields = ['name', 'description', 'parent_category_id'];
     protected $searchField = 'category';
 
-    public function __construct(Category $model) {
+    public function __construct(Category $model)
+    {
         parent::__construct($model);
     }
 
@@ -30,4 +33,10 @@ class CategoryService extends Service {
             'id' => 'required|exists:categories,id',
         ]
     ];
+
+    protected function getRelationFields() {
+        return [
+            'parent'
+        ];
+    }
 }
