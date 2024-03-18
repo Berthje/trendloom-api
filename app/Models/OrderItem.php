@@ -26,6 +26,6 @@ class OrderItem extends Model
     }
 
     public function size() {
-        return $this->belongsToMany(ProductSize::class);
+        return $this->belongsTo(ProductSize::class);
     }
 }

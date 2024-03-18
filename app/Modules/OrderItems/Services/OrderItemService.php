@@ -39,7 +39,6 @@ class OrderItemService extends Service {
         return [
             'order',
             'product',
-            'size'
         ];
     }
 
