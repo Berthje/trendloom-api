@@ -113,15 +113,15 @@ Route::delete('/categories/{id}', [CategoryController::class, 'deleteCategory'])
 
 /*
 |--------------------------------------------------------------------------
-| Categories Coupon Routes
+| Category Coupon Routes
 |--------------------------------------------------------------------------
 */
 
-Route::get('/categories-coupons', [CategoryCouponController::class, 'getAllCategoriesCoupons']);
-Route::get('/categories-coupons/{id}', [CategoryCouponController::class, 'getCategoriesCouponById']);
-Route::post('/categories-coupons', [CategoryCouponController::class, 'createCategoriesCoupon']);
-Route::put('/categories-coupons/{id}', [CategoryCouponController::class, 'updateCategoriesCoupon']);
-Route::delete('/categories-coupons/{id}', [CategoryCouponController::class, 'deleteCategoriesCoupon']);
+Route::get('/category-coupons', [CategoryCouponController::class, 'getAllCategoryCoupons']);
+Route::get('/category-coupons/{id}', [CategoryCouponController::class, 'getCategoryCouponById']);
+Route::post('/category-coupons', [CategoryCouponController::class, 'createCategoryCoupon']);
+Route::put('/category-coupons/{id}', [CategoryCouponController::class, 'updateCategoryCoupon']);
+Route::delete('/category-coupons/{id}', [CategoryCouponController::class, 'deleteCategoryCoupon']);
 
 /*
 |--------------------------------------------------------------------------
