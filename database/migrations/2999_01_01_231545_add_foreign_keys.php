@@ -68,7 +68,7 @@ return new class extends Migration
 
         Schema::table('product_stock', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('size_id')->references('id')->on('product_sizes');
+            $table->foreign('size_id')->references('id')->on('product_sizes')->onDelete('cascade');
         });
 
         //Categories
