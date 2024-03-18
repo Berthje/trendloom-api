@@ -4,7 +4,7 @@ namespace App\Modules\CategoryCoupons\Services;
 use App\Models\CategoryCoupon;
 use App\Modules\Core\Services\Service;
 
-class BrandService extends Service {
+class CategoryCouponService extends Service {
     protected $fields= ['category_id', 'coupon_id'];
     protected $searchField = 'categoryCoupon';
 
