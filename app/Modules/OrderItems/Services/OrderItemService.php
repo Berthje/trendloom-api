@@ -42,8 +42,4 @@ class OrderItemService extends Service {
             'size'
         ];
     }
-
-    public function getOrderByOrderItemId($orderItemId) {
-
-    }
 }

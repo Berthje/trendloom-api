@@ -36,9 +36,4 @@ class OrderItemController extends ApiServiceController
     {
         return $this->delete($orderItemId);
     }
-
-    public function getOrderByOrderItemId($orderItemId)
-    {
-        return $this->service->getOrderByOrderItemId($orderItemId);
-    }
 }
