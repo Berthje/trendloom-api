@@ -32,4 +32,11 @@ class CategoryLanguageService extends Service {
             'id' => 'required|exists:category_languages,id',
         ]
     ];
+
+    protected function getRelationFields() {
+        return [
+            'category:id,name,description,parent_category_id',
+            'language:id,name,code',
+        ];
+    }
 }
