@@ -64,6 +64,7 @@ return new class extends Migration
 
         Schema::table('product_sizes', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
+            $table->unique(['product_id', 'size']);
         });
 
         Schema::table('product_stock', function (Blueprint $table) {
