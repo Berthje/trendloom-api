@@ -37,7 +37,9 @@ class OrderItemService extends Service {
 
     protected function getRelationFields() {
         return [
-
+            'order',
+            'product',
+            'size'
         ];
     }
 
