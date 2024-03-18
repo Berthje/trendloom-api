@@ -103,6 +103,7 @@ return new class extends Migration
         Schema::table('order_items', function (Blueprint $table) {
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_size_id')->references('id')->on('product_sizes');
         });
 
         //Wishlists
