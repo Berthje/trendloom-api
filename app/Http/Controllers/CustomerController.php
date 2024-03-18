@@ -36,4 +36,9 @@ class CustomerController extends ApiServiceController
     {
         return $this->delete($customerId);
     }
+
+    public function getAddressesByCustomerId($customerId)
+    {
+        return $this->service->getAddressesByCustomerId($customerId);
+    }
 }
