@@ -23,7 +23,7 @@ class OrderItemService extends Service {
         "update" => [
             'order_id' => 'sometimes|integer|exists:orders,id',
             'product_id' => 'sometimes|integer|exists:products,id',
-            'product_size_id' => 'required|integer|exists:product_sizes,id',
+            'product_size_id' => 'sometimes|integer|exists:product_sizes,id',
             'product_details' => 'sometimes|json',
             'quantity' => 'sometimes|integer|min:1',
         ],
