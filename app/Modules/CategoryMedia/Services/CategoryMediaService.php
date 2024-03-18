@@ -28,4 +28,10 @@ class CategoryMediaService extends Service {
             'id' => 'required|exists:category_media,id',
         ]
     ];
+
+    protected function getRelationFields() {
+        return [
+            'category:id,name,description,parent_category_id',
+        ];
+    }
 }

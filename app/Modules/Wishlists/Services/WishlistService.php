@@ -28,4 +28,11 @@ class WishlistService extends Service {
             'id' => 'required|exists:wishlists,id',
         ]
     ];
+
+    protected function getRelationFields() {
+        return [
+            'customer',
+            'product'
+        ];
+    }
 }

@@ -28,4 +28,11 @@ class ProductCouponService extends Service {
             'id' => 'required|exists:product_coupons,id',
         ],
     ];
+
+    protected function getRelationFields() {
+        return [
+            'product',
+            'coupon'
+        ];
+    }
 }
