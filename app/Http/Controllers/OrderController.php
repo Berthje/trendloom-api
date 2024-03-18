@@ -19,16 +19,21 @@ class OrderController extends ApiServiceController
         return $this->create($request);
     }
 
-    public function getOrderById($brandId) {
-        return $this->get($brandId);
+    public function getOrderById($orderId) {
+        return $this->get($orderId);
     }
 
-    public function updateOrder(Request $request, $brandId) {
-        return $this->update($request, $brandId);
+    public function updateOrder(Request $request, $orderId) {
+        return $this->update($request, $orderId);
     }
 
     //I will choose not to delete orders and instead mark them as cancelled
-    public function cancelOrder($brandId) {
-        return $this->service->cancel($brandId);
+    public function cancelOrder($orderId) {
+        return $this->service->cancel($orderId);
+    }
+
+    public function getOrderItemsByOrderId($orderId)
+    {
+        return $this->service->getOrderItemsByOrderId($orderId);
     }
 }

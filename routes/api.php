@@ -177,6 +177,7 @@ Route::delete('/languages/{id}', [LanguageController::class, 'deleteLanguage']);
 
 Route::get('/orders', [OrderController::class, 'getAllOrders']);
 Route::get('/orders/{id}', [OrderController::class, 'getOrderById']);
+Route::get('/orders/{order_id}/items', [OrderController::class, 'getOrderItemsByOrderId']);
 Route::post('/orders', [OrderController::class, 'createOrder']);
 Route::put('/orders/{id}', [OrderController::class, 'updateOrder']);
 Route::put('/orders/{id}/cancel', [OrderController::class, 'cancelOrder']);

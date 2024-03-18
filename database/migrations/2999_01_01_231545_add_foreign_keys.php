@@ -65,11 +65,12 @@ return new class extends Migration
 
         Schema::table('product_sizes', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
+            $table->unique(['product_id', 'size']);
         });
 
         Schema::table('product_stock', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('size_id')->references('id')->on('product_sizes');
+            $table->foreign('size_id')->references('id')->on('product_sizes')->onDelete('cascade');
         });
 
         //Categories
@@ -102,6 +103,7 @@ return new class extends Migration
         Schema::table('order_items', function (Blueprint $table) {
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_size_id')->references('id')->on('product_sizes');
         });
 
         //Wishlists
