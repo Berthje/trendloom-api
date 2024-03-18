@@ -44,6 +44,7 @@ use App\Http\Controllers\WishlistController;
 Route::get('/customers', [CustomerController::class, 'getAllCustomers']);
 Route::get('/customers/{id}', [CustomerController::class, 'getCustomerById']);
 Route::get('/customers/{id}/addresses', [CustomerController::class, 'getAddressesByCustomerId']);
+Route::get('/customers/{customerId}/wishlist/products', [WishlistController::class, 'getProducts']);
 Route::post('/customers', [CustomerController::class, 'createCustomer']);
 Route::put('/customers/{id}', [CustomerController::class, 'updateCustomer']);
 Route::delete('/customers/{id}', [CustomerController::class, 'deleteCustomer']);
