@@ -36,4 +36,8 @@ class CustomerService extends Service {
             'id' => 'required|exists:customers,id',
         ]
     ];
+
+    public function getAddressesByCustomerId($customerId) {
+        return $this->model->find($customerId)->addresses;
+    }
 }
