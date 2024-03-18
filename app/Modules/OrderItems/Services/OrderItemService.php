@@ -5,7 +5,7 @@ use App\Models\OrderItem;
 use App\Modules\Core\Services\Service;
 
 class OrderItemService extends Service {
-    protected $fields= ['order_id', 'product_id', 'product_details', 'quantity', 'size'];
+    protected $fields= ['order_id', 'product_id', 'product_size_id', 'product_details', 'quantity'];
     protected $searchField = 'orderItem';
 
     public function __construct(OrderItem $model) {
