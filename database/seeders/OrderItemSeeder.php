@@ -25,9 +25,9 @@ class OrderItemSeeder extends Seeder
             $model->create([
                 'order_id' => $row['order_id'],
                 'product_id' => $row['product_id'],
+                'product_size_id' => $row['product_size_id'],
                 'product_details' => json_encode($product),
                 'quantity' => $row['quantity'],
-                'size' => $row['size'],
             ]);
         }
     }
