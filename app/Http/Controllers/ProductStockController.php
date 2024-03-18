@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Modules\Brands\Services\ProductStockService;
+use App\Modules\ProductStock\Services\ProductStockService;
 use Illuminate\Http\Request;
 
 class ProductStockController extends ApiServiceController

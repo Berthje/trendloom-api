@@ -33,7 +33,8 @@ class ProductStockService extends Service {
 
     protected function getRelationFields() {
         return [
-            'product:id,name,description,price,sku,status,ean_barcode,brand_id,category_id'
+            'product:id,name,description,price,sku,status,ean_barcode,brand_id,category_id',
+            'size:id,size'
         ];
     }
 }
