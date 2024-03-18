@@ -12,7 +12,7 @@ class CategoryMediaController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllCategoryMedia()
+    public function getAllCategoryMedias()
     {
         return $this->getAll();
     }
