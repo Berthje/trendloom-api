@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Modules\Brands\Services\CategoryMediaService;
+use App\Modules\CategoryMedia\Services\CategoryMediaService;
 use Illuminate\Http\Request;
 
 class CategoryMediaController extends ApiServiceController
