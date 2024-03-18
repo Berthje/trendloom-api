@@ -2,6 +2,7 @@
 namespace App\Modules\Orders\Services;
 
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Modules\Core\Services\Service;
 
 class OrderService extends Service {
@@ -64,5 +65,9 @@ class OrderService extends Service {
     public function cancel($id) {
         $data = ['status' => 'cancelled'];
         return $this->model->where('id', $id)->update($data);
+    }
+
+    public function getOrderItemsByOrderId($orderId) {
+        return OrderItem::where('order_id', $orderId)->get();
     }
 }
