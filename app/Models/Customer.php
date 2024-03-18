@@ -25,4 +25,8 @@ class Customer extends Model
     public function roles() {
         return $this->belongsToMany(Role::class, "customer_roles");
     }
+
+    public function wishlist() {
+        return $this->hasMany(Wishlist::class);
+    }
 }
