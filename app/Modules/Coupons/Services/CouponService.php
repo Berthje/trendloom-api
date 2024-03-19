@@ -38,4 +38,11 @@ class CouponService extends Service {
             'id' => 'required|exists:coupons,id',
         ]
     ];
+
+    public function isActive(Coupon $coupon)
+    {
+        $now = now();
+
+        return $coupon->start_date <= $now && $coupon->end_date >= $now;
+    }
 }
