@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Modules\BrandCoupons\Services\BrandCouponService;
 use Illuminate\Http\Request;
 
-class BrandCouponController extends Controller
+class BrandCouponController extends ApiServiceController
 {
     public function __construct(BrandCouponService $service)
     {
