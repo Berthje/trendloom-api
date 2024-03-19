@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text("description");
             $table->decimal("price", 8, 2);
             $table->string("sku")->unique();
-            $table->string("status");
+            $table->string("status")->default("active");
             $table->string("ean_barcode")->unique();
             $table->unsignedBigInteger("brand_id");
             $table->unsignedBigInteger("category_id")->nullable();
