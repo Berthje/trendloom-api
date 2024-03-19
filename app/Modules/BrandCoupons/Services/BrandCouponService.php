@@ -4,7 +4,7 @@ namespace App\Modules\BrandCoupons\Services;
 use App\Models\BrandCoupon;
 use App\Modules\Core\Services\Service;
 
-class BrandService extends Service {
+class BrandCouponService extends Service {
     protected $fields= ['brand_id', 'coupon_id'];
     protected $searchField = 'brandCoupon';
 
