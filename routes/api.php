@@ -40,14 +40,15 @@ use App\Http\Controllers\WishlistController;
 | Customer Routes
 |--------------------------------------------------------------------------
 */
-
-Route::get('/customers', [CustomerController::class, 'getAllCustomers']);
-Route::get('/customers/{id}', [CustomerController::class, 'getCustomerById']);
-Route::get('/customers/{id}/addresses', [CustomerController::class, 'getAddressesByCustomerId']);
-Route::get('/customers/{customerId}/wishlist/products', [WishlistController::class, 'getProducts']);
-Route::post('/customers', [CustomerController::class, 'createCustomer']);
-Route::put('/customers/{id}', [CustomerController::class, 'updateCustomer']);
-Route::delete('/customers/{id}', [CustomerController::class, 'deleteCustomer']);
+Route::prefix('customers')->group(function () {
+    Route::get('/', [CustomerController::class, 'getAllCustomers']);
+    Route::get('/{id}', [CustomerController::class, 'getCustomerById']);
+    Route::get('/{id}/addresses', [CustomerController::class, 'getAddressesByCustomerId']);
+    Route::get('/{customerId}/wishlist/products', [WishlistController::class, 'getProducts']);
+    Route::post('/', [CustomerController::class, 'createCustomer']);
+    Route::put('/{id}', [CustomerController::class, 'updateCustomer']);
+    Route::delete('/{id}', [CustomerController::class, 'deleteCustomer']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -55,11 +56,14 @@ Route::delete('/customers/{id}', [CustomerController::class, 'deleteCustomer']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/addresses', [AddressController::class, 'getAllAddresses']);
-Route::get('/addresses/{id}', [AddressController::class, 'getAddressById']);
-Route::post('/addresses', [AddressController::class, 'createAddress']);
-Route::put('/addresses/{id}', [AddressController::class, 'updateAddress']);
-Route::delete('/addresses/{id}', [AddressController::class, 'deleteAddress']);
+
+Route::prefix('addresses')->group(function () {
+    Route::get('/', [AddressController::class, 'getAllAddresses']);
+    Route::get('/{id}', [AddressController::class, 'getAddressById']);
+    Route::post('/', [AddressController::class, 'createAddress']);
+    Route::put('/{id}', [AddressController::class, 'updateAddress']);
+    Route::delete('/{id}', [AddressController::class, 'deleteAddress']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -67,11 +71,13 @@ Route::delete('/addresses/{id}', [AddressController::class, 'deleteAddress']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/brands', [BrandController::class, 'getAllBrands']);
-Route::get('/brands/{id}', [BrandController::class, 'getBrandById']);
-Route::post('/brands', [BrandController::class, 'createBrand']);
-Route::put('/brands/{id}', [BrandController::class, 'updateBrand']);
-Route::delete('/brands/{id}', [BrandController::class, 'deleteBrand']);
+Route::prefix('brands')->group(function () {
+    Route::get('/', [BrandController::class, 'getAllBrands']);
+    Route::get('/{id}', [BrandController::class, 'getBrandById']);
+    Route::post('', [BrandController::class, 'createBrand']);
+    Route::put('/{id}', [BrandController::class, 'updateBrand']);
+    Route::delete('/{id}', [BrandController::class, 'deleteBrand']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -79,23 +85,26 @@ Route::delete('/brands/{id}', [BrandController::class, 'deleteBrand']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/brand-coupons', [BrandCouponController::class, 'getAllBrandCoupons']);
-Route::get('/brand-coupons/{id}', [BrandCouponController::class, 'getBrandCouponById']);
-Route::post('/brand-coupons', [BrandCouponController::class, 'createBrandCoupon']);
-Route::put('/brand-coupons/{id}', [BrandCouponController::class, 'updateBrandCoupon']);
-Route::delete('/brand-coupons/{id}', [BrandCouponController::class, 'deleteBrandCoupon']);
+Route::prefix('brand-coupons')->group(function () {
+    Route::get('/', [BrandCouponController::class, 'getAllBrandCoupons']);
+    Route::get('/{id}', [BrandCouponController::class, 'getBrandCouponById']);
+    Route::post('/', [BrandCouponController::class, 'createBrandCoupon']);
+    Route::put('/{id}', [BrandCouponController::class, 'updateBrandCoupon']);
+    Route::delete('/{id}', [BrandCouponController::class, 'deleteBrandCoupon']);
+});
 
 /*
 |--------------------------------------------------------------------------
 | Brand Language Routes
 |--------------------------------------------------------------------------
 */
-
-Route::get('/brand-languages', [BrandLanguageController::class, 'getAllBrandLanguages']);
-Route::get('/brand-languages/{id}', [BrandLanguageController::class, 'getBrandLanguageById']);
-Route::post('/brand-languages', [BrandLanguageController::class, 'createBrandLanguage']);
-Route::put('/brand-languages/{id}', [BrandLanguageController::class, 'updateBrandLanguage']);
-Route::delete('/brand-languages/{id}', [BrandLanguageController::class, 'deleteBrandLanguage']);
+Route::prefix('brand-languages')->group(function () {
+    Route::get('/', [BrandLanguageController::class, 'getAllBrandLanguages']);
+    Route::get('/{id}', [BrandLanguageController::class, 'getBrandLanguageById']);
+    Route::post('/', [BrandLanguageController::class, 'createBrandLanguage']);
+    Route::put('/{id}', [BrandLanguageController::class, 'updateBrandLanguage']);
+    Route::delete('/{id}', [BrandLanguageController::class, 'deleteBrandLanguage']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -103,13 +112,14 @@ Route::delete('/brand-languages/{id}', [BrandLanguageController::class, 'deleteB
 |--------------------------------------------------------------------------
 */
 
-Route::get('/categories', [CategoryController::class, 'getAllCategories']);
-Route::get('/categories/{id}', [CategoryController::class, 'getCategoryById']);
-Route::get('/categories/{id}/products', [CategoryController::class, 'getProductsByCategoryId']);
-Route::post('/categories', [CategoryController::class, 'createCategory']);
-Route::put('/categories/{id}', [CategoryController::class, 'updateCategory']);
-Route::delete('/categories/{id}', [CategoryController::class, 'deleteCategory']);
-
+Route::prefix('categories')->group(function () {
+    Route::get('/', [CategoryController::class, 'getAllCategories']);
+    Route::get('/{id}', [CategoryController::class, 'getCategoryById']);
+    Route::get('/{id}/products', [CategoryController::class, 'getProductsByCategoryId']);
+    Route::post('/', [CategoryController::class, 'createCategory']);
+    Route::put('/{id}', [CategoryController::class, 'updateCategory']);
+    Route::delete('/{id}', [CategoryController::class, 'deleteCategory']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -117,11 +127,13 @@ Route::delete('/categories/{id}', [CategoryController::class, 'deleteCategory'])
 |--------------------------------------------------------------------------
 */
 
-Route::get('/category-coupons', [CategoryCouponController::class, 'getAllCategoryCoupons']);
-Route::get('/category-coupons/{id}', [CategoryCouponController::class, 'getCategoryCouponById']);
-Route::post('/category-coupons', [CategoryCouponController::class, 'createCategoryCoupon']);
-Route::put('/category-coupons/{id}', [CategoryCouponController::class, 'updateCategoryCoupon']);
-Route::delete('/category-coupons/{id}', [CategoryCouponController::class, 'deleteCategoryCoupon']);
+Route::prefix('category-coupons')->group(function () {
+    Route::get('/', [CategoryCouponController::class, 'getAllCategoryCoupons']);
+    Route::get('/{id}', [CategoryCouponController::class, 'getCategoryCouponById']);
+    Route::post('/', [CategoryCouponController::class, 'createCategoryCoupon']);
+    Route::put('/{id}', [CategoryCouponController::class, 'updateCategoryCoupon']);
+    Route::delete('/{id}', [CategoryCouponController::class, 'deleteCategoryCoupon']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -129,23 +141,26 @@ Route::delete('/category-coupons/{id}', [CategoryCouponController::class, 'delet
 |--------------------------------------------------------------------------
 */
 
-Route::get('/category-languages', [CategoryLanguageController::class, 'getAllCategoryLanguages']);
-Route::get('/category-languages/{id}', [CategoryLanguageController::class, 'getCategoryLanguageById']);
-Route::post('/category-languages', [CategoryLanguageController::class, 'createCategoryLanguage']);
-Route::put('/category-languages/{id}', [CategoryLanguageController::class, 'updateCategoryLanguage']);
-Route::delete('/category-languages/{id}', [CategoryLanguageController::class, 'deleteCategoryLanguage']);
+Route::prefix('category-languages')->group(function () {
+    Route::get('/', [CategoryLanguageController::class, 'getAllCategoryLanguages']);
+    Route::get('/{id}', [CategoryLanguageController::class, 'getCategoryLanguageById']);
+    Route::post('/', [CategoryLanguageController::class, 'createCategoryLanguage']);
+    Route::put('/{id}', [CategoryLanguageController::class, 'updateCategoryLanguage']);
+    Route::delete('/{id}', [CategoryLanguageController::class, 'deleteCategoryLanguage']);
+});
 
 /*
 |--------------------------------------------------------------------------
 | Category Media Routes
 |--------------------------------------------------------------------------
 */
-
-Route::get('/category-media', [CategoryMediaController::class, 'getAllCategoryMedias']);
-Route::get('/category-media/{id}', [CategoryMediaController::class, 'getCategoryMediaById']);
-Route::post('/category-media', [CategoryMediaController::class, 'createCategoryMedia']);
-Route::put('/category-media/{id}', [CategoryMediaController::class, 'updateCategoryMedia']);
-Route::delete('/category-media/{id}', [CategoryMediaController::class, 'deleteCategoryMedia']);
+Route::prefix('category-media')->group(function () {
+    Route::get('/', [CategoryMediaController::class, 'getAllCategoryMedias']);
+    Route::get('/{id}', [CategoryMediaController::class, 'getCategoryMediaById']);
+    Route::post('/', [CategoryMediaController::class, 'createCategoryMedia']);
+    Route::put('/{id}', [CategoryMediaController::class, 'updateCategoryMedia']);
+    Route::delete('/{id}', [CategoryMediaController::class, 'deleteCategoryMedia']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -153,11 +168,13 @@ Route::delete('/category-media/{id}', [CategoryMediaController::class, 'deleteCa
 |--------------------------------------------------------------------------
 */
 
-Route::get('/coupons', [CouponController::class, 'getAllCoupons']);
-Route::get('/coupons/{id}', [CouponController::class, 'getCouponById']);
-Route::post('/coupons', [CouponController::class, 'createCoupon']);
-Route::put('/coupons/{id}', [CouponController::class, 'updateCoupon']);
-Route::delete('/coupons/{id}', [CouponController::class, 'deleteCoupon']);
+Route::prefix('coupons')->group(function () {
+    Route::get('/', [CouponController::class, 'getAllCoupons']);
+    Route::get('/{id}', [CouponController::class, 'getCouponById']);
+    Route::post('/', [CouponController::class, 'createCoupon']);
+    Route::put('/{id}', [CouponController::class, 'updateCoupon']);
+    Route::delete('/{id}', [CouponController::class, 'deleteCoupon']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -165,11 +182,13 @@ Route::delete('/coupons/{id}', [CouponController::class, 'deleteCoupon']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/languages', [LanguageController::class, 'getAllLanguages']);
-Route::get('/languages/{id}', [LanguageController::class, 'getLanguageById']);
-Route::post('/languages', [LanguageController::class, 'createLanguage']);
-Route::put('/languages/{id}', [LanguageController::class, 'updateLanguage']);
-Route::delete('/languages/{id}', [LanguageController::class, 'deleteLanguage']);
+Route::prefix('languages')->group(function () {
+    Route::get('/', [LanguageController::class, 'getAllLanguages']);
+    Route::get('/{id}', [LanguageController::class, 'getLanguageById']);
+    Route::post('/', [LanguageController::class, 'createLanguage']);
+    Route::put('/{id}', [LanguageController::class, 'updateLanguage']);
+    Route::delete('/{id}', [LanguageController::class, 'deleteLanguage']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -177,12 +196,14 @@ Route::delete('/languages/{id}', [LanguageController::class, 'deleteLanguage']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/orders', [OrderController::class, 'getAllOrders']);
-Route::get('/orders/{id}', [OrderController::class, 'getOrderById']);
-Route::get('/orders/{order_id}/items', [OrderController::class, 'getOrderItemsByOrderId']);
-Route::post('/orders', [OrderController::class, 'createOrder']);
-Route::put('/orders/{id}', [OrderController::class, 'updateOrder']);
-Route::put('/orders/{id}/cancel', [OrderController::class, 'cancelOrder']);
+Route::prefix('orders')->group(function () {
+    Route::get('/', [OrderController::class, 'getAllOrders']);
+    Route::get('/{id}', [OrderController::class, 'getOrderById']);
+    Route::get('/{order_id}/items', [OrderController::class, 'getOrderItemsByOrderId']);
+    Route::post('/', [OrderController::class, 'createOrder']);
+    Route::put('/{id}', [OrderController::class, 'updateOrder']);
+    Route::put('/{id}/cancel', [OrderController::class, 'cancelOrder']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -190,11 +211,13 @@ Route::put('/orders/{id}/cancel', [OrderController::class, 'cancelOrder']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/order-items', [OrderItemController::class, 'getAllOrderItems']);
-Route::get('/order-items/{id}', [OrderItemController::class, 'getOrderItemById']);
-Route::post('/order-items', [OrderItemController::class, 'createOrderItem']);
-Route::put('/order-items/{id}', [OrderItemController::class, 'updateOrderItem']);
-Route::delete('/order-items/{id}', [OrderItemController::class, 'deleteOrderItem']);
+Route::prefix('order-items')->group(function () {
+    Route::get('/', [OrderItemController::class, 'getAllOrderItems']);
+    Route::get('/{id}', [OrderItemController::class, 'getOrderItemById']);
+    Route::post('/', [OrderItemController::class, 'createOrderItem']);
+    Route::put('/{id}', [OrderItemController::class, 'updateOrderItem']);
+    Route::delete('/{id}', [OrderItemController::class, 'deleteOrderItem']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -202,11 +225,13 @@ Route::delete('/order-items/{id}', [OrderItemController::class, 'deleteOrderItem
 |--------------------------------------------------------------------------
 */
 
-Route::get('/products', [ProductController::class, 'getAllProducts']);
-Route::get('/products/{id}', [ProductController::class, 'getProductById']);
-Route::post('/products', [ProductController::class, 'createProduct']);
-Route::put('/products/{id}', [ProductController::class, 'updateProduct']);
-Route::delete('/products/{id}', [ProductController::class, 'deleteProduct']);
+Route::prefix('products')->group(function () {
+    Route::get('/', [ProductController::class, 'getAllProducts']);
+    Route::get('/{id}', [ProductController::class, 'getProductById']);
+    Route::post('/', [ProductController::class, 'createProduct']);
+    Route::put('/{id}', [ProductController::class, 'updateProduct']);
+    Route::delete('/{id}', [ProductController::class, 'deleteProduct']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -214,11 +239,13 @@ Route::delete('/products/{id}', [ProductController::class, 'deleteProduct']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/product-coupons', [ProductCouponController::class, 'getAllProductCoupons']);
-Route::get('/product-coupons/{id}', [ProductCouponController::class, 'getProductCouponById']);
-Route::post('/product-coupons', [ProductCouponController::class, 'createProductCoupon']);
-Route::put('/product-coupons/{id}', [ProductCouponController::class, 'updateProductCoupon']);
-Route::delete('/product-coupons/{id}', [ProductCouponController::class, 'deleteProductCoupon']);
+Route::prefix('product-coupons')->group(function () {
+    Route::get('/', [ProductCouponController::class, 'getAllProductCoupons']);
+    Route::get('/{id}', [ProductCouponController::class, 'getProductCouponById']);
+    Route::post('/', [ProductCouponController::class, 'createProductCoupon']);
+    Route::put('/{id}', [ProductCouponController::class, 'updateProductCoupon']);
+    Route::delete('/{id}', [ProductCouponController::class, 'deleteProductCoupon']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -226,11 +253,13 @@ Route::delete('/product-coupons/{id}', [ProductCouponController::class, 'deleteP
 |--------------------------------------------------------------------------
 */
 
-Route::get('/product-languages', [ProductLanguageController::class, 'getAllProductLanguages']);
-Route::get('/product-languages/{id}', [ProductLanguageController::class, 'getProductLanguageById']);
-Route::post('/product-languages', [ProductLanguageController::class, 'createProductLanguage']);
-Route::put('/product-languages/{id}', [ProductLanguageController::class, 'updateProductLanguage']);
-Route::delete('/product-languages/{id}', [ProductLanguageController::class, 'deleteProductLanguage']);
+Route::prefix('product-languages')->group(function () {
+    Route::get('/', [ProductLanguageController::class, 'getAllProductLanguages']);
+    Route::get('/{id}', [ProductLanguageController::class, 'getProductLanguageById']);
+    Route::post('/', [ProductLanguageController::class, 'createProductLanguage']);
+    Route::put('/{id}', [ProductLanguageController::class, 'updateProductLanguage']);
+    Route::delete('/{id}', [ProductLanguageController::class, 'deleteProductLanguage']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -238,11 +267,13 @@ Route::delete('/product-languages/{id}', [ProductLanguageController::class, 'del
 |--------------------------------------------------------------------------
 */
 
-Route::get('/product-media', [ProductMediaController::class, 'getAllProductMedia']);
-Route::get('/product-media/{id}', [ProductMediaController::class, 'getProductMediaById']);
-Route::post('/product-media', [ProductMediaController::class, 'createProductMedia']);
-Route::put('/product-media/{id}', [ProductMediaController::class, 'updateProductMedia']);
-Route::delete('/product-media/{id}', [ProductMediaController::class, 'deleteProductMedia']);
+Route::prefix('product-media')->group(function () {
+    Route::get('/', [ProductMediaController::class, 'getAllProductMedia']);
+    Route::get('/{id}', [ProductMediaController::class, 'getProductMediaById']);
+    Route::post('/', [ProductMediaController::class, 'createProductMedia']);
+    Route::put('/{id}', [ProductMediaController::class, 'updateProductMedia']);
+    Route::delete('/{id}', [ProductMediaController::class, 'deleteProductMedia']);
+});
 
 /*
 |--------------------------------------------------------------------------
