@@ -37,9 +37,18 @@ use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
+| Translation Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/translations', [TranslationController::class, 'getTranslation']);
+
+/*
+|--------------------------------------------------------------------------
 | Customer Routes
 |--------------------------------------------------------------------------
 */
+
 Route::prefix('customers')->group(function () {
     Route::get('/', [CustomerController::class, 'getAllCustomers']);
     Route::get('/{id}', [CustomerController::class, 'getCustomerById']);
@@ -55,7 +64,6 @@ Route::prefix('customers')->group(function () {
 | Address Routes
 |--------------------------------------------------------------------------
 */
-
 
 Route::prefix('addresses')->group(function () {
     Route::get('/', [AddressController::class, 'getAllAddresses']);
@@ -98,6 +106,7 @@ Route::prefix('brand-coupons')->group(function () {
 | Brand Language Routes
 |--------------------------------------------------------------------------
 */
+
 Route::prefix('brand-languages')->group(function () {
     Route::get('/', [BrandLanguageController::class, 'getAllBrandLanguages']);
     Route::get('/{id}', [BrandLanguageController::class, 'getBrandLanguageById']);
@@ -154,6 +163,7 @@ Route::prefix('category-languages')->group(function () {
 | Category Media Routes
 |--------------------------------------------------------------------------
 */
+
 Route::prefix('category-media')->group(function () {
     Route::get('/', [CategoryMediaController::class, 'getAllCategoryMedias']);
     Route::get('/{id}', [CategoryMediaController::class, 'getCategoryMediaById']);
