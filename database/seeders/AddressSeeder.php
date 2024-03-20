@@ -24,6 +24,7 @@ class AddressSeeder extends Seeder
                 'state' => $row['state'],
                 'zip' => $row['zip'],
                 'country' => $row['country'],
+                'type' => $row['type']
             ]);
         }
     }
