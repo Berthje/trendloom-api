@@ -17,17 +17,6 @@ class TranslationService
     {
         App::setLocale($this->lang);
 
-        $translations = [
-            "en" => [
-                "hello" => "Hello",
-                "world" => "World"
-            ],
-            "nl" => [
-                "hello" => "Hallo",
-                "world" => "Wereld"
-            ]
-        ];
-
-        return $translations[$this->lang];
+        return trans('webshop');
     }
 }
