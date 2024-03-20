@@ -12,4 +12,9 @@ class Brand extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'description', 'logo_url'];
+
+    public function translations()
+    {
+        return $this->hasMany(BrandLanguage::class);
+    }
 }
