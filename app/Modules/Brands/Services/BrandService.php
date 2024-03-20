@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class BrandService extends Service {
     protected $fields= ['name', 'description', 'logo_url'];
     protected $searchField = 'brand';
-
-    public function __construct(Brand $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'name' => 'required|string|max:255',
@@ -30,4 +25,8 @@ class BrandService extends Service {
             'id' => 'required|exists:brands,id',
         ]
     ];
+
+    public function __construct(Brand $model) {
+        parent::__construct($model);
+    }
 }

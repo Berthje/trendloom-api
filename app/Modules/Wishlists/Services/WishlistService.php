@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class WishlistService extends Service {
     protected $fields= ['customer_id', 'product_id'];
     protected $searchField = 'wishlist';
-
-    public function __construct(Wishlist $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'customer_id' => 'required|exists:customers,id',
@@ -28,6 +23,10 @@ class WishlistService extends Service {
             'id' => 'required|exists:wishlists,id',
         ]
     ];
+
+    public function __construct(Wishlist $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

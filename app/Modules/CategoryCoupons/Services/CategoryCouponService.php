@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class CategoryCouponService extends Service {
     protected $fields= ['category_id', 'coupon_id'];
     protected $searchField = 'categoryCoupon';
-
-    public function __construct(CategoryCoupon $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'category_id' => 'required|exists:categories,id',
@@ -28,4 +23,8 @@ class CategoryCouponService extends Service {
             'id' => 'required|exists:category_coupons,id',
         ]
     ];
+
+    public function __construct(CategoryCoupon $model) {
+        parent::__construct($model);
+    }
 }

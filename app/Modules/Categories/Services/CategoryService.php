@@ -9,12 +9,6 @@ class CategoryService extends Service
 {
     protected $fields = ['name', 'description', 'parent_category_id'];
     protected $searchField = 'category';
-
-    public function __construct(Category $model)
-    {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'name' => 'required|string|max:255',
@@ -33,6 +27,11 @@ class CategoryService extends Service
             'id' => 'required|exists:categories,id',
         ]
     ];
+
+    public function __construct(Category $model)
+    {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

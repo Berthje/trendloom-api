@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class ProductStockService extends Service {
     protected $fields= ['product_id', 'size_id', 'quantity_in_stock'];
     protected $searchField = 'productStock';
-
-    public function __construct(ProductStock $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'product_id' => 'required|integer|exists:products,id',
@@ -30,6 +25,10 @@ class ProductStockService extends Service {
             'id' => 'required|exists:product_stock,id',
         ]
     ];
+
+    public function __construct(ProductStock $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

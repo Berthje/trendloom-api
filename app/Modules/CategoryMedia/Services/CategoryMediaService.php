@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class CategoryMediaService extends Service {
     protected $fields= ['category_id', 'image_url'];
     protected $searchField = 'categoryMedia';
-
-    public function __construct(CategoryMedia $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'category_id' => 'required|exists:categories,id',
@@ -28,6 +23,10 @@ class CategoryMediaService extends Service {
             'id' => 'required|exists:category_media,id',
         ]
     ];
+
+    public function __construct(CategoryMedia $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

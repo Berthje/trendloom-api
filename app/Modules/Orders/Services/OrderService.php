@@ -19,11 +19,6 @@ class OrderService extends Service {
         'tracking_number'
     ];
     protected $searchField = 'order';
-
-    public function __construct(Order $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'customer_id' => 'required|exists:customers,id|integer',
@@ -53,6 +48,10 @@ class OrderService extends Service {
             'id' => 'required|exists:orders,id',
         ]
     ];
+
+    public function __construct(Order $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

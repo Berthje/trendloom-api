@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class CustomerService extends Service {
     protected $fields= ['first_name', 'last_name', 'email', 'phone_number', 'password', 'address_id'];
     protected $searchField = 'customer';
-
-    public function __construct(Customer $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'first_name' => 'required|string',
@@ -36,6 +31,10 @@ class CustomerService extends Service {
             'id' => 'required|exists:customers,id',
         ]
     ];
+
+    public function __construct(Customer $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

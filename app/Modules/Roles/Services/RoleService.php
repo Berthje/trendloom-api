@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class RoleService extends Service {
     protected $fields= ['name'];
     protected $searchField = 'role';
-
-    public function __construct(Role $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'name' => 'required|unique:roles,name',
@@ -26,4 +21,8 @@ class RoleService extends Service {
             'id' => 'required|exists:roles,id',
         ]
     ];
+
+    public function __construct(Role $model) {
+        parent::__construct($model);
+    }
 }

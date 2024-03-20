@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class LanguageService extends Service {
     protected $fields= ['name', 'code'];
     protected $searchField = 'language';
-
-    public function __construct(Language $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'name' => 'required|string',
@@ -28,4 +23,8 @@ class LanguageService extends Service {
             'id' => 'required|exists:languages,id',
         ],
     ];
+
+    public function __construct(Language $model) {
+        parent::__construct($model);
+    }
 }

@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class ProductLanguageService extends Service {
     protected $fields= ['product_id', 'language_id', 'name', 'description', 'price', 'tags'];
     protected $searchField = 'productLanguage';
-
-    public function __construct(ProductLanguage $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'product_id' => 'required|exists:products,id',
@@ -36,6 +31,10 @@ class ProductLanguageService extends Service {
             'id' => 'required|exists:product_languages,id',
         ]
     ];
+
+    public function __construct(ProductLanguage $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

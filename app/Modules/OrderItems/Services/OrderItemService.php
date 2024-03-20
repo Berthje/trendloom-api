@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class OrderItemService extends Service {
     protected $fields= ['order_id', 'product_id', 'product_size_id', 'product_details', 'quantity'];
     protected $searchField = 'orderItem';
-
-    public function __construct(OrderItem $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'order_id' => 'required|integer|exists:orders,id',
@@ -34,6 +29,10 @@ class OrderItemService extends Service {
             'id' => 'required|exists:order_items,id',
         ]
     ];
+
+    public function __construct(OrderItem $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

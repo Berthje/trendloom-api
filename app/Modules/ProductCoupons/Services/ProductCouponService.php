@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class ProductCouponService extends Service {
     protected $fields= ['product_id', 'coupon_id'];
     protected $searchField = 'productCoupon';
-
-    public function __construct(ProductCoupon $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'product_id' => 'required|exists:products,id',
@@ -28,6 +23,10 @@ class ProductCouponService extends Service {
             'id' => 'required|exists:product_coupons,id',
         ],
     ];
+
+    public function __construct(ProductCoupon $model) {
+        parent::__construct($model);
+    }
 
     protected function getRelationFields() {
         return [

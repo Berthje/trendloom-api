@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class AddressService extends Service {
     protected $fields= ['address', 'city', 'state', 'zip', 'country'];
     protected $searchField = 'address';
-
-    public function __construct(Address $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'address' => 'required|string',
@@ -34,4 +29,8 @@ class AddressService extends Service {
             'id' => 'required|exists:addresses,id',
         ]
     ];
+
+    public function __construct(Address $model) {
+        parent::__construct($model);
+    }
 }

@@ -7,11 +7,6 @@ use App\Modules\Core\Services\Service;
 class CouponService extends Service {
     protected $fields= ['code', 'discount', 'start_date', 'end_date', 'minimum_purchase', 'maximum_discount', 'max_use'];
     protected $searchField = 'coupon';
-
-    public function __construct(Coupon $model) {
-        parent::__construct($model);
-    }
-
     protected $rules = [
         "add" => [
             'code' => 'required|string',
@@ -38,6 +33,10 @@ class CouponService extends Service {
             'id' => 'required|exists:coupons,id',
         ]
     ];
+
+    public function __construct(Coupon $model) {
+        parent::__construct($model);
+    }
 
     public function isActive(Coupon $coupon)
     {
