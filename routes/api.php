@@ -281,11 +281,13 @@ Route::prefix('product-media')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/product-sizes', [ProductSizeController::class, 'getAllProductSizes']);
-Route::get('/product-sizes/{id}', [ProductSizeController::class, 'getProductSizeById']);
-Route::post('/product-sizes', [ProductSizeController::class, 'createProductSize']);
-Route::put('/product-sizes/{id}', [ProductSizeController::class, 'updateProductSize']);
-Route::delete('/product-sizes/{id}', [ProductSizeController::class, 'deleteProductSize']);
+Route::prefix('product-sizes')->group(function () {
+    Route::get('/', [ProductSizeController::class, 'getAllProductSizes']);
+    Route::get('/{id}', [ProductSizeController::class, 'getProductSizeById']);
+    Route::post('/', [ProductSizeController::class, 'createProductSize']);
+    Route::put('/{id}', [ProductSizeController::class, 'updateProductSize']);
+    Route::delete('/{id}', [ProductSizeController::class, 'deleteProductSize']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -293,11 +295,13 @@ Route::delete('/product-sizes/{id}', [ProductSizeController::class, 'deleteProdu
 |--------------------------------------------------------------------------
 */
 
-Route::get('/product-stocks', [ProductStockController::class, 'getAllProductStocks']);
-Route::get('/product-stocks/{id}', [ProductStockController::class, 'getProductStockById']);
-Route::post('/product-stocks', [ProductStockController::class, 'createProductStock']);
-Route::put('/product-stocks/{id}', [ProductStockController::class, 'updateProductStock']);
-Route::delete('/product-stocks/{id}', [ProductStockController::class, 'deleteProductStock']);
+Route::prefix('product-stock')->group(function () {
+    Route::get('/', [ProductStockController::class, 'getAllProductStocks']);
+    Route::get('/{id}', [ProductStockController::class, 'getProductStockById']);
+    Route::post('/', [ProductStockController::class, 'createProductStock']);
+    Route::put('/{id}', [ProductStockController::class, 'updateProductStock']);
+    Route::delete('/{id}', [ProductStockController::class, 'deleteProductStock']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -305,11 +309,13 @@ Route::delete('/product-stocks/{id}', [ProductStockController::class, 'deletePro
 |--------------------------------------------------------------------------
 */
 
-Route::get('/roles', [RoleController::class, 'getAllRoles']);
-Route::get('/roles/{id}', [RoleController::class, 'getRoleById']);
-Route::post('/roles', [RoleController::class, 'createRole']);
-Route::put('/roles/{id}', [RoleController::class, 'updateRole']);
-Route::delete('/roles/{id}', [RoleController::class, 'deleteRole']);
+Route::prefix('roles')->group(function () {
+    Route::get('/', [RoleController::class, 'getAllRoles']);
+    Route::get('/{id}', [RoleController::class, 'getRoleById']);
+    Route::post('/', [RoleController::class, 'createRole']);
+    Route::put('/{id}', [RoleController::class, 'updateRole']);
+    Route::delete('/{id}', [RoleController::class, 'deleteRole']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -317,8 +323,10 @@ Route::delete('/roles/{id}', [RoleController::class, 'deleteRole']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/wishlists', [WishlistController::class, 'getAllWishlists']);
-Route::get('/wishlists/{id}', [WishlistController::class, 'getWishlistById']);
-Route::post('/wishlists', [WishlistController::class, 'createWishlist']);
-Route::put('/wishlists/{id}', [WishlistController::class, 'updateWishlist']);
-Route::delete('/wishlists/{id}', [WishlistController::class, 'deleteWishlist']);
+Route::prefix('wishlists')->group(function () {
+    Route::get('/', [WishlistController::class, 'getAllWishlists']);
+    Route::get('/{id}', [WishlistController::class, 'getWishlistById']);
+    Route::post('/', [WishlistController::class, 'createWishlist']);
+    Route::put('/{id}', [WishlistController::class, 'updateWishlist']);
+    Route::delete('/{id}', [WishlistController::class, 'deleteWishlist']);
+});
