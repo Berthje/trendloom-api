@@ -2,11 +2,13 @@
 
 namespace App\Modules\Translations\Services;
 
+use Illuminate\Support\Facades\App;
+
 class TranslationService
 {
     protected $lang;
 
-    public function __construct($lang)
+    public function __construct()
     {
         $this->lang = request('lang', 'en');
     }
@@ -25,5 +27,7 @@ class TranslationService
                 "world" => "Wereld"
             ]
         ];
+
+        return $translations[$this->lang];
     }
 }

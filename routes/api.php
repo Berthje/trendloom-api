@@ -23,6 +23,7 @@ use App\Http\Controllers\ProductSizeController;
 use App\Http\Controllers\ProductStockController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\TranslationController;
 
 /*
 |--------------------------------------------------------------------------
