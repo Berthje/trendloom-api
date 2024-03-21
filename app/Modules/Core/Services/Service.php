@@ -31,7 +31,6 @@ abstract class Service {
     }
 
     public function create($data, $ruleKey = "add") {
-        $this->validate($data, $ruleKey);
 
         if ($this->HasErrors()) {
             return;
