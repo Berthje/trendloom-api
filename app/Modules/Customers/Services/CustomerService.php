@@ -58,7 +58,7 @@ class CustomerService extends Service
 
     public function login($request)
     {
-        $request->validate($request->all(), "login");
+        $this->validate($request->all(), "login");
 
         $csrfLength = env("CSRF_TOKEN_LENGTH");
         $csrfToken = Random::generate($csrfLength);
