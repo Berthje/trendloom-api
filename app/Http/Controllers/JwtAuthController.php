@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Modules\Customers\Services\CustomerService;
 use Illuminate\Http\Request;
-use App\Models\Customer;
-use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class JwtAuthController extends ApiServiceController
 {
