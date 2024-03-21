@@ -22,30 +22,7 @@ class JwtAuthController extends ApiServiceController
 
     public function login(Request $request)
     {
-        $this->login($request);
-        
-        $request->validate([
-            "email" => "required|email",
-            "password" => "required"
-        ]);
-
-        $token = JWTAuth::attempt([
-            "email" => $request->email,
-            "password" => $request->password
-        ]);
-
-        if (!empty($token)) {
-            return response()->json([
-                "status" => true,
-                "message" => "User logged in succcessfully",
-                "token" => $token
-            ]);
-        }
-
-        return response()->json([
-            "status" => false,
-            "message" => "Invalid details"
-        ]);
+        $this->service->login($request);
     }
 
     public function profile()
