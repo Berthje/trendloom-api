@@ -38,7 +38,7 @@ class CustomerService extends Service {
 
     protected function getRelationFields() {
         return [
-            'addresses:id,street,city,state,zip_code,country'
+            'addresses:id,address,city,state,zip,country'
         ];
     }
 
