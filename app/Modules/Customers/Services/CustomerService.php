@@ -13,8 +13,7 @@ class CustomerService extends Service {
             'last_name' => 'required|string',
             'email' => 'required|email|unique:customers,email',
             'phone_number' => 'required|string',
-            'password' => 'required|string|min:6',
-            'address_id' => 'required|exists:addresses,id'
+            'password' => 'required|string|min:6'
         ],
         "update" => [
             'first_name' => 'sometimes|string',
