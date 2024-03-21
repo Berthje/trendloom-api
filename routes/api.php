@@ -45,7 +45,7 @@ use App\Http\Controllers\JwtAuthController;
 Route::post('/register', [JwtAuthController::class, 'register']);
 Route::post('/login', [JwtAuthController::class, 'login']);
 
-Route::group(["middleware" => ["auth:api"]], function(){
+Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function(){
     Route::get("profile", [JwtAuthController::class, "profile"]);
     Route::get("refresh", [JwtAuthController::class, "refreshToken"]);
     Route::get("logout", [JwtAuthController::class, "logout"]);
