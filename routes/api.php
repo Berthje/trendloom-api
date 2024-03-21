@@ -23,6 +23,7 @@ use App\Http\Controllers\ProductSizeController;
 use App\Http\Controllers\ProductStockController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\JwtAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,22 @@ use App\Http\Controllers\WishlistController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/register', [JwtAuthController::class, 'register']);
+Route::post('/login', [JwtAuthController::class, 'login']);
+
+Route::group(["middleware" => ["auth:api"]], function(){
+    Route::get("profile", [JwtAuthController::class, "profile"]);
+    Route::get("refresh", [JwtAuthController::class, "refreshToken"]);
+    Route::get("logout", [JwtAuthController::class, "logout"]);
+});
+
 
 /*
 |--------------------------------------------------------------------------
