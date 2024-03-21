@@ -64,8 +64,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'Jwt' => Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'auth.csrf.jwt' => \App\Http\Middleware\VerifyJwtCsrfToken::class, 
     ];
 }
