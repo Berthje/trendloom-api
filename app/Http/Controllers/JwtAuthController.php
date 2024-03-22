@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Modules\Customers\Services\CustomerService;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class JwtAuthController extends ApiServiceController
 {
@@ -19,18 +20,18 @@ class JwtAuthController extends ApiServiceController
 
     public function login(Request $request)
     {
-        $token = $this->service->login($request);
+        $tokens = $this->service->login($request);
 
-        if(empty($token)){
+        if(empty($tokens['token'])){
             return response()->json([
                 "status" => false,
                 "message" => "Invalid details"
-            ]);
+            ], Response::HTTP_UNAUTHORIZED);
         }
 
         $ttl = env("JWT_COOKIE_TTL");
-        $tokenCookie = cookie("token", $token, $ttl);
-        $csrfCookie = cookie("X-XSRF-TOKEN", $csrfToken, $ttl);
+        $tokenCookie = cookie("token", $tokens['token'], $ttl);
+        $csrfCookie = cookie("X-XSRF-TOKEN", $tokens['csrfToken'], $ttl);
 
         return response(["message" => "Customer logged in succcessfully"])
             ->withCookie($tokenCookie)

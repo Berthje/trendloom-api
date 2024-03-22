@@ -68,6 +68,9 @@ class CustomerService extends Service
             "password" => $data->password
         ]);
 
-        return $token;
+        return [
+            'token' => $token,
+            'csrfToken' => $csrfToken
+        ];
     }
 }
