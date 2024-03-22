@@ -51,12 +51,6 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function(){
     Route::get("logout", [JwtAuthController::class, "logout"]);
 });
 
-Route::group(["middleware" => ["auth:api", "auth.csrf.jwt", "isAdmin"]], function(){
-    Route::get("/admin", function () {
-        return response()->json(["message" => "Welcome Admin!"]);
-    });
-});
-
 
 /*
 |--------------------------------------------------------------------------
