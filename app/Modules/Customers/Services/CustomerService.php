@@ -1,11 +1,15 @@
 <?php
+
 namespace App\Modules\Customers\Services;
 
 use App\Models\Customer;
 use App\Modules\Core\Services\Service;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Nette\Utils\Random;
 
-class CustomerService extends Service {
-    protected $fields= ['first_name', 'last_name', 'email', 'phone_number', 'password', 'address_id'];
+class CustomerService extends Service
+{
+    protected $fields = ['first_name', 'last_name', 'email', 'phone_number', 'password', 'address_id'];
     protected $searchField = 'customer';
     protected $rules = [
         "add" => [
@@ -13,8 +17,7 @@ class CustomerService extends Service {
             'last_name' => 'required|string',
             'email' => 'required|email|unique:customers,email',
             'phone_number' => 'required|string',
-            'password' => 'required|string|min:6',
-            'address_id' => 'required|exists:addresses,id'
+            'password' => 'required|string|min:6'
         ],
         "update" => [
             'first_name' => 'sometimes|string',
@@ -29,20 +32,45 @@ class CustomerService extends Service {
         ],
         "get" => [
             'id' => 'required|exists:customers,id',
+        ],
+        "login" => [
+            'email' => 'required|email',
+            'password' => 'required'
         ]
     ];
 
-    public function __construct(Customer $model) {
+    public function __construct(Customer $model)
+    {
         parent::__construct($model);
     }
 
-    protected function getRelationFields() {
+    protected function getRelationFields()
+    {
         return [
-            'addresses:id,street,city,state,zip_code,country'
+            'addresses:id,address,city,state,zip,country'
         ];
     }
 
-    public function getAddressesByCustomerId($customerId) {
+    public function getAddressesByCustomerId($customerId)
+    {
         return $this->model->find($customerId)->addresses;
+    }
+
+    public function login($data)
+    {
+        $this->validate($data->all(), "login");
+
+        $csrfLength = env("CSRF_TOKEN_LENGTH");
+        $csrfToken = Random::generate($csrfLength);
+
+        $token = JWTAuth::claims(['X-XSRF-TOKEN' => $csrfToken])->attempt([
+            "email" => $data->email,
+            "password" => $data->password
+        ]);
+
+        return [
+            'token' => $token,
+            'csrfToken' => $csrfToken
+        ];
     }
 }
