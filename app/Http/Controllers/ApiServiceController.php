@@ -30,6 +30,7 @@ class ApiServiceController extends Controller
     }
 
     public function create(Request $request) {
+
         $model = $this->service->create($request->all());
 
         return $this->handleResponse($model, Response::HTTP_CREATED);
@@ -48,6 +49,7 @@ class ApiServiceController extends Controller
     }
 
     private function handleResponse($model, $statusCode) {
+        
         if ($this->service->hasErrors()) {
             $errors = $this->service->getErrors();
             $errors = $this->presentErrors($errors);
