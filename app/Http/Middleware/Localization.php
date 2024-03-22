@@ -15,6 +15,7 @@ class Localization
      */
     public function handle(Request $request, Closure $next): Response
     {
+        //get language parameter from request if set and set locale
         return $next($request);
     }
 }
