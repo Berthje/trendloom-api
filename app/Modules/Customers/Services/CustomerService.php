@@ -68,21 +68,6 @@ class CustomerService extends Service
             "password" => $data->password
         ]);
 
-        // send to controller
-        // if(empty($token)){
-        //     return response()
-        //     ->json([
-        //         "status" => false,
-        //         "message" => "Invalid details"
-        //     ]);
-        // }
-
-        // $ttl = env("JWT_COOKIE_TTL");
-        // $tokenCookie = cookie("token", $token, $ttl);
-        // $csrfCookie = cookie("X-XSRF-TOKEN", $csrfToken, $ttl);
-
-        // return response(["message" => "Customer logged in succcessfully"])
-        // ->withCookie($tokenCookie)
-        // ->withCookie($csrfCookie);
+        return $token;
     }
 }
