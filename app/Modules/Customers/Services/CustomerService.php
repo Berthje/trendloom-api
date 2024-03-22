@@ -56,32 +56,33 @@ class CustomerService extends Service
         return $this->model->find($customerId)->addresses;
     }
 
-    public function login($request)
+    public function login($data)
     {
-        $this->validate($request->all(), "login");
+        $this->validate($data->all(), "login");
 
         $csrfLength = env("CSRF_TOKEN_LENGTH");
         $csrfToken = Random::generate($csrfLength);
 
         $token = JWTAuth::claims(['X-XSRF-TOKEN' => $csrfToken])->attempt([
-            "email" => $request->email,
-            "password" => $request->password
+            "email" => $data->email,
+            "password" => $data->password
         ]);
 
-        if(empty($token)){
-            return response()
-            ->json([
-                "status" => false,
-                "message" => "Invalid details"
-            ]);
-        }
+        // send to controller
+        // if(empty($token)){
+        //     return response()
+        //     ->json([
+        //         "status" => false,
+        //         "message" => "Invalid details"
+        //     ]);
+        // }
 
-        $ttl = env("JWT_COOKIE_TTL");
-        $tokenCookie = cookie("token", $token, $ttl);
-        $csrfCookie = cookie("X-XSRF-TOKEN", $csrfToken, $ttl);
+        // $ttl = env("JWT_COOKIE_TTL");
+        // $tokenCookie = cookie("token", $token, $ttl);
+        // $csrfCookie = cookie("X-XSRF-TOKEN", $csrfToken, $ttl);
 
-        return response(["message" => "Customer logged in succcessfully"])
-        ->withCookie($tokenCookie)
-        ->withCookie($csrfCookie);
+        // return response(["message" => "Customer logged in succcessfully"])
+        // ->withCookie($tokenCookie)
+        // ->withCookie($csrfCookie);
     }
 }

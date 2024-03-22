@@ -14,12 +14,12 @@ class JwtAuthController extends ApiServiceController
 
     public function register(Request $request)
     {
-        $this->create($request);
+        return $this->create($request);
     }
 
     public function login(Request $request)
     {
-        $this->service->login($request);
+        return $this->service->login($request);
     }
 
     public function profile()
