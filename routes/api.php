@@ -24,6 +24,7 @@ use App\Http\Controllers\ProductStockController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\TranslationController;
+use App\Http\Controllers\JwtAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,21 @@ use App\Http\Controllers\TranslationController;
 */
 
 Route::get('/translations', [TranslationController::class, 'getTranslation']);
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/register', [JwtAuthController::class, 'register']);
+Route::post('/login', [JwtAuthController::class, 'login']);
+
+Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function(){
+    Route::get("profile", [JwtAuthController::class, "profile"]);
+    Route::get("refresh", [JwtAuthController::class, "refreshToken"]);
+    Route::get("logout", [JwtAuthController::class, "logout"]);
+});
 
 /*
 |--------------------------------------------------------------------------

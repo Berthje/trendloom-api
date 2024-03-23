@@ -10,4 +10,9 @@ class Address extends Model
     use HasFactory;
 
     protected $fillable = ['address', 'city', 'state', 'zip', 'country'];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
