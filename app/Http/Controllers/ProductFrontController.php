@@ -16,7 +16,7 @@ class ProductFrontController extends Controller
 
     public function getProduct(Request $request)
     {
-        $products = $this->productFrontService->getModel($request);
+        $products = $this->productFrontService->getTranslatedModel($request);
         return response()->json($products);
     }
 }

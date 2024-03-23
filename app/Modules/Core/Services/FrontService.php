@@ -13,7 +13,7 @@ abstract class FrontService {
         $this->languageCode = request('lang', 'en');
     }
 
-    public function getModel($data) {
+    public function getTranslatedModel($data) {
         if(App::getLocale() != $this->languageCode) {
             App::setLocale($this->languageCode);
         }
