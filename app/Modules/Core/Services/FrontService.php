@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 
 abstract class FrontService {
+    //TODO: make it more abstract to fit everywhere and can be handled better with app set/getlocale
     protected $model;
     protected $languageCode;
 
