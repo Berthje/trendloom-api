@@ -17,7 +17,8 @@ class CustomerService extends Service
             'last_name' => 'required|string',
             'email' => 'required|email|unique:customers,email',
             'phone_number' => 'required|string',
-            'password' => 'required|string|min:6'
+            'password' => 'required|string|min:6',
+            'preferred_locale' => 'sometimes|string|default:en',
         ],
         "update" => [
             'first_name' => 'sometimes|string',
@@ -25,7 +26,8 @@ class CustomerService extends Service
             'email' => 'sometimes|email|unique:customers,email',
             'phone_number' => 'sometimes|string',
             'password' => 'sometimes|string|min:6',
-            'address_id' => 'sometimes|exists:addresses,id'
+            'address_id' => 'sometimes|exists:addresses,id',
+            'preferred_locale' => 'sometimes|string'
         ],
         "delete" => [
             'id' => 'required|exists:customers,id',
