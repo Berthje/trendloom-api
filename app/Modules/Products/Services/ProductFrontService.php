@@ -18,3 +18,5 @@ class ProductFrontService extends FrontService {
             ->select('products.*', 'languages.*', 'product_languages.*');
     }
 }
+
+//test this now via login customer if the translated products work

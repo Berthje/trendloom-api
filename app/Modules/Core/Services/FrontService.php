@@ -3,6 +3,7 @@ namespace App\Modules\Core\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
+use App\Models\Language;
 
 abstract class FrontService {
     //TODO: make it more abstract to fit everywhere and can be handled better with app set/getlocale
@@ -11,14 +12,15 @@ abstract class FrontService {
 
     public function __construct(Model $model) {
         $this->model = $model;
-        $this->languageCode = request('lang', 'en');
+
+        $user = auth('api')->user();
+        $preferredLocale = $user ? $user->preferred_locale : null;
+        $localeExistsInLanguagesTable = Language::where('code', $preferredLocale)->exists();
+
+        $this->languageCode = $localeExistsInLanguagesTable ? $preferredLocale : App::getLocale();
     }
 
-    public function getTranslatedModel($data) {
-        if(App::getLocale() != $this->languageCode) {
-            App::setLocale($this->languageCode);
-        }
-
+    public function getTranslatedModel() {
         return $this->getTranslationQuery()
             ->where('languages.code', $this->languageCode)
             ->get();
