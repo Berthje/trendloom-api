@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\App;
 use App\Models\Language;
 
 abstract class FrontService {
-    //TODO: make it more abstract to fit everywhere and can be handled better with app set/getlocale
+    //TODO: make it more abstract to fit everywhere and can be handled better with app set/getlocale (i think)
     //TODO: this works now for authenticated users, how to handle this for unauthenticated users if they want to see the product etc in dutch aswell?
     protected $model;
     protected $languageCode;

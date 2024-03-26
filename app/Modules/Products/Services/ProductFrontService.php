@@ -2,7 +2,6 @@
 namespace App\Modules\Products\Services;
 
 use App\Models\Product;
-use Illuminate\Support\Facades\App;
 use App\Modules\Core\Services\FrontService;
 
 class ProductFrontService extends FrontService {
@@ -18,5 +17,3 @@ class ProductFrontService extends FrontService {
             ->select('products.*', 'languages.*', 'product_languages.*');
     }
 }
-
-//test this now via login customer if the translated products work
