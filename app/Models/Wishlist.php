@@ -11,6 +11,8 @@ class Wishlist extends Model
 
     protected $fillable = ['customer_id', 'product_id'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

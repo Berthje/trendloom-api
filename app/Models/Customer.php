@@ -14,7 +14,7 @@ class Customer extends Authenticatable implements JWTSubject
 
     protected $fillable = ['first_name', 'last_name', 'email', 'phone_number', 'password', 'address_id', 'preferred_locale'];
 
-    protected $hidden = ['password'];
+    protected $hidden = ['password', 'created_at', 'updated_at'];
 
     protected $casts = [
         'password' => 'hashed',

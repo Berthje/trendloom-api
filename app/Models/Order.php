@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = ['customer_id', 'address_id', 'coupon_id', 'order_date', 'status', 'amount_products', 'payment_method', 'shipping_method', 'tracking_number'];
-    protected $hidden = ['customer_id', 'address_id', 'coupon_id'];
+    protected $hidden = ['customer_id', 'address_id', 'coupon_id', 'created_at', 'updated_at'];
 
     public function customer()
     {
