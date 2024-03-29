@@ -15,7 +15,7 @@ class ProductFrontService extends FrontService
     protected function getTranslationQuery()
     {
         return $this->model
-            ->with(['brand', 'translations', 'category'])
+            ->with(['brand', 'category'])
             ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
             ->join('languages', 'languages.id', '=', 'product_languages.language_id')
             ->select('products.*', 'languages.*', 'product_languages.*');
