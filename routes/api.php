@@ -26,6 +26,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\TranslationController;
 use App\Http\Controllers\JwtAuthController;
 use App\Http\Controllers\ProductFrontController;
+use App\Http\Controllers\CategoryFrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ use App\Http\Controllers\ProductFrontController;
 //TODO: testing routes (temp) -> ask this how to define this properly in this file
 
 Route::get('/product', [ProductFrontController::class, 'getProduct']);
+Route::get('/category', [CategoryFrontController::class, 'getCategory']);
 
 /*
 |--------------------------------------------------------------------------
