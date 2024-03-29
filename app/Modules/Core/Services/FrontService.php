@@ -16,15 +16,29 @@ abstract class FrontService {
 
         $user = auth('api')->user();
         $preferredLocale = $user ? $user->preferred_locale : null;
-        $localeExistsInLanguagesTable = Language::where('code', $preferredLocale)->exists();
+        $urlLocale = request('lang', 'en');
 
-        $this->languageCode = $localeExistsInLanguagesTable ? $preferredLocale : App::getLocale();
+        $this->languageCode = $this->determineLanguageCode($urlLocale, $preferredLocale);
     }
 
     public function getTranslatedModel() {
         return $this->getTranslationQuery()
             ->where('languages.code', $this->languageCode)
             ->get();
+    }
+
+    private function determineLanguageCode($urlLocale, $preferredLocale) {
+        if ($this->localeExistsInLanguagesTable($urlLocale)) {
+            return $urlLocale;
+        } else if ($this->localeExistsInLanguagesTable($preferredLocale)) {
+            return $preferredLocale;
+        } else {
+            return App::getLocale();
+        }
+    }
+
+    private function localeExistsInLanguagesTable($locale) {
+        return Language::where('code', $locale)->exists();
     }
 
     abstract protected function getTranslationQuery();
