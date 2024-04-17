@@ -49,7 +49,7 @@ class ApiServiceController extends Controller
     }
 
     private function handleResponse($model, $statusCode) {
-        
+
         if ($this->service->hasErrors()) {
             $errors = $this->service->getErrors();
             $errors = $this->presentErrors($errors);
