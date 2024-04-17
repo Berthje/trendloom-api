@@ -21,6 +21,20 @@ class CategoryFrontService extends FrontService
             ->select('categories.*', 'languages.*', 'category_languages.*');
     }
 
+    public function getCategoryById($request, $categoryId)
+    {
+        $query = $this->getTranslationQuery()
+            ->where('categories.id', $categoryId);
+
+        if ($request->has('lang')) {
+            $query->where('languages.code', $request->input('lang'));
+        }
+
+        $category = $query->first();
+
+        return $category;
+    }
+
     public function getProductsByCategoryId($request, $categoryId)
     {
         $category = $this->getCategoryWithProducts($categoryId, $request->input('lang'));
