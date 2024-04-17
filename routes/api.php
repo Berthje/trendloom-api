@@ -27,6 +27,7 @@ use App\Http\Controllers\TranslationController;
 use App\Http\Controllers\JwtAuthController;
 use App\Http\Controllers\ProductFrontController;
 use App\Http\Controllers\CategoryFrontController;
+use App\Http\Controllers\BrandFrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,13 +43,24 @@ use App\Http\Controllers\CategoryFrontController;
 
 Route::get('/translations', [TranslationController::class, 'getTranslation']);
 
-Route::prefix('customers')->group(function () {
-    Route::post('/', [CustomerController::class, 'createCustomer']);
+Route::prefix('brands')->group(function () {
+    Route::get('/', [BrandFrontController::class, 'getAllBrands']);
+    Route::get('/{id}', [BrandFrontController::class, 'getBrandById']);
 });
 
-Route::prefix('brands')->group(function () {
-    Route::get('/', [BrandController::class, 'getAllBrands']);
-    Route::get('/{id}', [BrandController::class, 'getBrandById']);
+Route::prefix('categories')->group(function () {
+    Route::get('/', [CategoryFrontController::class, 'getAllCategories']);
+    Route::get('/{id}', [CategoryFrontController::class, 'getCategoryById']);
+    Route::get('/{id}/products', [CategoryFrontController::class, 'getProductsByCategoryId']);
+});
+
+Route::prefix('products')->group(function () {
+    Route::get('/', [ProductFrontController::class, 'getAllProducts']);
+    Route::get('/{id}', [ProductFrontController::class, 'getProductById']);
+});
+
+Route::prefix('customers')->group(function () {
+    Route::post('/', [CustomerController::class, 'createCustomer']);
 });
 
 Route::prefix('brand-coupons')->group(function () {
@@ -59,12 +71,6 @@ Route::prefix('brand-coupons')->group(function () {
 Route::prefix('brand-languages')->group(function () {
     Route::get('/', [BrandLanguageController::class, 'getAllBrandLanguages']);
     Route::get('/{id}', [BrandLanguageController::class, 'getBrandLanguageById']);
-});
-
-Route::prefix('categories')->group(function () {
-    Route::get('/', [CategoryController::class, 'getAllCategories']);
-    Route::get('/{id}', [CategoryController::class, 'getCategoryById']);
-    Route::get('/{id}/products', [CategoryController::class, 'getProductsByCategoryId']);
 });
 
 Route::prefix('category-coupons')->group(function () {
@@ -90,11 +96,6 @@ Route::prefix('coupons')->group(function () {
 Route::prefix('languages')->group(function () {
     Route::get('/', [LanguageController::class, 'getAllLanguages']);
     Route::get('/{id}', [LanguageController::class, 'getLanguageById']);
-});
-
-Route::prefix('products')->group(function () {
-    Route::get('/', [ProductController::class, 'getAllProducts']);
-    Route::get('/{id}', [ProductController::class, 'getProductById']);
 });
 
 Route::prefix('product-languages')->group(function () {
@@ -302,9 +303,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
         Route::get('/', [WishlistController::class, 'getAllWishlists']);
     });
 });
-
-//TODO: testing routes (temp) -> ask this how to define this properly in this file
-
-Route::get('/product', [ProductFrontController::class, 'getProduct']);
-Route::get('/category', [CategoryFrontController::class, 'getCategory']);
-
