@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckUser
+class verifyOwnership
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,11 @@ class CheckUser
     public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
+        $resource = $request->route('id');
 
-        if (!$user || ($user->id !== $request->orderItem->user_id && !$user->roles->contains('name', 'admin'))) {
+        $ownerId = $resource->user_id ?? $resource->getUserId();
+
+        if (!$user || ($user->id !== $ownerId && !$user->roles->contains('name', 'admin'))) {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
 
