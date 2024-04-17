@@ -11,6 +11,8 @@ class Category extends Model
 
     protected $fillable = ['name', 'description', 'parent_category_id'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function parent()
     {
         return $this->belongsTo(Category::class, 'parent_category_id');
@@ -19,5 +21,15 @@ class Category extends Model
     public function children()
     {
         return $this->hasMany(Category::class, 'parent_category_id');
+    }
+
+    public function translations()
+    {
+        return $this->hasMany(CategoryLanguage::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }

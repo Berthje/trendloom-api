@@ -13,6 +13,8 @@ class ProductStock extends Model
 
     protected $fillable = ['product_id', 'size_id', 'quantity_in_stock'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function product()
     {
         return $this->belongsTo(Product::class);

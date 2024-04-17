@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
             $table->string('password');
+            $table->string('preferred_locale')->default('en');
             $table->unsignedBigInteger('address_id')->nullable();
             $table->timestamps();
         });

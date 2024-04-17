@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('state');
             $table->string('zip');
             $table->string('country');
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }
