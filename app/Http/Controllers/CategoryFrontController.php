@@ -14,9 +14,21 @@ class CategoryFrontController extends Controller
         $this->categoryFrontService = $categoryFrontService;
     }
 
-    public function getCategory(Request $request)
+    public function getAllCategories(Request $request)
     {
         $categories = $this->categoryFrontService->getTranslatedModel($request);
         return response()->json($categories);
+    }
+
+    public function getCategoryById(Request $request, $categoryId)
+    {
+        $category = $this->categoryFrontService->getCategoryById($request, $categoryId);
+        return response()->json($category);
+    }
+
+    public function getProductsByCategoryId(Request $request, $categoryId)
+    {
+        $products = $this->categoryFrontService->getProductsByCategoryId($request, $categoryId);
+        return response()->json($products);
     }
 }
