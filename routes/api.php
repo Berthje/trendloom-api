@@ -126,7 +126,7 @@ Route::prefix('product-stock')->group(function () {
 Route::post('/register', [JwtAuthController::class, 'register']);
 Route::post('/login', [JwtAuthController::class, 'login']);
 
-Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function(){
+Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
     Route::get("profile", [JwtAuthController::class, "profile"]);
     Route::get("refresh", [JwtAuthController::class, "refreshToken"]);
     Route::get("logout", [JwtAuthController::class, "logout"]);
@@ -139,7 +139,7 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function(){
 */
 
 //TODO: add middleware for verifyUserOwnership
-Route::group(["middleware" => ["isAdmin"/*, "verifyUserOwnership"*/]], function(){
+Route::group(["middleware" => ["auth:api", "auth.csrf.jwt", "verifyUserOwnership:App\\Models\\Customer"]], function () {
     Route::prefix('customers')->group(function () {
         Route::get('/{id}', [CustomerController::class, 'getCustomerById']);
         Route::get('/{id}/addresses', [CustomerController::class, 'getAddressesByCustomerId']);

@@ -44,4 +44,9 @@ class Customer extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function isAdmin()
+    {
+        return $this->roles->contains('name', 'admin');
+    }
 }
