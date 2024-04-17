@@ -11,6 +11,8 @@ class OrderItem extends Model
 
     protected $fillable = ['order_id', 'product_id', 'product_size_id', 'product_details', 'quantity', 'price'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     protected $casts = [
         'product_details' => 'array'
     ];

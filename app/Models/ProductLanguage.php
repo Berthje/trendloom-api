@@ -11,6 +11,8 @@ class ProductLanguage extends Model
 
     protected $fillable = ['product_id', 'language_id', 'name', 'description', 'price', 'tags'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     protected $casts = [
         'tags' => 'array',
     ];

@@ -11,6 +11,8 @@ class Address extends Model
 
     protected $fillable = ['address', 'city', 'state', 'zip', 'country'];
 
+    protected $hidden = ['created_at', 'updated_at', 'customer_id'];
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

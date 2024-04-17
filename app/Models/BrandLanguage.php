@@ -11,6 +11,8 @@ class BrandLanguage extends Model
 
     protected $fillable = ['brand_id', 'language_id', 'name', 'description'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function brand()
     {
         return $this->belongsTo(Brand::class);

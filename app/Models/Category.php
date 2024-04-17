@@ -11,6 +11,8 @@ class Category extends Model
 
     protected $fillable = ['name', 'description', 'parent_category_id'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function parent()
     {
         return $this->belongsTo(Category::class, 'parent_category_id');
