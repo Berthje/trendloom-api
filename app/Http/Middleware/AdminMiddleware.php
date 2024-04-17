@@ -3,8 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
 {
@@ -15,10 +13,14 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->roles->contains('name', 'admin')) {
-            return $next($request);
+        $user = auth('api')->user();
+        $notLoggedIn = !$user;
+        $notAdmin = $user && !$user->roles->contains('name', 'admin');
+
+        if ($notLoggedIn || $notAdmin) {
+            return response()->json(['error' => 'Unauthorized'], 403);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 403);
+        return $next($request);
     }
 }
