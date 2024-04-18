@@ -6,15 +6,11 @@ use Closure;
 
 class VerifyUserOwnership
 {
-    public function handle($request, Closure $next, $model)
+    public function handle($request, Closure $next)
     {
-        $modelInstance = resolve($model);
-        $record = $modelInstance->find($request->route('id'));
-
         $user = auth('api')->user();
 
-
-        if ($record && ($user->id === $record->id || $user->isAdmin())) {
+        if ($user->isAdmin()) {
             return $next($request);
         }
 
