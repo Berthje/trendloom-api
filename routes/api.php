@@ -138,7 +138,7 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
 |--------------------------------------------------------------------------
 */
 
-//TODO: add middleware for verifyUserOwnership
+//TODO: change customer so it works with other models aswell (works with customer so functionality wise its fine)
 Route::group(["middleware" => ["auth:api", "auth.csrf.jwt", "verifyUserOwnership:App\\Models\\Customer"]], function () {
     Route::prefix('customers')->group(function () {
         Route::get('/{id}', [CustomerController::class, 'getCustomerById']);
