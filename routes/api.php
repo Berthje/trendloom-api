@@ -160,13 +160,13 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
         Route::post('/', [OrderController::class, 'createOrder']);
         Route::put('/{id}', [OrderController::class, 'updateOrder']);
         Route::put('/{id}/cancel', [OrderController::class, 'cancelOrder']);
-        Route::put('/{id}/order-items/{orderItemId}', [OrderItemController::class, 'updateOrderItem']);
-        Route::delete('/{id}/order-items/{orderItemId}', [OrderItemController::class, 'deleteOrderItem']);
     });
 
     Route::prefix('order-items')->group(function () {
         Route::get('/{id}', [OrderItemController::class, 'getOrderItemById']);
         Route::post('/', [OrderItemController::class, 'createOrderItem']);
+        Route::put('/{id}/order-items/{orderItemId}', [OrderItemController::class, 'updateOrderItem']);
+        Route::delete('/{id}/order-items/{orderItemId}', [OrderItemController::class, 'deleteOrderItem']);
     });
 
     Route::prefix('wishlists')->group(function () {
