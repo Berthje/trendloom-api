@@ -37,21 +37,6 @@ class WishlistService extends AuthenticatedService {
         return $wishlist->customer_id === $userId || $user->isAdmin();
     }
 
-    public function get($id, $ruleKey = "get")
-    {
-        return $this->performAction($id, ['id' => $id], $ruleKey, 'find');
-    }
-
-    public function update($id, $data, $ruleKey = "update")
-    {
-        return $this->performAction($id, $data, $ruleKey, 'update');
-    }
-
-    public function delete($id, $ruleKey = "delete")
-    {
-        return $this->performAction($id, ['id' => $id], $ruleKey, 'delete');
-    }
-
     protected function getRelationFields() {
         return [
             'customer',

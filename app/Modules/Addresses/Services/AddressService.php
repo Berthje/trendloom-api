@@ -2,10 +2,11 @@
 namespace App\Modules\Addresses\Services;
 
 use App\Models\Address;
-use App\Modules\Core\Services\Service;
+use App\Models\Customer;
+use App\Modules\Core\Services\AuthenticatedService;
 
-class AddressService extends Service {
-    protected $fields= ['address', 'city', 'state', 'zip', 'country'];
+class AddressService extends AuthenticatedService {
+    protected $fields= ['address', 'city', 'state', 'zip', 'type', 'country'];
     protected $searchField = 'address';
     protected $rules = [
         "add" => [
@@ -13,6 +14,7 @@ class AddressService extends Service {
             'city' => 'required|string',
             'state' => 'required|string',
             'zip' => 'required|string',
+            'type' => 'sometimes|string',
             'country' => 'required|string'
         ],
         "update" => [
@@ -20,6 +22,7 @@ class AddressService extends Service {
             'city' => 'sometimes|string',
             'state' => 'sometimes|string',
             'zip' => 'sometimes|string',
+            'type' => 'sometimes|string',
             'country' => 'sometimes|string'
         ],
         "delete" => [
@@ -32,5 +35,12 @@ class AddressService extends Service {
 
     public function __construct(Address $model) {
         parent::__construct($model);
+    }
+
+    public function isAllowed(int $entityAddressId, int $userId): bool
+    {
+        $user = Customer::find($userId);
+
+        return $user->address_id === $entityAddressId || $user->isAdmin();
     }
 }

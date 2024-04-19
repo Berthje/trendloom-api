@@ -24,4 +24,19 @@ abstract class AuthenticatedService extends Service implements IsAllowed
 
         return $model->$action($data);
     }
+
+    public function get($id, $ruleKey = "get")
+    {
+        return $this->performAction($id, ['id' => $id], $ruleKey, 'find');
+    }
+
+    public function update($id, $data, $ruleKey = "update")
+    {
+        return $this->performAction($id, $data, $ruleKey, 'update');
+    }
+
+    public function delete($id, $ruleKey = "delete")
+    {
+        return $this->performAction($id, ['id' => $id], $ruleKey, 'delete');
+    }
 }
