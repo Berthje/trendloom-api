@@ -62,19 +62,23 @@ class CustomerService extends AuthenticatedService
         ];
     }
 
-    public function get($id, $ruleKey = "get") {
+    public function get($id, $ruleKey = "get")
+    {
         return $this->performAction($id, ['id' => $id], $ruleKey, 'find');
     }
 
-    public function update($id, $data, $ruleKey = "update") {
+    public function update($id, $data, $ruleKey = "update")
+    {
         return $this->performAction($id, $data, $ruleKey, 'update');
     }
 
-    public function delete($id, $ruleKey = "delete") {
+    public function delete($id, $ruleKey = "delete")
+    {
         return $this->performAction($id, ['id' => $id], $ruleKey, 'delete');
     }
 
-    public function login(Request $data) {
+    public function login(Request $data)
+    {
         $this->validate($data->all(), "login");
 
         $csrfLength = env("CSRF_TOKEN_LENGTH");
@@ -91,7 +95,8 @@ class CustomerService extends AuthenticatedService
         ];
     }
 
-    public function getAddressesByCustomerId($customerId) {
+    public function getAddressesByCustomerId($customerId)
+    {
         if (!$this->isAllowed($customerId, auth('api')->user()->id)) {
             throw new AuthorizationException('Unauthorized');
         }
