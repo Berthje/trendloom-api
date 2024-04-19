@@ -3,9 +3,11 @@ namespace App\Modules\Orders\Services;
 
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Modules\Core\Services\Service;
+use App\Models\Customer;
+use App\Modules\Core\Services\AuthenticatedService;
+use Illuminate\Auth\Access\AuthorizationException;
 
-class OrderService extends Service {
+class OrderService extends AuthenticatedService {
     protected $fields= [
         'customer_id',
         'address_id',
@@ -53,6 +55,14 @@ class OrderService extends Service {
         parent::__construct($model);
     }
 
+    public function isAllowed(int $entityOrderId, int $userId): bool
+    {
+        $user = Customer::find($userId);
+        $order = Order::find($entityOrderId);
+
+        return $order->customer_id === $userId || $user->isAdmin();
+    }
+
     protected function getRelationFields() {
         return [
             'customer:id,first_name,last_name,email,phone_number',
@@ -63,10 +73,19 @@ class OrderService extends Service {
 
     public function cancel($id) {
         $data = ['status' => 'cancelled'];
+
+        if (!$this->isAllowed($id, auth('api')->user()->id)) {
+            throw new AuthorizationException('Unauthorized');
+        }
+
         return $this->model->where('id', $id)->update($data);
     }
 
     public function getOrderItemsByOrderId($orderId) {
+        if (!$this->isAllowed($orderId, auth('api')->user()->id)) {
+            throw new AuthorizationException('Unauthorized');
+        }
+
         return OrderItem::where('order_id', $orderId)->get();
     }
 }

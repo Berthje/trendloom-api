@@ -82,7 +82,7 @@ return new class extends Migration
         //Customers
 
         Schema::table('customers', function (Blueprint $table) {
-            $table->foreign('address_id')->references('id')->on('addresses');
+            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('set null');
         });
 
         //Roles

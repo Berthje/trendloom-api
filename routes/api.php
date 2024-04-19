@@ -126,7 +126,7 @@ Route::prefix('product-stock')->group(function () {
 Route::post('/register', [JwtAuthController::class, 'register']);
 Route::post('/login', [JwtAuthController::class, 'login']);
 
-Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function(){
+Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
     Route::get("profile", [JwtAuthController::class, "profile"]);
     Route::get("refresh", [JwtAuthController::class, "refreshToken"]);
     Route::get("logout", [JwtAuthController::class, "logout"]);
@@ -138,12 +138,11 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function(){
 |--------------------------------------------------------------------------
 */
 
-//TODO: add middleware for verifyUserOwnership
-Route::group(["middleware" => ["isAdmin"/*, "verifyUserOwnership"*/]], function(){
+Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
     Route::prefix('customers')->group(function () {
         Route::get('/{id}', [CustomerController::class, 'getCustomerById']);
         Route::get('/{id}/addresses', [CustomerController::class, 'getAddressesByCustomerId']);
-        Route::get('/{customerId}/wishlist/products', [WishlistController::class, 'getProducts']);
+        Route::get('/{id}/wishlist/products', [WishlistController::class, 'getProducts']);
         Route::put('/{id}', [CustomerController::class, 'updateCustomer']);
         Route::delete('/{id}', [CustomerController::class, 'deleteCustomer']);
     });
@@ -157,7 +156,7 @@ Route::group(["middleware" => ["isAdmin"/*, "verifyUserOwnership"*/]], function(
 
     Route::prefix('orders')->group(function () {
         Route::get('/{id}', [OrderController::class, 'getOrderById']);
-        Route::get('/{order_id}/items', [OrderController::class, 'getOrderItemsByOrderId']);
+        Route::get('/{id}/order-items', [OrderController::class, 'getOrderItemsByOrderId']);
         Route::post('/', [OrderController::class, 'createOrder']);
         Route::put('/{id}', [OrderController::class, 'updateOrder']);
         Route::put('/{id}/cancel', [OrderController::class, 'cancelOrder']);
@@ -166,8 +165,8 @@ Route::group(["middleware" => ["isAdmin"/*, "verifyUserOwnership"*/]], function(
     Route::prefix('order-items')->group(function () {
         Route::get('/{id}', [OrderItemController::class, 'getOrderItemById']);
         Route::post('/', [OrderItemController::class, 'createOrderItem']);
-        Route::put('/{id}', [OrderItemController::class, 'updateOrderItem']);
-        Route::delete('/{id}', [OrderItemController::class, 'deleteOrderItem']);
+        Route::put('/{orderItemId}', [OrderItemController::class, 'updateOrderItem']);
+        Route::delete('/{orderItemId}', [OrderItemController::class, 'deleteOrderItem']);
     });
 
     Route::prefix('wishlists')->group(function () {

@@ -3,11 +3,13 @@
 namespace App\Modules\Customers\Services;
 
 use App\Models\Customer;
-use App\Modules\Core\Services\Service;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Nette\Utils\Random;
+use Illuminate\Auth\Access\AuthorizationException;
+use App\Modules\Core\Services\AuthenticatedService;
+use Illuminate\Http\Request;
 
-class CustomerService extends Service
+class CustomerService extends AuthenticatedService
 {
     protected $fields = ['first_name', 'last_name', 'email', 'phone_number', 'password', 'address_id'];
     protected $searchField = 'customer';
@@ -46,6 +48,13 @@ class CustomerService extends Service
         parent::__construct($model);
     }
 
+    public function isAllowed(int $entityCustomerId, int $userId): bool
+    {
+        $user = Customer::find($userId);
+
+        return $entityCustomerId === $userId || $user->isAdmin();
+    }
+
     protected function getRelationFields()
     {
         return [
@@ -53,12 +62,22 @@ class CustomerService extends Service
         ];
     }
 
-    public function getAddressesByCustomerId($customerId)
+    public function get($id, $ruleKey = "get")
     {
-        return $this->model->find($customerId)->addresses;
+        return $this->performAction($id, ['id' => $id], $ruleKey, 'find');
     }
 
-    public function login($data)
+    public function update($id, $data, $ruleKey = "update")
+    {
+        return $this->performAction($id, $data, $ruleKey, 'update');
+    }
+
+    public function delete($id, $ruleKey = "delete")
+    {
+        return $this->performAction($id, ['id' => $id], $ruleKey, 'delete');
+    }
+
+    public function login(Request $data)
     {
         $this->validate($data->all(), "login");
 
@@ -74,5 +93,14 @@ class CustomerService extends Service
             'token' => $token,
             'csrfToken' => $csrfToken
         ];
+    }
+
+    public function getAddressesByCustomerId($customerId)
+    {
+        if (!$this->isAllowed($customerId, auth('api')->user()->id)) {
+            throw new AuthorizationException('Unauthorized');
+        }
+
+        return $this->model->find($customerId)->addresses;
     }
 }

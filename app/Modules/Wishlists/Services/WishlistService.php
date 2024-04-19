@@ -2,9 +2,10 @@
 namespace App\Modules\Wishlists\Services;
 
 use App\Models\Wishlist;
-use App\Modules\Core\Services\Service;
+use App\Models\Customer;
+use App\Modules\Core\Services\AuthenticatedService;
 
-class WishlistService extends Service {
+class WishlistService extends AuthenticatedService {
     protected $fields= ['customer_id', 'product_id'];
     protected $searchField = 'wishlist';
     protected $rules = [
@@ -28,10 +29,18 @@ class WishlistService extends Service {
         parent::__construct($model);
     }
 
+    public function isAllowed(int $entityWishlistId, int $userId): bool
+    {
+        $user = Customer::find($userId);
+        $wishlist = Wishlist::find($entityWishlistId);
+
+        return $wishlist->customer_id === $userId || $user->isAdmin();
+    }
+
     protected function getRelationFields() {
         return [
             'customer',
-            'product'
+            'products'
         ];
     }
 }

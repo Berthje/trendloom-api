@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\Localization::class,
+
     ];
 
     /**
@@ -69,6 +70,6 @@ class Kernel extends HttpKernel
         'language' => \App\Http\Middleware\Localization::class,
         'auth.csrf.jwt' => \App\Http\Middleware\VerifyJwtCsrfToken::class,
         'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
-        'verifyOwnership' => \App\Http\Middleware\VerifyOwnership::class,
+        'verifyUserOwnership' => \App\Http\Middleware\VerifyUserOwnership::class,
     ];
 }

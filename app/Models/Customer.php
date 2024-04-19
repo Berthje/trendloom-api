@@ -20,9 +20,9 @@ class Customer extends Authenticatable implements JWTSubject
         'password' => 'hashed',
     ];
 
-    public function addresses()
+    public function address()
     {
-        return $this->hasMany(Address::class, 'id', 'address_id');
+        return $this->belongsTo(Address::class);
     }
 
     public function roles()
@@ -43,5 +43,10 @@ class Customer extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function isAdmin()
+    {
+        return $this->roles->contains('name', 'admin');
     }
 }

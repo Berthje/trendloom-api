@@ -2,9 +2,10 @@
 namespace App\Modules\OrderItems\Services;
 
 use App\Models\OrderItem;
-use App\Modules\Core\Services\Service;
+use App\Models\Customer;
+use App\Modules\Core\Services\AuthenticatedService;
 
-class OrderItemService extends Service {
+class OrderItemService extends AuthenticatedService {
     protected $fields= ['order_id', 'product_id', 'product_size_id', 'product_details', 'quantity'];
     protected $searchField = 'orderItem';
     protected $rules = [
@@ -32,6 +33,14 @@ class OrderItemService extends Service {
 
     public function __construct(OrderItem $model) {
         parent::__construct($model);
+    }
+
+    public function isAllowed(int $entityOrderItemId, int $userId): bool
+    {
+        $user = Customer::find($userId);
+        $orderItem = OrderItem::find($entityOrderItemId);
+
+        return $orderItem->order->customer_id === $userId || $user->isAdmin();
     }
 
     protected function getRelationFields() {
