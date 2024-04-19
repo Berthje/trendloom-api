@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Modules\Orders\Services\OrderService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class OrderController extends ApiServiceController
 {
@@ -29,11 +31,19 @@ class OrderController extends ApiServiceController
 
     //I will choose not to delete orders and instead mark them as cancelled
     public function cancelOrder($orderId) {
-        return $this->service->cancel($orderId);
+        try {
+            return $this->service->cancel($orderId);
+        } catch (AuthorizationException $e) {
+            return response()->json(['error' => $e->getMessage()], Response::HTTP_UNAUTHORIZED);
+        }
     }
 
     public function getOrderItemsByOrderId($orderId)
     {
-        return $this->service->getOrderItemsByOrderId($orderId);
+        try {
+            return $this->service->getOrderItemsByOrderId($orderId);
+        } catch (AuthorizationException $e) {
+            return response()->json(['error' => $e->getMessage()], Response::HTTP_UNAUTHORIZED);
+        }
     }
 }
