@@ -6,8 +6,10 @@ use App\Models\Customer;
 use App\Modules\Core\Services\Service;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Nette\Utils\Random;
+use App\Contracts\IsAllowed;
+use Illuminate\Auth\Access\AuthorizationException;
 
-class CustomerService extends Service
+class CustomerService extends Service implements IsAllowed
 {
     protected $fields = ['first_name', 'last_name', 'email', 'phone_number', 'password', 'address_id'];
     protected $searchField = 'customer';
@@ -74,5 +76,26 @@ class CustomerService extends Service
             'token' => $token,
             'csrfToken' => $csrfToken
         ];
+    }
+
+    public function isAllowed(int $customerEntityId, int $userId): bool
+    {
+        $user = Customer::find($userId);
+
+        return $customerEntityId === $userId || $user->isAdmin();
+    }
+
+    public function get($id, $ruleKey = "get") {
+        parent::get($id, $ruleKey);
+
+        if ($this->hasErrors()) {
+            return;
+        }
+
+        if (!$this->isAllowed($id, auth('api')->user()->id)) {
+            throw new AuthorizationException('Unauthorized');
+        }
+
+        return $this->model->with($this->getRelationFields())->find($id);
     }
 }

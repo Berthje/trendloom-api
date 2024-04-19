@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class ApiServiceController extends Controller
 {
     protected $service;
 
     public function get($id) {
-        $model = $this->service->get($id);
+        try {
+            $model = $this->service->get($id);
+        } catch (AuthorizationException $e) {
+            return response()->json(['error' => $e->getMessage()], Response::HTTP_FORBIDDEN);
+        }
 
         if (!$model) {
             return response()->json(null, Response::HTTP_NOT_FOUND);
