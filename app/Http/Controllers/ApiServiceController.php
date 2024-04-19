@@ -25,7 +25,11 @@ class ApiServiceController extends Controller
     }
 
     public function delete($id) {
-        $model = $this->service->delete($id);
+        try {
+            $model = $this->service->delete($id);
+        } catch (AuthorizationException $e) {
+            return response()->json(['error' => $e->getMessage()], Response::HTTP_FORBIDDEN);
+        }
 
         if (!$model) {
             return response()->json(null, Response::HTTP_NOT_FOUND);
@@ -35,20 +39,31 @@ class ApiServiceController extends Controller
     }
 
     public function create(Request $request) {
-
-        $model = $this->service->create($request->all());
+        try {
+            $model = $this->service->create($request->all());
+        } catch (AuthorizationException $e) {
+            return response()->json(['error' => $e->getMessage()], Response::HTTP_FORBIDDEN);
+        }
 
         return $this->handleResponse($model, Response::HTTP_CREATED);
     }
 
     public function update(Request $request, $id) {
-        $model = $this->service->update($id, $request->all());
+        try {
+            $model = $this->service->update($id, $request->all());
+        } catch (AuthorizationException $e) {
+            return response()->json(['error' => $e->getMessage()], Response::HTTP_FORBIDDEN);
+        }
 
         return $this->handleResponse($model, Response::HTTP_OK);
     }
 
     public function getAll() {
-        $models = $this->service->getAll();
+        try {
+            $models = $this->service->getAll();
+        } catch (AuthorizationException $e) {
+            return response()->json(['error' => $e->getMessage()], Response::HTTP_FORBIDDEN);
+        }
 
         return response()->json($models, Response::HTTP_OK);
     }
