@@ -138,10 +138,11 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
 |--------------------------------------------------------------------------
 */
 
-Route::group(["middleware" => ["auth:api", "auth.csrf.jwt", "verifyUserOwnership"]], function () {
+Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
     Route::prefix('customers')->group(function () {
         Route::get('/{id}', [CustomerController::class, 'getCustomerById']);
         Route::get('/{id}/addresses', [CustomerController::class, 'getAddressesByCustomerId']);
+        //Same as order items, via customers to delete and edit address
         Route::get('/{id}/wishlist/products', [WishlistController::class, 'getProducts']);
         Route::put('/{id}', [CustomerController::class, 'updateCustomer']);
         Route::delete('/{id}', [CustomerController::class, 'deleteCustomer']);
@@ -156,17 +157,18 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt", "verifyUserOwnership
 
     Route::prefix('orders')->group(function () {
         Route::get('/{id}', [OrderController::class, 'getOrderById']);
-        Route::get('/{id}/items', [OrderController::class, 'getOrderItemsByOrderId']);
+        Route::get('/{id}/order-items', [OrderController::class, 'getOrderItemsByOrderId']);
         Route::post('/', [OrderController::class, 'createOrder']);
         Route::put('/{id}', [OrderController::class, 'updateOrder']);
         Route::put('/{id}/cancel', [OrderController::class, 'cancelOrder']);
+
+        Route::put('/{id}/order-items/{orderItemId}', [OrderItemController::class, 'updateOrderItem']);
+        Route::delete('/{id}/order-items/{orderItemId}', [OrderItemController::class, 'deleteOrderItem']);
     });
 
     Route::prefix('order-items')->group(function () {
         Route::get('/{id}', [OrderItemController::class, 'getOrderItemById']);
         Route::post('/', [OrderItemController::class, 'createOrderItem']);
-        Route::put('/{id}', [OrderItemController::class, 'updateOrderItem']);
-        Route::delete('/{id}', [OrderItemController::class, 'deleteOrderItem']);
     });
 
     Route::prefix('wishlists')->group(function () {
