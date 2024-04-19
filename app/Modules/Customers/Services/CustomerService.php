@@ -86,7 +86,7 @@ class CustomerService extends Service implements IsAllowed
     }
 
     public function get($id, $ruleKey = "get") {
-        parent::get($id, $ruleKey);
+        $this->validate(['id' => $id], $ruleKey);
 
         if ($this->hasErrors()) {
             return;
@@ -97,5 +97,33 @@ class CustomerService extends Service implements IsAllowed
         }
 
         return $this->model->with($this->getRelationFields())->find($id);
+    }
+
+    public function update($id, $data, $ruleKey = "update") {
+        $this->validate($data, $ruleKey);
+
+        if ($this->hasErrors()) {
+            return;
+        }
+
+        if (!$this->isAllowed($id, auth('api')->user()->id)) {
+            throw new AuthorizationException('Unauthorized');
+        }
+
+        return $this->model->where('id', $id)->update($data);
+    }
+
+    public function delete($id, $ruleKey = "delete") {
+        $this->validate(['id' => $id], $ruleKey);
+
+        if ($this->hasErrors()) {
+            return;
+        }
+
+        if (!$this->isAllowed($id, auth('api')->user()->id)) {
+            throw new AuthorizationException('Unauthorized');
+        }
+
+        return $this->model->where('id', $id)->delete();
     }
 }
