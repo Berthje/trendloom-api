@@ -3,6 +3,8 @@ namespace App\Modules\Core\Services;
 
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeUser;
 
 abstract class Service {
     protected $model;
@@ -37,7 +39,11 @@ abstract class Service {
             return;
         }
 
-        return $this->model->create($data);
+        $customer = $this->model->create($data);
+
+        Mail::to($data['email'])->send(new WelcomeUser($customer));
+
+        return $customer;
     }
 
     public function update($id, $data, $ruleKey = "update") {
