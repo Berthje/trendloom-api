@@ -31,7 +31,7 @@ class WelcomeUser extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Welcome User Mail',
+            subject: 'Welcome to Trendloom!',
         );
     }
 

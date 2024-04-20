@@ -1,204 +1,466 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+
 <head>
-<title></title>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!--[if !mso]>-->
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<!--<![endif]-->
-<meta name="x-apple-disable-message-reformatting" content="" />
-<meta content="target-densitydpi=device-dpi" name="viewport" />
-<meta content="true" name="HandheldFriendly" />
-<meta content="width=device-width" name="viewport" />
-<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
-<style type="text/css">
-table {
-border-collapse: separate;
-table-layout: fixed;
-mso-table-lspace: 0pt;
-mso-table-rspace: 0pt
-}
-table td {
-border-collapse: collapse
-}
-.ExternalClass {
-width: 100%
-}
-.ExternalClass,
-.ExternalClass p,
-.ExternalClass span,
-.ExternalClass font,
-.ExternalClass td,
-.ExternalClass div {
-line-height: 100%
-}
-body, a, li, p, h1, h2, h3 {
--ms-text-size-adjust: 100%;
--webkit-text-size-adjust: 100%;
-}
-html {
--webkit-text-size-adjust: none !important
-}
-body, #innerTable {
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale
-}
-#innerTable img+div {
-display: none;
-display: none !important
-}
-img {
-Margin: 0;
-padding: 0;
--ms-interpolation-mode: bicubic
-}
-h1, h2, h3, p, a {
-line-height: 1;
-overflow-wrap: normal;
-white-space: normal;
-word-break: break-word
-}
-a {
-text-decoration: none
-}
-h1, h2, h3, p {
-min-width: 100%!important;
-width: 100%!important;
-max-width: 100%!important;
-display: inline-block!important;
-border: 0;
-padding: 0;
-margin: 0
-}
-a[x-apple-data-detectors] {
-color: inherit !important;
-text-decoration: none !important;
-font-size: inherit !important;
-font-family: inherit !important;
-font-weight: inherit !important;
-line-height: inherit !important
-}
-u + #body a {
-color: inherit;
-text-decoration: none;
-font-size: inherit;
-font-family: inherit;
-font-weight: inherit;
-line-height: inherit;
-}
-a[href^="mailto"],
-a[href^="tel"],
-a[href^="sms"] {
-color: inherit;
-text-decoration: none
-}
-img,p{margin:0;Margin:0;font-family:Fira Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:21px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#555;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px}h1{margin:0;Margin:0;font-family:Roboto,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:34px;font-weight:400;font-style:normal;font-size:28px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}h2{margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:30px;font-weight:400;font-style:normal;font-size:24px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}h3{margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:26px;font-weight:400;font-style:normal;font-size:20px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}
-</style>
-<style type="text/css">
-@media (min-width: 481px) {
-.hd { display: none!important }
-}
-</style>
-<style type="text/css">
-@media (max-width: 480px) {
-.hm { display: none!important }
-}
-</style>
-<style type="text/css">
-@media (min-width: 481px) {
-h1,img,p{margin:0;Margin:0}img,p{font-family:Fira Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:21px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#555;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px}h1{font-family:Roboto,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:34px;font-weight:400;font-style:normal;font-size:28px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}h2,h3{margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}h2{line-height:30px;font-size:24px}h3{line-height:26px;font-size:20px}.t8{width:720px!important}.t26{padding:40px 60px 50px!important;width:680px!important}.t11,.t15,.t24,.t32,.t36{width:600px!important}.t19{width:580px!important}.t38{padding-left:0!important;padding-right:0!important;width:400px!important}
-}
-</style>
-<style type="text/css" media="screen and (min-width:481px)">.moz-text-html img,.moz-text-html p{margin:0;Margin:0;font-family:Fira Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:21px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#555;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px}.moz-text-html h1{margin:0;Margin:0;font-family:Roboto,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:34px;font-weight:400;font-style:normal;font-size:28px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}.moz-text-html h2{margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:30px;font-weight:400;font-style:normal;font-size:24px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}.moz-text-html h3{margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:26px;font-weight:400;font-style:normal;font-size:20px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}.moz-text-html .t8{width:720px!important}.moz-text-html .t26{padding:40px 60px 50px!important;width:680px!important}.moz-text-html .t11,.moz-text-html .t15{width:600px!important}.moz-text-html .t19{width:580px!important}.moz-text-html .t24{width:600px!important}.moz-text-html .t38{padding-left:0!important;padding-right:0!important;width:400px!important}.moz-text-html .t32,.moz-text-html .t36{width:600px!important}</style>
-<!--[if !mso]>-->
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&amp;family=Albert+Sans:wght@800&amp;display=swap" rel="stylesheet" type="text/css" />
-<!--<![endif]-->
-<!--[if mso]>
-<style type="text/css">
-img,p{margin:0;Margin:0;font-family:Fira Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:21px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#555;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px}h1{margin:0;Margin:0;font-family:Roboto,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:34px;font-weight:400;font-style:normal;font-size:28px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}h2{margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:30px;font-weight:400;font-style:normal;font-size:24px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}h3{margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:26px;font-weight:400;font-style:normal;font-size:20px;text-decoration:none;text-transform:none;letter-spacing:0;direction:ltr;color:#333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px}td.t8{width:800px !important}td.t26{padding:40px 60px 50px !important;width:800px !important}td.t11,td.t15,td.t19,td.t24{width:600px !important}td.t38{padding-left:0 !important;padding-right:0 !important}td.t32,td.t36{width:600px !important}
-</style>
-<![endif]-->
-<!--[if mso]>
-<xml>
-<o:OfficeDocumentSettings>
-<o:AllowPNG/>
-<o:PixelsPerInch>96</o:PixelsPerInch>
-</o:OfficeDocumentSettings>
-</xml>
-<![endif]-->
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		a[x-apple-data-detectors] {
+			color: inherit !important;
+			text-decoration: inherit !important;
+		}
+
+		#MessageViewBody a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		p {
+			line-height: inherit
+		}
+
+		.desktop_hide,
+		.desktop_hide table {
+			mso-hide: all;
+			display: none;
+			max-height: 0px;
+			overflow: hidden;
+		}
+
+		.image_block img+div {
+			display: none;
+		}
+
+		.menu_block.desktop_hide .menu-links span {
+			mso-hide: all;
+		}
+
+		@media (max-width:740px) {
+
+			.desktop_hide table.icons-inner,
+			.social_block.desktop_hide .social-table {
+				display: inline-block !important;
+			}
+
+			.icons-inner {
+				text-align: center;
+			}
+
+			.icons-inner td {
+				margin: 0 auto;
+			}
+
+			.image_block div.fullWidth {
+				max-width: 100% !important;
+			}
+
+			.menu-checkbox[type=checkbox]~.menu-links {
+				display: none !important;
+				padding: 5px 0;
+			}
+
+			.menu-checkbox[type=checkbox]:checked~.menu-trigger .menu-open {
+				display: none !important;
+			}
+
+			.menu-checkbox[type=checkbox]:checked~.menu-links,
+			.menu-checkbox[type=checkbox]~.menu-trigger {
+				display: block !important;
+				max-width: none !important;
+				max-height: none !important;
+				font-size: inherit !important;
+			}
+
+			.menu-checkbox[type=checkbox]~.menu-links>a,
+			.menu-checkbox[type=checkbox]~.menu-links>span.label {
+				display: block !important;
+				text-align: center;
+			}
+
+			.menu-checkbox[type=checkbox]:checked~.menu-trigger .menu-close {
+				display: block !important;
+			}
+
+			.mobile_hide {
+				display: none;
+			}
+
+			.row-content {
+				width: 100% !important;
+			}
+
+			.stack .column {
+				width: 100%;
+				display: block;
+			}
+
+			.mobile_hide {
+				min-height: 0;
+				max-height: 0;
+				max-width: 0;
+				overflow: hidden;
+				font-size: 0px;
+			}
+
+			.desktop_hide,
+			.desktop_hide table {
+				display: table !important;
+				max-height: none !important;
+			}
+		}
+
+		#memu-r1c1m1:checked~.menu-links {
+			background-color: #ebae06 !important;
+		}
+
+		#memu-r1c1m1:checked~.menu-links a,
+		#memu-r1c1m1:checked~.menu-links span {
+			color: #ffffff !important;
+		}
+	</style>
 </head>
-<body id="body" class="t43" style="min-width:100%;Margin:0px;padding:0px;background-color:#000000;"><div class="t42" style="background-color:#000000;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td class="t41" style="font-size:0;line-height:0;mso-line-height-rule:exactly;background-color:#000000;" valign="top" align="center">
-<!--[if mso]>
-<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
-<v:fill color="#000000"/>
-</v:background>
+
+<body style="margin: 0; background-color: #ffffff; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
+	<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+		<tbody>
+			<tr>
+				<td>
+					<table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1" style="height:25px;line-height:25px;font-size:1px;">&#8202;</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad" style="padding-left:25px;padding-top:10px;width:100%;padding-right:0px;">
+																<div class="alignment" align="left" style="line-height:10px">
+																	<div style="max-width: 180px;"><h1>Trendloom</h1></div>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-3" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; background-position: top center; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1" style="height:30px;line-height:30px;font-size:1px;">&#8202;</div>
+													<table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:10px;padding-left:25px;padding-right:25px;padding-top:10px;">
+																<div style="color:#1f0b0b;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:38px;line-height:120%;text-align:left;mso-line-height-alt:45.6px;">
+																	<p style="margin: 0; word-break: break-word;"><span><strong><span>Thank you,</span></strong></span></p>
+																	<p style="margin: 0; word-break: break-word; color:#ffae00c9;"><span><strong><span>{{$name}}</span></strong></span></p>
+																	<p style="margin: 0; word-break: break-word;"><span><strong><span>for registering.</span></strong></span></p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="paragraph_block block-3" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:25px;padding-left:25px;padding-right:25px;padding-top:10px;">
+																<div style="color:#393d47;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:180%;text-align:left;mso-line-height-alt:25.2px;">
+																	<p style="margin: 0; word-break: break-word;">Unleash your style with Trendloom's curated collection of high-quality fashion.</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="button_block block-4" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad" style="padding-bottom:10px;padding-left:20px;padding-right:10px;padding-top:10px;text-align:left;">
+																<div class="alignment" align="left"><!--[if mso]>
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:52px;width:230px;v-text-anchor:middle;" arcsize="8%" stroke="false" fillcolor="#ebae06">
+<w:anchorlock/>
+<v:textbox inset="5px,0px,0px,0px">
+<center style="color:#ffffff; font-family:Tahoma, sans-serif; font-size:16px">
 <![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" align="center" id="innerTable"><tr><td>
-<table class="t4" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t3" style="width:320px;padding:40px 40px 40px 40px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t3" style="width:400px;padding:40px 40px 40px 40px;"><![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td>
-</td></tr></table></td>
-</tr></table>
-</td></tr><tr><td>
-<table class="t29" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t28" style="background-color:#FFFFFF;width:400px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t28" style="background-color:#FFFFFF;width:400px;"><![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td>
-<table class="t9" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t8" style="background-color:#FF4040;width:400px;padding:40px 40px 40px 40px;"><p style="color: white; font-weight: 800; font-size: 3rem;">{{ $name }}</p>
-<!--<![endif]-->
-<!--[if mso]><td class="t8" style="background-color:#FF4040;width:480px;padding:40px 40px 40px 40px;"><![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td>
-</td></tr></table></td>
-</tr></table>
-</td></tr><tr><td>
-<table class="t27" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t26" style="width:420px;padding:30px 30px 40px 30px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t26" style="width:480px;padding:30px 30px 40px 30px;"><![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td>
-<table class="t12" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t11" style="width:480px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t11" style="width:480px;"><![endif]-->
-<h1 class="t10" style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:35px;font-weight:800;font-style:normal;font-size:30px;text-decoration:none;text-transform:none;letter-spacing:-1.2px;direction:ltr;color:#333333;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;">Thank you for registering on Trendloom!</h1></td>
-</tr></table>
-</td></tr><tr><td><div class="t13" style="mso-line-height-rule:exactly;mso-line-height-alt:16px;line-height:16px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
-<table class="t16" role="presentation" cellpadding="0" cellspacing="0" align="left"><tr>
-<!--[if !mso]>--><td class="t15" style="width:480px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t15" style="width:480px;"><![endif]-->
-<p class="t14" style="margin:0;Margin:0;font-family:Inter Tight,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:21px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;direction:ltr;color:#555555;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;">We're thrilled to have you on board. Thank you for registering at Trendloom.</p></td>
-</tr></table>
-</td></tr><tr><td><div class="t17" style="mso-line-height-rule:exactly;mso-line-height-alt:30px;line-height:30px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
-<table class="t20" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t19" style="background-color:#FF4040;overflow:hidden;width:460px;text-align:center;line-height:24px;mso-line-height-rule:exactly;mso-text-raise:2px;padding:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t19" style="background-color:#FF4040;overflow:hidden;width:480px;text-align:center;line-height:24px;mso-line-height-rule:exactly;mso-text-raise:2px;padding:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;"><![endif]-->
-<a href="#"><span class="t18" style="display:block;margin:0;Margin:0;font-family:Inter Tight,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:24px;font-weight:600;font-style:normal;font-size:16px;text-decoration:none;direction:ltr;color:#FFFFFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;">Shop your future clothing!</span></a></td>
-</tr></table>
-</td></tr><tr><td><div class="t23" style="mso-line-height-rule:exactly;mso-line-height-alt:12px;line-height:12px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
-<table class="t25" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t24" style="width:480px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t24" style="width:480px;"><![endif]-->
-</tr></table>
-</td></tr></table></td>
-</tr></table>
-</td></tr></table></td>
-</tr></table>
-</td></tr><tr><td><div class="t30" style="mso-line-height-rule:exactly;mso-line-height-alt:30px;line-height:30px;font-size:1px;display:block;">&nbsp;</div></td></tr><tr><td>
-<table class="t39" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t38" style="width:320px;padding:0 40px 0 40px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t38" style="width:400px;padding:0 40px 0 40px;"><![endif]-->
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td>
-<table class="t33" role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<!--[if !mso]>--><td class="t32" style="width:480px;">
-<!--<![endif]-->
-<!--[if mso]><td class="t32" style="width:480px;"><![endif]-->
+																	<div style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ebae06;border-radius:4px;width:auto;border-top:0px solid #8a3b8f;font-weight:undefined;border-right:0px solid #8a3b8f;border-bottom:0px solid #8a3b8f;border-left:0px solid #8a3b8f;padding-top:10px;padding-bottom:10px;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:50px;padding-right:45px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="word-break: break-word; line-height: 32px;"><strong>Shop on Trendloom!</strong></span></span></div><!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td class="column column-2" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1" style="height:20px;line-height:20px;font-size:1px;">&#8202;</div>
+													<table class="image_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad" style="padding-right:5px;width:100%;">
+																<div class="alignment" align="center" style="line-height:10px">
+																	<div style="max-width: 260px;"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="display: block; height: auto; border: 0; width: 100%;" width="355" alt="Alternate text" title="Alternate text" height="auto"></div>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<div class="spacer_block block-3" style="height:40px;line-height:40px;font-size:1px;">&#8202;</div>
+													<div class="spacer_block block-4 mobile_hide" style="height:40px;line-height:40px;font-size:1px;">&#8202;</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-4" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fdf1d7;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1" style="height:20px;line-height:20px;font-size:1px;">&#8202;</div>
+													<table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:10px;padding-left:35px;padding-right:35px;padding-top:5px;">
+																<div style="color:#34495e;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:20px;line-height:150%;text-align:center;mso-line-height-alt:30px;">
+																	<p style="margin: 0; word-break: break-word;"><span><strong><span>Trusted by Millions of People</span></strong></span></p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<div class="spacer_block block-3 mobile_hide" style="height:20px;line-height:20px;font-size:1px;">&#8202;</div>
+												</td>
+												<td class="column column-2" width="50%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1 mobile_hide" style="height:20px;line-height:20px;font-size:1px;">&#8202;</div>
+													<div class="spacer_block block-2 mobile_hide" style="height:20px;line-height:20px;font-size:1px;">&#8202;</div>
+													<table class="image_block block-3" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad" style="padding-bottom:15px;padding-left:15px;padding-right:15px;width:100%;">
+																<div class="alignment" align="center" style="line-height:10px">
+																	<div style="max-width: 330px;"><img src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/1831/logoos.png" style="display: block; height: auto; border: 0; width: 100%;" width="330" alt="Alternate text" title="Alternate text" height="auto"></div>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<div class="spacer_block block-4" style="height:20px;line-height:20px;font-size:1px;">&#8202;</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-9" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1" style="height:30px;line-height:30px;font-size:1px;">&#8202;</div>
+													<div class="spacer_block block-2" style="height:45px;line-height:45px;font-size:1px;">&#8202;</div>
+													<table class="paragraph_block block-3" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:10px;padding-left:35px;padding-right:35px;padding-top:5px;">
+																<div style="color:#34495e;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:24px;line-height:150%;text-align:center;mso-line-height-alt:36px;">
+																	<p style="margin: 0; word-break: break-word;"><strong><span>Discover your new <span style="text-decoration: underline">you</span></span></strong></p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="paragraph_block block-4" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:25px;padding-left:25px;padding-right:25px;padding-top:10px;">
+																<div style="color:#393d47;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:180%;text-align:center;mso-line-height-alt:25.2px;">
+																	<p style="margin: 0; word-break: break-word;">Explore Trendloom's diverse collection and find the perfect pieces to redefine your style and express your unique personality.</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+                                                    <table class="paragraph_block block-4" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:25px;padding-left:25px;padding-right:25px;padding-top:10px;">
+																<div style="color:#393d47;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:180%;text-align:center;mso-line-height-alt:25.2px;">
+																	<a href="#" style="margin: 0; word-break: break-word; padding: 1rem; background: #ebae06; color: white; font-size: 1.125rem; text-decoration: none">Find your new clothing!</a>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-12" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1" style="height:55px;line-height:55px;font-size:1px;">&#8202;</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-13" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="33.333333333333336%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="paragraph_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:10px;padding-left:1px;padding-right:10px;padding-top:10px;">
+																<div style="color:#ebae06;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
+																	<p style="margin: 0; word-break: break-word;"><strong>&nbsp;Quick Links</strong></p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-bottom:10px;padding-left:20px;padding-right:10px;padding-top:10px;">
+																<div style="color:#393d47;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:180%;text-align:left;mso-line-height-alt:25.2px;">
+																	<p style="margin: 0; word-break: break-word;"><a style="text-decoration: none; color: #393d47;" href="#" target="_blank" rel="noopener">Men</a></p>
+																	<p style="margin: 0; word-break: break-word;"><a style="text-decoration: none; color: #393d47;" href="#" target="_blank" rel="noopener">Women</a></p>
+																	<p style="margin: 0; word-break: break-word;"><a style="text-decoration: none; color: #393d47;" href="#" target="_blank" rel="noopener">Children</a></p>
+																	<p style="margin: 0; word-break: break-word;"><a style="text-decoration: none; color: #393d47;" href="#" target="_blank" rel="noopener">Brands</a></p>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td class="column column-2" width="33.333333333333336%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="paragraph_block block-1" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div style="color:#ebae06;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
+																	<p style="margin: 0; word-break: break-word;"><strong>Contact Info</strong></p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="paragraph_block block-2" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div style="color:#393d47;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:180%;text-align:left;mso-line-height-alt:25.2px;">
+																	<p style="margin: 0; word-break: break-word;">BE (+32) 478 91 47&nbsp;<br>US (+22) 156 7345</p>
+																	<p style="margin: 0; word-break: break-word;">&nbsp;</p>
+																	<p style="margin: 0; word-break: break-word;">support@trendloom.com&nbsp;<br>sales@trendloom.com</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td class="column column-3" width="33.333333333333336%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="paragraph_block block-1" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div style="color:#ebae06;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
+																	<p style="margin: 0; word-break: break-word;"><strong>Trendloom</strong></p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="paragraph_block block-2" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div style="color:#393d47;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:14px;line-height:180%;text-align:left;mso-line-height-alt:25.2px;">
+																	<p style="margin: 0; word-break: break-word;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed&nbsp;</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+													<table class="social_block block-3" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad">
+																<div class="alignment" align="left">
+																	<table class="social-table" width="144px" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block;">
+																		<tr>
+																			<td style="padding:0 4px 0 0;"><a href="https://www.facebook.com" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/facebook@2x.png" width="32" height="auto" alt="Facebook" title="Facebook" style="display: block; height: auto; border: 0;"></a></td>
+																			<td style="padding:0 4px 0 0;"><a href="https://www.twitter.com" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/twitter@2x.png" width="32" height="auto" alt="Twitter" title="Twitter" style="display: block; height: auto; border: 0;"></a></td>
+																			<td style="padding:0 4px 0 0;"><a href="https://www.instagram.com" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/instagram@2x.png" width="32" height="auto" alt="Instagram" title="Instagram" style="display: block; height: auto; border: 0;"></a></td>
+																			<td style="padding:0 4px 0 0;"><a href="https://www.linkedin.com" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/linkedin@2x.png" width="32" height="auto" alt="LinkedIn" title="LinkedIn" style="display: block; height: auto; border: 0;"></a></td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="row row-14" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 720px; margin: 0 auto;" width="720">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<div class="spacer_block block-1" style="height:55px;line-height:55px;font-size:1px;">&#8202;</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table><!-- End -->
+</body>
+
 </html>
