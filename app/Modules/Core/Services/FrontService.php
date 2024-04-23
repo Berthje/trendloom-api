@@ -3,7 +3,6 @@ namespace App\Modules\Core\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
-use App\Models\Language;
 
 abstract class FrontService {
     protected $model;
