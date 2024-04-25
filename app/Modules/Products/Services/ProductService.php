@@ -74,6 +74,7 @@ class ProductService extends Service
         return $product;
     }
 
+    //Could be moved to instance of LanguageService but will let it here for now to reach a MVP
     private function areLanguagesValid($data)
     {
         $availableLanguages = Language::all()->pluck('code')->toArray();
