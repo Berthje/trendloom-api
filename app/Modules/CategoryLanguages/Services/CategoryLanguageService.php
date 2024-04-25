@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Modules\CategoryLanguages\Services;
 
 use App\Models\CategoryLanguage;
 use App\Modules\Core\Services\Service;
+use App\Models\Language;
 
-class CategoryLanguageService extends Service {
-    protected $fields= ['name', 'description', 'category_id', 'language_id'];
+class CategoryLanguageService extends Service
+{
+    protected $fields = ['name', 'description', 'category_id', 'language_id'];
     protected $searchField = 'categoryLanguage';
     protected $rules = [
         "add" => [
@@ -28,14 +31,31 @@ class CategoryLanguageService extends Service {
         ]
     ];
 
-    public function __construct(CategoryLanguage $model) {
+    public function __construct(CategoryLanguage $model)
+    {
         parent::__construct($model);
     }
 
-    protected function getRelationFields() {
+    protected function getRelationFields()
+    {
         return [
             'category:id,name,description,parent_category_id',
             'language:id,name,code',
         ];
+    }
+
+    public function createTranslations($brand, $languages)
+    {
+        foreach ($languages as $languageCode => $translationData) {
+            $language = Language::where('code', $languageCode)->first();
+
+            if ($language) {
+                $brand->translations()->create([
+                    'language_id' => $language->id,
+                    'name' => $translationData['name'],
+                    'description' => $translationData['description']
+                ]);
+            }
+        }
     }
 }
