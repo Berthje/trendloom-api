@@ -4,10 +4,10 @@ namespace App\Modules\Brands\Services;
 
 use App\Models\Brand;
 use App\Models\BrandLanguage;
-use App\Modules\Core\Services\Service;
 use App\Modules\BrandLanguages\Services\BrandLanguageService;
+use App\Modules\Core\Services\TranslatableService;
 
-class BrandService extends Service
+class BrandService extends TranslatableService
 {
     protected $fields = ['name', 'description', 'logo_url'];
     protected $searchField = 'brand';

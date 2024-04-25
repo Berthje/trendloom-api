@@ -3,14 +3,12 @@
 namespace App\Modules\Categories\Services;
 
 use App\Models\Category;
-use App\Modules\Core\Services\Service;
-use App\Models\Language;
 use App\Models\CategoryLanguage;
 use App\Modules\CategoryLanguages\Services\CategoryLanguageService;
-use App\Modules\Languages\Services\LanguageService;
+use App\Modules\Core\Services\TranslatableService;
 
 
-class CategoryService extends Service
+class CategoryService extends TranslatableService
 {
     protected $fields = ['name', 'description', 'parent_category_id'];
     protected $searchField = 'category';
