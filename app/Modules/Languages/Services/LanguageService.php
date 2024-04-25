@@ -27,4 +27,11 @@ class LanguageService extends Service {
     public function __construct(Language $model) {
         parent::__construct($model);
     }
+
+    public function areLanguagesValid($data)
+    {
+        $availableLanguages = Language::all()->pluck('code')->toArray();
+
+        return isset($data['languages']) && count(array_intersect($availableLanguages, array_keys($data['languages']))) === count($availableLanguages);
+    }
 }

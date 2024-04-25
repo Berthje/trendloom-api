@@ -4,9 +4,10 @@ namespace App\Modules\Products\Services;
 
 use App\Models\Product;
 use App\Modules\Core\Services\Service;
-use App\Models\Language;
 use App\Models\ProductLanguage;
+use App\Models\Language;
 use App\Modules\ProductLanguages\Services\ProductLanguageService;
+use App\Modules\Languages\Services\LanguageService;
 
 class ProductService extends Service
 {
@@ -62,7 +63,9 @@ class ProductService extends Service
             return;
         }
 
-        if (!$this->areLanguagesValid($data)) {
+        $languageService = new LanguageService(new Language());
+
+        if (!$languageService->areLanguagesValid($data)) {
             return response()->json(['error' => 'All available languages must be provided.'], 400);
         }
 
@@ -72,13 +75,5 @@ class ProductService extends Service
         $productLanguageService->createTranslations($product, $data['languages']);
 
         return $product;
-    }
-
-    //Could be moved to instance of LanguageService but will let it here for now to reach a MVP
-    private function areLanguagesValid($data)
-    {
-        $availableLanguages = Language::all()->pluck('code')->toArray();
-
-        return isset($data['languages']) && count(array_intersect($availableLanguages, array_keys($data['languages']))) === count($availableLanguages);
     }
 }
