@@ -13,9 +13,9 @@ class WishlistController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllWishlists()
+    public function getAllWishlists(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createWishlist(Request $request)

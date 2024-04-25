@@ -12,9 +12,9 @@ class ProductMediaController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllProductMedia()
+    public function getAllProductMedia(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createProductMedia(Request $request)

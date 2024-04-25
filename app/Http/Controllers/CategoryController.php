@@ -12,9 +12,9 @@ class CategoryController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllCategories()
+    public function getAllCategories(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createCategory(Request $request)

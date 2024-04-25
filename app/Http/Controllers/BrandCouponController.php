@@ -12,9 +12,9 @@ class BrandCouponController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllBrandCoupons()
+    public function getAllBrandCoupons(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createBrandCoupon(Request $request)

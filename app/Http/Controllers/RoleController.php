@@ -12,9 +12,9 @@ class RoleController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllRoles()
+    public function getAllRoles(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createRole(Request $request)

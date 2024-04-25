@@ -12,9 +12,9 @@ class CustomerController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllCustomers()
+    public function getAllCustomers(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createCustomer(Request $request)

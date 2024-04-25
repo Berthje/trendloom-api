@@ -12,9 +12,9 @@ class ProductLanguageController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllProductLanguages()
+    public function getAllProductLanguages(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createProductLanguage(Request $request)

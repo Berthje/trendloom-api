@@ -12,9 +12,9 @@ class BrandController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllBrands()
+    public function getAllBrands(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createBrand(Request $request)

@@ -12,9 +12,9 @@ class ProductSizeController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllProductSizes()
+    public function getAllProductSizes(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createProductSize(Request $request)

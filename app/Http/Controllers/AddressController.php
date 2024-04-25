@@ -12,9 +12,9 @@ class AddressController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllAddresses()
+    public function getAllAddresses(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createAddress(Request $request)

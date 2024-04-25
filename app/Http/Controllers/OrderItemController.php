@@ -12,9 +12,9 @@ class OrderItemController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllOrderItems()
+    public function getAllOrderItems(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createOrderItem(Request $request)

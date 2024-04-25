@@ -12,9 +12,9 @@ class ProductStockController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllProductStocks()
+    public function getAllProductStocks(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createProductStock(Request $request)

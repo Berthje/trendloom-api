@@ -12,9 +12,9 @@ class ProductCouponController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllProductCoupons()
+    public function getAllProductCoupons(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createProductCoupon(Request $request)

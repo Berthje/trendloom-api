@@ -12,9 +12,9 @@ class LanguageController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllLanguages()
+    public function getAllLanguages(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createLanguage(Request $request)

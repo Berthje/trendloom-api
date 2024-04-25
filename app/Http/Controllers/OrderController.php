@@ -9,28 +9,34 @@ use Illuminate\Auth\Access\AuthorizationException;
 
 class OrderController extends ApiServiceController
 {
-    public function __construct(OrderService $service) {
+    public function __construct(OrderService $service)
+    {
         $this->service = $service;
     }
 
-    public function getAllOrders() {
-        return $this->getAll();
+    public function getAllOrders(Request $request)
+    {
+        return $this->getAll($request);
     }
 
-    public function createOrder(Request $request) {
+    public function createOrder(Request $request)
+    {
         return $this->create($request);
     }
 
-    public function getOrderById($orderId) {
+    public function getOrderById($orderId)
+    {
         return $this->get($orderId);
     }
 
-    public function updateOrder(Request $request, $orderId) {
+    public function updateOrder(Request $request, $orderId)
+    {
         return $this->update($request, $orderId);
     }
 
     //I will choose not to delete orders and instead mark them as cancelled
-    public function cancelOrder($orderId) {
+    public function cancelOrder($orderId)
+    {
         try {
             return $this->service->cancel($orderId);
         } catch (AuthorizationException $e) {

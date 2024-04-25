@@ -12,9 +12,9 @@ class CategoryLanguageController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllCategoryLanguages()
+    public function getAllCategoryLanguages(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createCategoryLanguage(Request $request)

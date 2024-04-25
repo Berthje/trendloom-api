@@ -12,9 +12,9 @@ class BrandLanguageController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllBrandLanguages()
+    public function getAllBrandLanguages(Request $request)
     {
-        return $this->getAll();
+        return $this->getAll($request);
     }
 
     public function createBrandLanguage(Request $request)
