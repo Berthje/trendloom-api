@@ -16,7 +16,8 @@ class ProductFrontController extends Controller
 
     public function getAllProducts(Request $request)
     {
-        $products = $this->productFrontService->getTranslatedModel($request);
+        $itemCount = $request->input('itemCount', 12);
+        $products = $this->productFrontService->getTranslatedModel($itemCount);
         return response()->json($products);
     }
 

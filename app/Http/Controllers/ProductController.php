@@ -11,8 +11,8 @@ class ProductController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getAllProducts() {
-        return $this->getAll();
+    public function getAllProducts(Request $request) {
+        return $this->getAll($request);
     }
 
     public function createProduct(Request $request) {

@@ -13,10 +13,10 @@ abstract class FrontService {
         $this->languageCode = App::getLocale();
     }
 
-    public function getTranslatedModel() {
+    public function getTranslatedModel($itemCount) {
         return $this->getTranslationQuery()
             ->where('languages.code', $this->languageCode)
-            ->get();
+            ->paginate($itemCount)->withQueryString();
     }
 
     abstract protected function getTranslationQuery();

@@ -58,9 +58,10 @@ class ApiServiceController extends Controller
         return $this->handleResponse($model, Response::HTTP_OK);
     }
 
-    public function getAll() {
+    public function getAll(Request $request) {
         try {
-            $models = $this->service->getAll();
+            $itemCount = $request->input('itemCount', 12);
+            $models = $this->service->getAll($itemCount);
         } catch (AuthorizationException $e) {
             return response()->json(['error' => $e->getMessage()], Response::HTTP_FORBIDDEN);
         }

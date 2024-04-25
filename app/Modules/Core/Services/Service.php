@@ -68,8 +68,8 @@ abstract class Service {
         return $this->model->where('id', $id)->delete();
     }
 
-    public function getAll() {
-        return $this->model->with($this->getRelationFields())->get();
+    public function getAll($itemCount) {
+        return $this->model->with($this->getRelationFields())->paginate($itemCount)->withQueryString();
     }
 
     public function validate($data, $ruleKey) {
