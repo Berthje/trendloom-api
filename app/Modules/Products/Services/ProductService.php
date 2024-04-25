@@ -4,9 +4,7 @@ namespace App\Modules\Products\Services;
 
 use App\Models\Product;
 use App\Models\ProductLanguage;
-use App\Models\Language;
 use App\Modules\ProductLanguages\Services\ProductLanguageService;
-use App\Modules\Languages\Services\LanguageService;
 use App\Modules\Core\Services\TranslatableService;
 
 class ProductService extends TranslatableService
