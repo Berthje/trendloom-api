@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Modules\Customers\Services\CustomerService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Mail\WelcomeUser;
 
 class JwtAuthController extends ApiServiceController
 {

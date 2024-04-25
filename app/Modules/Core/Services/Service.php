@@ -39,11 +39,13 @@ abstract class Service {
             return;
         }
 
-        $customer = $this->model->create($data);
+        $model = $this->model->create($data);
 
-        Mail::to($data['email'])->send(new WelcomeUser($customer));
+        if ($model instanceof \App\Models\Customer) {
+            Mail::to($model->email)->send(new WelcomeUser($model));
+        }
 
-        return $customer;
+        return $model;
     }
 
     public function update($id, $data, $ruleKey = "update") {
