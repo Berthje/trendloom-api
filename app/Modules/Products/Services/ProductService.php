@@ -3,13 +3,13 @@
 namespace App\Modules\Products\Services;
 
 use App\Models\Product;
-use App\Modules\Core\Services\Service;
 use App\Models\ProductLanguage;
 use App\Models\Language;
 use App\Modules\ProductLanguages\Services\ProductLanguageService;
 use App\Modules\Languages\Services\LanguageService;
+use App\Modules\Core\Services\TranslatableService;
 
-class ProductService extends Service
+class ProductService extends TranslatableService
 {
     protected $fields = ['name', 'description', 'price', 'sku', 'status', 'ean_barcode', 'brand_id', 'category_id'];
     protected $searchField = 'product';
@@ -42,9 +42,8 @@ class ProductService extends Service
         ]
     ];
 
-    public function __construct(Product $model)
-    {
-        parent::__construct($model);
+    public function __construct(Product $model) {
+        parent::__construct($model, new ProductLanguageService(new ProductLanguage()));
     }
 
     protected function getRelationFields()
@@ -53,27 +52,5 @@ class ProductService extends Service
             'brand:id,name,description,logo_url',
             'category:id,name,description,parent_category_id'
         ];
-    }
-
-    public function create($data, $ruleKey = "add")
-    {
-        $this->validate($data, $ruleKey);
-
-        if ($this->HasErrors()) {
-            return;
-        }
-
-        $languageService = new LanguageService(new Language());
-
-        if (!$languageService->areLanguagesValid($data)) {
-            return response()->json(['error' => 'All available languages must be provided.'], 400);
-        }
-
-        $product = $this->model->create($data);
-        $productLanguageService = new ProductLanguageService(new ProductLanguage());
-
-        $productLanguageService->createTranslations($product, $data['languages']);
-
-        return $product;
     }
 }

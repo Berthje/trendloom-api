@@ -35,7 +35,7 @@ class CategoryService extends Service
 
     public function __construct(Category $model)
     {
-        parent::__construct($model);
+        parent::__construct($model, new CategoryLanguageService(new CategoryLanguage()));
     }
 
     protected function getRelationFields()
@@ -43,27 +43,5 @@ class CategoryService extends Service
         return [
             'parent'
         ];
-    }
-
-    public function create($data, $ruleKey = "add")
-    {
-        $this->validate($data, $ruleKey);
-
-        if ($this->HasErrors()) {
-            return;
-        }
-
-        $languageService = new LanguageService(new Language());
-
-        if (!$languageService->areLanguagesValid($data)) {
-            return response()->json(['error' => 'All available languages must be provided.'], 400);
-        }
-
-        $category = $this->model->create($data);
-        $categoryLanguageService = new CategoryLanguageService(new CategoryLanguage());
-
-        $categoryLanguageService->createTranslations($category, $data['languages']);
-
-        return $category;
     }
 }
