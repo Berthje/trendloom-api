@@ -1,12 +1,16 @@
 <?php
+
 namespace App\Modules\Products\Services;
 
 use App\Models\Product;
 use App\Modules\Core\Services\Service;
 use App\Models\Language;
+use App\Models\ProductLanguage;
+use App\Modules\ProductLanguages\Services\ProductLanguageService;
 
-class ProductService extends Service {
-    protected $fields= ['name', 'description', 'price', 'sku', 'status', 'ean_barcode', 'brand_id', 'category_id'];
+class ProductService extends Service
+{
+    protected $fields = ['name', 'description', 'price', 'sku', 'status', 'ean_barcode', 'brand_id', 'category_id'];
     protected $searchField = 'product';
     protected $rules = [
         "add" => [
@@ -37,46 +41,43 @@ class ProductService extends Service {
         ]
     ];
 
-    public function __construct(Product $model) {
+    public function __construct(Product $model)
+    {
         parent::__construct($model);
     }
 
-    protected function getRelationFields() {
+    protected function getRelationFields()
+    {
         return [
             'brand:id,name,description,logo_url',
             'category:id,name,description,parent_category_id'
         ];
     }
 
-    public function create($data, $ruleKey = "add") {
+    public function create($data, $ruleKey = "add")
+    {
         $this->validate($data, $ruleKey);
 
         if ($this->HasErrors()) {
             return;
         }
 
-        $availableLanguages = Language::all()->pluck('code')->toArray();
-
-        if (!isset($data['languages']) || count(array_intersect($availableLanguages, array_keys($data['languages']))) !== count($availableLanguages)) {
+        if (!$this->areLanguagesValid($data)) {
             return response()->json(['error' => 'All available languages must be provided.'], 400);
         }
 
         $product = $this->model->create($data);
+        $productLanguageService = new ProductLanguageService(new ProductLanguage());
 
-        foreach ($data['languages'] as $languageCode => $translationData) {
-            $language = Language::where('code', $languageCode)->first();
-
-            if ($language) {
-                $product->translations()->create([
-                    'language_id' => $language->id,
-                    'name' => $translationData['name'],
-                    'description' => $translationData['description'],
-                    'price' => $translationData['price'],
-                    'tags' => $translationData['tags'],
-                ]);
-            }
-        }
+        $productLanguageService->createTranslations($product, $data['languages']);
 
         return $product;
+    }
+
+    private function areLanguagesValid($data)
+    {
+        $availableLanguages = Language::all()->pluck('code')->toArray();
+
+        return isset($data['languages']) && count(array_intersect($availableLanguages, array_keys($data['languages']))) === count($availableLanguages);
     }
 }

@@ -3,6 +3,7 @@ namespace App\Modules\ProductLanguages\Services;
 
 use App\Models\ProductLanguage;
 use App\Modules\Core\Services\Service;
+use App\Models\Language;
 
 class ProductLanguageService extends Service {
     protected $fields= ['product_id', 'language_id', 'name', 'description', 'price', 'tags'];
@@ -41,5 +42,22 @@ class ProductLanguageService extends Service {
             'product:id,name,description,price,sku,status,ean_barcode',
             'language:id,name,code',
         ];
+    }
+
+    public function createTranslations($product, $languages)
+    {
+        foreach ($languages as $languageCode => $translationData) {
+            $language = Language::where('code', $languageCode)->first();
+
+            if ($language) {
+                $product->translations()->create([
+                    'language_id' => $language->id,
+                    'name' => $translationData['name'],
+                    'description' => $translationData['description'],
+                    'price' => $translationData['price'],
+                    'tags' => $translationData['tags'],
+                ]);
+            }
+        }
     }
 }
