@@ -44,16 +44,17 @@ class CategoryLanguageService extends Service
         ];
     }
 
-    public function createTranslations($brand, $languages)
+    public function createTranslations($category, $languages)
     {
         foreach ($languages as $languageCode => $translationData) {
             $language = Language::where('code', $languageCode)->first();
 
             if ($language) {
-                $brand->translations()->create([
-                    'language_id' => $language->id,
+                $category->translations()->create([
                     'name' => $translationData['name'],
-                    'description' => $translationData['description']
+                    'description' => $translationData['description'],
+                    'category_id' => $translationData['category_id'],
+                    'language_id' => $language->id
                 ]);
             }
         }
