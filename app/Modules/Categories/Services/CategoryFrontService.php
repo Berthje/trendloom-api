@@ -62,6 +62,24 @@ class CategoryFrontService extends FrontService
             ->first();
     }
 
+    private function getProductsWithLanguage($category, $lang)
+    {
+        $query = $category->products();
+
+        if ($lang) {
+            $query->select('products.id', 'product_languages.name', 'product_languages.description', 'products.price', 'products.sku', 'products.status', 'products.ean_barcode', 'products.brand_id', 'products.category_id')
+                ->join('product_languages', 'products.id', '=', 'product_languages.product_id')
+                ->join('languages', 'languages.id', '=', 'product_languages.language_id')
+                ->where('languages.code', $lang);
+        } else {
+            $query->select('products.*');
+        }
+
+        $query->with(['brand', 'category']);
+
+        return $query->get();
+    }
+
     private function getProductsFromChildren($children, $request)
     {
         $products = collect();
@@ -77,22 +95,6 @@ class CategoryFrontService extends FrontService
         }
 
         return $products;
-    }
-
-    private function getProductsWithLanguage($category, $lang)
-    {
-        $query = $category->products();
-
-        if ($lang) {
-            $query->select('products.id', 'product_languages.name', 'product_languages.description', 'products.price', 'products.sku', 'products.status', 'products.ean_barcode', 'products.brand_id', 'products.category_id')
-                ->join('product_languages', 'products.id', '=', 'product_languages.product_id')
-                ->join('languages', 'languages.id', '=', 'product_languages.language_id')
-                ->where('languages.code', $lang);
-        } else {
-            $query->select('products.*');
-        }
-
-        return $query->get();
     }
 
     private function addLanguageFilter($query, $lang)
