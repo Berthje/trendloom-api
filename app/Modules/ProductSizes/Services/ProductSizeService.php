@@ -33,4 +33,8 @@ class ProductSizeService extends Service {
             'product:id,name,description,price,sku,status,ean_barcode,brand_id,category_id'
         ];
     }
+
+    public function getProductSizesByProductId($productId) {
+        return $this->model->where('product_id', $productId)->get();
+    }
 }

@@ -115,6 +115,7 @@ Route::prefix('product-coupons')->group(function () {
 
 Route::prefix('product-sizes')->group(function () {
     Route::get('/', [ProductSizeController::class, 'getAllProductSizes']);
+    Route::get('/product/{id}', [ProductSizeController::class, 'getAllProductSizesByProductId']);
     Route::get('/{id}', [ProductSizeController::class, 'getProductSizeById']);
 });
 
