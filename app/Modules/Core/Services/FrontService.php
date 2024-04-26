@@ -13,7 +13,9 @@ abstract class FrontService {
         $this->languageCode = App::getLocale();
     }
 
-    public function getTranslatedModel($itemCount) {
+    public function getTranslatedModel($request) {
+        $itemCount = $request->input('itemCount', 12);
+
         return $this->getTranslationQuery()
             ->where('languages.code', $this->languageCode)
             ->paginate($itemCount)->withQueryString();
