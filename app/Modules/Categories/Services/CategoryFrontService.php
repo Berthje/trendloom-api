@@ -75,7 +75,7 @@ class CategoryFrontService extends FrontService
             $query->select('products.*');
         }
 
-        $query->with(['brand', 'category']);
+        $query->with(['brand', 'category', 'media', 'sizes']);
 
         return $query->get();
     }
