@@ -29,4 +29,13 @@ class Product extends Model
     {
         return $this->hasMany(ProductLanguage::class);
     }
+
+    public function sizes()
+    {
+        return $this->hasMany(ProductSize::class);
+    }
+
+    public function media(){
+        return $this->hasMany(ProductMedia::class);
+    }
 }
