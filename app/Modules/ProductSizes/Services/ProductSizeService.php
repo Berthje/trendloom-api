@@ -10,11 +10,11 @@ class ProductSizeService extends Service {
     protected $rules = [
         "add" => [
             'product_id' => 'required|integer|exists:products,id',
-            'size' => ['required', 'string', 'regex:/^(\d{2}|EU \d{2})$/']
+            'size' => ['required', 'string', 'regex:/^(EU )?\d{2}$/']
         ],
         "update" => [
             'product_id' => 'sometimes|integer|exists:products,id',
-            'size' => ['required', 'string', 'regex:/^(\d{2}|EU \d{2})$/']
+            'size' => ['required', 'string', 'regex:/^(EU )?\d{2}$/']
         ],
         "delete" => [
             'id' => 'required|exists:product_sizes,id',
