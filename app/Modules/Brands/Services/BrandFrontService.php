@@ -15,7 +15,7 @@ class BrandFrontService extends FrontService
     protected function getTranslationQuery()
     {
         return $this->model
-            ->select('brands.id as brand_id', 'brand_languages.name', 'brand_languages.description', 'brands.logo_url', 'languages.id as language_id', 'languages.code')
+        ->select('brands.id', 'brand_languages.name', 'brand_languages.description', 'brands.logo_url', 'languages.id as language_id', 'languages.code')
             ->join('brand_languages', 'brands.id', '=', 'brand_languages.brand_id')
             ->join('languages', 'languages.id', '=', 'brand_languages.language_id');
     }
