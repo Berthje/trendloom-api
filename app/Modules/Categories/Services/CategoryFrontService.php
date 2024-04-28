@@ -38,24 +38,22 @@ class CategoryFrontService extends FrontService
 
     public function getProductsByCategoryId($request, $categoryId)
     {
-        // Get the category with its products and the products of its child categories
-        $category = $this->getCategoryWithProducts($categoryId, $request->input('lang'));
+        $itemCount = $request->input('itemCount', 12);
+        $lang = $request->input('lang');
+
+        $category = $this->getCategoryWithProducts($categoryId, $lang);
 
         if ($category === null) {
             return response()->json(['message' => 'Category not found'], 404);
         }
 
-        // Get the products of the category
-        $products = $this->getProductsWithLanguage($category, $request->input('lang'));
+        $products = $this->getProductsWithLanguage($category, $lang);
 
-        // Get the products of the child categories
         $childProducts = $this->getProductsFromChildCategories($category->children, $request);
 
-        // Merge the products of the category and its child categories
         $allProducts = $products->concat($childProducts);
 
-        // Paginate the results
-        $itemCount = $request->input('itemCount', 12);
+
         $paginatedProducts = new LengthAwarePaginator($allProducts->forPage($request->input('page', 1), $itemCount), $allProducts->count(), $itemCount);
 
         return $paginatedProducts;
@@ -78,10 +76,7 @@ class CategoryFrontService extends FrontService
         $query = $category->products();
 
         if ($lang) {
-            $query->select('products.id', 'product_languages.name', 'product_languages.description', 'products.price', 'products.sku', 'products.status', 'products.ean_barcode', 'products.brand_id', 'products.category_id')
-                ->join('product_languages', 'products.id', '=', 'product_languages.product_id')
-                ->join('languages', 'languages.id', '=', 'product_languages.language_id')
-                ->where('languages.code', $lang);
+            $this->applyLanguageFilter($query, $lang);
         } else {
             $query->select('products.*');
         }
