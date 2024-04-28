@@ -67,6 +67,11 @@ class ProductFrontService extends FrontService
     private function paginateQuery($query, $request)
     {
         $itemCount = $request->input('itemCount', 12);
+
+        if ($itemCount === 'all') {
+            $itemCount = $query->count();
+        }
+
         return $query->paginate($itemCount)->withQueryString();
     }
 }
