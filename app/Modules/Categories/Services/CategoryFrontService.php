@@ -49,14 +49,11 @@ class CategoryFrontService extends FrontService
 
         $products = $this->getProductsWithLanguage($category, $lang);
 
-        $childProducts = $this->getProductsFromChildCategories($category->children, $request);
+        $childProducts = $this->getProductsFromChildCategories($category->children, $lang);
 
         $allProducts = $products->concat($childProducts);
 
-
-        $paginatedProducts = new LengthAwarePaginator($allProducts->forPage($request->input('page', 1), $itemCount), $allProducts->count(), $itemCount);
-
-        return $paginatedProducts;
+        return $this->paginate($allProducts, $request->input('page', 1), $itemCount);
     }
 
     private function getCategoryWithProducts($categoryId, $lang)
@@ -86,17 +83,17 @@ class CategoryFrontService extends FrontService
         return $query->get();
     }
 
-    private function getProductsFromChildCategories($children, $request)
+    private function getProductsFromChildCategories($children, $lang)
     {
         $products = collect();
 
         foreach ($children as $child) {
-            $childProducts = $this->getProductsWithLanguage($child, $request->input('lang'));
+            $childProducts = $this->getProductsWithLanguage($child, $lang);
 
             $products = $products->concat($childProducts);
 
             if ($child->children->isNotEmpty()) {
-                $products = $products->concat($this->getProductsFromChildCategories($child->children, $request));
+                $products = $products->concat($this->getProductsFromChildCategories($child->children, $lang));
             }
         }
 
@@ -109,5 +106,10 @@ class CategoryFrontService extends FrontService
             ->join('product_languages', 'products.id', '=', 'product_languages.product_id')
             ->join('languages', 'languages.id', '=', 'product_languages.language_id')
             ->where('languages.code', $lang);
+    }
+
+    private function paginate($items, $currentPage, $perPage)
+    {
+        return new LengthAwarePaginator($items->forPage($currentPage, $perPage), $items->count(), $perPage);
     }
 }
