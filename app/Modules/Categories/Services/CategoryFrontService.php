@@ -47,9 +47,9 @@ class CategoryFrontService extends FrontService
             return response()->json(['message' => 'Category not found'], 404);
         }
 
-        $products = $this->getProductsWithLanguage($category, $lang);
+        $products = $this->getProductsWithLanguage($category, $request);
 
-        $childProducts = $this->getProductsFromChildCategories($category->children, $lang);
+        $childProducts = $this->getProductsFromChildCategories($category->children, $request);
 
         $allProducts = $products->concat($childProducts);
 
@@ -68,17 +68,19 @@ class CategoryFrontService extends FrontService
             ->first();
     }
 
-    private function getProductsWithLanguage($category, $lang)
+    private function getProductsWithLanguage($category, $request)
     {
         $query = $category->products();
 
-        if ($lang) {
-            $this->applyLanguageFilter($query, $lang);
+        if ($request->has('lang')) {
+            $this->applyLanguageFilter($query, $request->input('lang'));
         } else {
             $query->select('products.*');
         }
 
         $query->with(['brand', 'category', 'media', 'sizes']);
+
+        $query = $this->applySorting($query, $request);
 
         return $query->get();
     }
