@@ -46,6 +46,7 @@ Route::get('/translations', [TranslationController::class, 'getTranslation']);
 Route::prefix('brands')->group(function () {
     Route::get('/', [BrandFrontController::class, 'getAllBrands']);
     Route::get('/{id}', [BrandFrontController::class, 'getBrandById']);
+    Route::get('/{id}/products', [BrandFrontController::class, 'getProductsByBrandId']);
 });
 
 Route::prefix('categories')->group(function () {

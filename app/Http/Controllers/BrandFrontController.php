@@ -20,9 +20,15 @@ class BrandFrontController extends Controller
         return response()->json($brands);
     }
 
-    public function getBrandByid(Request $request, $id)
+    public function getBrandById(Request $request, $id)
     {
         $brand = $this->brandFrontService->getBrandById($request, $id);
         return response()->json($brand);
+    }
+
+    public function getProductsByBrandId(Request $request, $id)
+    {
+        $products = $this->brandFrontService->getProductsByBrandId($request, $id);
+        return response()->json($products);
     }
 }
