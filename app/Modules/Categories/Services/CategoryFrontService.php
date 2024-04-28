@@ -4,6 +4,7 @@ namespace App\Modules\Categories\Services;
 
 use App\Models\Category;
 use App\Modules\Core\Services\FrontService;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CategoryFrontService extends FrontService
 {
@@ -37,17 +38,27 @@ class CategoryFrontService extends FrontService
 
     public function getProductsByCategoryId($request, $categoryId)
     {
+        // Get the category with its products and the products of its child categories
         $category = $this->getCategoryWithProducts($categoryId, $request->input('lang'));
 
         if ($category === null) {
             return response()->json(['message' => 'Category not found'], 404);
         }
 
-        $products = $category->products;
+        // Get the products of the category
+        $products = $this->getProductsWithLanguage($category, $request->input('lang'));
 
-        $products = $products->concat($this->getProductsFromChildren($category->children, $request));
+        // Get the products of the child categories
+        $childProducts = $this->getProductsFromChildCategories($category->children, $request);
 
-        return $products;
+        // Merge the products of the category and its child categories
+        $allProducts = $products->concat($childProducts);
+
+        // Paginate the results
+        $itemCount = $request->input('itemCount', 12);
+        $paginatedProducts = new LengthAwarePaginator($allProducts->forPage($request->input('page', 1), $itemCount), $allProducts->count(), $itemCount);
+
+        return $paginatedProducts;
     }
 
     private function getCategoryWithProducts($categoryId, $lang)
@@ -55,7 +66,7 @@ class CategoryFrontService extends FrontService
         return $this->model
             ->with(['products' => function ($query) use ($lang) {
                 if ($lang) {
-                    $this->addLanguageFilter($query, $lang);
+                    $this->applyLanguageFilter($query, $lang);
                 }
             }, 'children.products'])
             ->where('id', $categoryId)
@@ -80,7 +91,7 @@ class CategoryFrontService extends FrontService
         return $query->get();
     }
 
-    private function getProductsFromChildren($children, $request)
+    private function getProductsFromChildCategories($children, $request)
     {
         $products = collect();
 
@@ -90,14 +101,14 @@ class CategoryFrontService extends FrontService
             $products = $products->concat($childProducts);
 
             if ($child->children->isNotEmpty()) {
-                $products = $products->concat($this->getProductsFromChildren($child->children, $request));
+                $products = $products->concat($this->getProductsFromChildCategories($child->children, $request));
             }
         }
 
         return $products;
     }
 
-    private function addLanguageFilter($query, $lang)
+    private function applyLanguageFilter($query, $lang)
     {
         $query->select('products.id', 'product_languages.name', 'product_languages.description', 'products.price', 'products.sku', 'products.status', 'products.ean_barcode', 'products.brand_id', 'products.category_id')
             ->join('product_languages', 'products.id', '=', 'product_languages.product_id')
