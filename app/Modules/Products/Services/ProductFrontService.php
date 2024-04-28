@@ -47,4 +47,31 @@ class ProductFrontService extends FrontService
         $itemCount = $request->input('itemCount', 12);
         return $this->getTranslationQuery()->where('languages.code', $this->languageCode);
     }
+
+    public function applySorting($query, $request, $defaultSort = 'default')
+    {
+        $sort = $request->input('sort', $defaultSort);
+
+        switch ($sort) {
+            case 'price_low_high':
+                return $query->orderBy('products.price', 'asc');
+            case 'price_high_low':
+                return $query->orderBy('products.price', 'desc');
+            case 'latest':
+                return $query->orderBy('products.created_at', 'desc');
+            default:
+                return $query;
+        }
+    }
+
+    public function paginateQuery($query, $request, $defaultItemCount = 12)
+    {
+        $itemCount = $request->input('itemCount', $defaultItemCount);
+
+        if ($itemCount === 'all') {
+            $itemCount = $query->count();
+        }
+
+        return $query->paginate($itemCount)->withQueryString();
+    }
 }

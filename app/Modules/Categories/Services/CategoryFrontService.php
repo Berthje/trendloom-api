@@ -80,8 +80,6 @@ class CategoryFrontService extends FrontService
 
         $query->with(['brand', 'category', 'media', 'sizes']);
 
-        $query = $this->applySorting($query, $request);
-
         return $query->get();
     }
 
