@@ -40,6 +40,7 @@ class CategoryFrontService extends FrontService
     {
         $itemCount = $request->input('itemCount', 12);
         $lang = $request->input('lang');
+        $sort = $request->input('sort', 'default');
 
         $category = $this->getCategoryWithProducts($categoryId, $lang);
 
@@ -52,6 +53,8 @@ class CategoryFrontService extends FrontService
         $childProducts = $this->getProductsFromChildCategories($category->children, $request);
 
         $allProducts = $products->concat($childProducts);
+
+        $allProducts = $this->sortProducts($allProducts, $sort);
 
         return $this->paginate($allProducts, $request->input('page', 1), $itemCount);
     }
@@ -111,5 +114,19 @@ class CategoryFrontService extends FrontService
     private function paginate($items, $currentPage, $perPage)
     {
         return new LengthAwarePaginator($items->forPage($currentPage, $perPage), $items->count(), $perPage);
+    }
+
+    public function sortProducts($allProducts, $sort)
+    {
+        switch ($sort) {
+            case 'price_low_high':
+                return $allProducts->sortBy('price')->values();
+            case 'price_high_low':
+                return $allProducts->sortByDesc('price')->values();
+            case 'latest':
+                return $allProducts->sortByDesc('created_at')->values();
+            default:
+                return $allProducts;
+        }
     }
 }
