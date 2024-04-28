@@ -4,7 +4,6 @@ namespace App\Modules\Categories\Services;
 
 use App\Models\Category;
 use App\Modules\Core\Services\FrontService;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class CategoryFrontService extends FrontService
 {
@@ -101,32 +100,5 @@ class CategoryFrontService extends FrontService
         }
 
         return $products;
-    }
-
-    private function applyLanguageFilter($query, $lang)
-    {
-        $query->select('products.id', 'product_languages.name', 'product_languages.description', 'products.price', 'products.sku', 'products.status', 'products.ean_barcode', 'products.brand_id', 'products.category_id')
-            ->join('product_languages', 'products.id', '=', 'product_languages.product_id')
-            ->join('languages', 'languages.id', '=', 'product_languages.language_id')
-            ->where('languages.code', $lang);
-    }
-
-    private function paginate($items, $currentPage, $perPage)
-    {
-        return new LengthAwarePaginator($items->forPage($currentPage, $perPage), $items->count(), $perPage);
-    }
-
-    public function sortProducts($allProducts, $sort)
-    {
-        switch ($sort) {
-            case 'price_low_high':
-                return $allProducts->sortBy('price')->values();
-            case 'price_high_low':
-                return $allProducts->sortByDesc('price')->values();
-            case 'latest':
-                return $allProducts->sortByDesc('created_at')->values();
-            default:
-                return $allProducts;
-        }
     }
 }
