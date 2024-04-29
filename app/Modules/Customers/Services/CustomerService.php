@@ -18,7 +18,7 @@ class CustomerService extends AuthenticatedService
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'email' => 'required|email|unique:customers,email',
-            'phone_number' => 'required|string',
+            'phone_number' => 'sometimes|string',
             'password' => 'required|string|min:6',
             'preferred_locale' => 'sometimes|string|default:en',
         ],
