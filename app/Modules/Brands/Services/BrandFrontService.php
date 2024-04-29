@@ -41,6 +41,7 @@ class BrandFrontService extends FrontService
         $sort = $request->input('sort', 'default');
 
         $productsQuery = $this->model->find($brandId)->products();
+        $productsQuery->with(['brand', 'category', 'media', 'sizes']);
 
         if ($lang) {
             $this->applyLanguageFilter($productsQuery, $lang);
