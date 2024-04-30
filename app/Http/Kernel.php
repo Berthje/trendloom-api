@@ -70,6 +70,5 @@ class Kernel extends HttpKernel
         'language' => \App\Http\Middleware\Localization::class,
         'auth.csrf.jwt' => \App\Http\Middleware\VerifyJwtCsrfToken::class,
         'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
-        'verifyUserOwnership' => \App\Http\Middleware\VerifyUserOwnership::class,
     ];
 }
