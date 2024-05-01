@@ -58,6 +58,7 @@ return [
     "t_shirts" => "T-shirts",
     "shoes" => "Schoenen",
     "log_in" => "Log in",
+    "logout" => "Uitloggen",
     "email_address" => "E-mailadres",
     "phone_number" => "Telefoonnummer",
     "sample_email" => "voornaam.achternaam@gmail.com",

@@ -58,6 +58,7 @@ return [
     "t_shirts" => "T-shirts",
     "shoes" => "Shoes",
     "log_in" => "Log in",
+    "logout" => "Logout",
     "email_address" => "Email address",
     "phone_number" => "Phone number",
     "sample_email" => "firstname.lastname@gmail.com",
