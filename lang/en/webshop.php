@@ -67,6 +67,7 @@ return [
     "forgot_password" => "Forgot password",
     "social_media_login" => "Or social media",
     "log_in_with" => "Log in with",
+    "invalid_details" => "Invalid email or password.",
     "with" => "with",
     "account" => "Account",
     "wishlist" => "Wishlist",
