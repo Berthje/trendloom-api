@@ -11,7 +11,7 @@ return [
     "classic_is_back" => "De klassieker die nostalgie oproept is TERUG.",
     "explore_women" => "Verken vrouwen",
     "explore_men" => "Verken mannen",
-    "most_popular_categories" => "MEEST POPULAIRE CATEGORIEËN",
+    "our_categories" => "Onze categorieën",
     "explore_popular_categories" => "Ontdek onze populairste categorieën vol met top-rated producten gekozen door onze klanten.",
     "sustainable_collection" => "Een beste collectie volledig gerecycled en duurzaam.",
     "support" => "Support",

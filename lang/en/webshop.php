@@ -12,7 +12,7 @@ return [
     "classic_is_back" => "The Nostalgia-inducing classic is BACK.",
     "explore_women" => "Explore women",
     "explore_men" => "Explore men",
-    "most_popular_categories" => "MOST POPULAR CATEGORIES",
+    "our_categories" => "Our categories",
     "explore_popular_categories" => "Explore our most popular categories filled with top-rated products chosen by our customers.",
     "sustainable_collection" => "A best collection made entirely recycled and sustainable.",
     "support" => "Support",
