@@ -27,7 +27,7 @@ class OrderService extends AuthenticatedService {
             'address_id' => 'required|exists:addresses,id|integer',
             'coupon_id' => 'sometimes|exists:coupons,id',
             'order_date' => 'required|date',
-            'status' => 'required|string|default:processing',
+            'status' => 'required|string|in:processing,shipped,delivered,cancelled,not_completed',
             'amount_products' => 'required|integer|min:1',
             'total_price' => 'required|numeric|min:0',
             'payment_method' => 'required|string',
