@@ -5,6 +5,7 @@ return [
     "explore_summer_styles" => "Explore Styles ready for Summer Day",
     "summers_wanted" => "SUMMER’S WANTED",
     "shop_now" => "Shop now",
+    "about_us" => "About us",
     "the_jeans_you_need" => "The Jeans You Need",
     "true_skinny_description" => "True Skinny in denim keeps its shape all day.",
     "find_perfect_looks" => "Find Perfect Looks",
@@ -35,7 +36,7 @@ return [
     "terms_conditions" => "Terms & conditions",
     "privacy_cookie_policy" => "Privacy & cookie policy",
     "copyright" => "Copyright © 2024 Trendloom. Created by",
-    "mens_shop" => "Men's shop",
+    "mens_shop" => "Men",
     "home" => "Home",
     "default_sorting" => "Default sorting",
     "sort_by_latest" => "Sort by latest",
@@ -44,8 +45,8 @@ return [
     "all" => "All",
     "previous" => "Previous",
     "next" => "Next",
-    "womens_shop" => "Women's shop",
-    "kids_shop" => "Kids' shop",
+    "womens_shop" => "Women",
+    "kids_shop" => "Kids",
     "our_brands" => "Our brands",
     "brands" => "Brands",
     "brand" => "Brand",
@@ -131,4 +132,5 @@ return [
     "old_password_required" => "The old password field is required.",
     "new_password_required" => "The new password field is required.",
     "residential_business" => "Residential, Business",
+    "password_requirement" => "It must be a combination of minimum 8 letters and atleast 1 numbers."
 ];
