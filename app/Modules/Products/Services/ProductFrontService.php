@@ -12,13 +12,14 @@ class ProductFrontService extends FrontService
         parent::__construct($model);
     }
 
+
     protected function getTranslationQuery()
     {
         return $this->model
             ->with(['brand', 'category', 'sizes', 'media'])
             ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
             ->join('languages', 'languages.id', '=', 'product_languages.language_id')
-            ->select('products.*', 'languages.*', 'product_languages.*');
+            ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags');
     }
 
     public function getProductById($request, $productId)
@@ -42,9 +43,8 @@ class ProductFrontService extends FrontService
         return $this->paginateQuery($query, $request);
     }
 
-    private function prepareQuery($request)
+    private function prepareQuery()
     {
-        $itemCount = $request->input('itemCount', 12);
         return $this->getTranslationQuery()->where('languages.code', $this->languageCode);
     }
 
