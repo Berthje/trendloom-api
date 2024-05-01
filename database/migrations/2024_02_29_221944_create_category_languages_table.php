@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('category_languages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->mediumText('description');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('language_id');
             $table->timestamps();

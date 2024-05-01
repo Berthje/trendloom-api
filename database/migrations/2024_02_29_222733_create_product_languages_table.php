@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('language_id');
             $table->string('name');
-            $table->string('description');
+            $table->mediumText('description');
             $table->decimal('price', 8, 2);
             $table->json('tags')->nullable();
             $table->timestamps();

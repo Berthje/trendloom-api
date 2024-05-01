@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('language_id');
             $table->string('name');
-            $table->string('description');
+            $table->mediumText('description');
             $table->timestamps();
         });
     }
