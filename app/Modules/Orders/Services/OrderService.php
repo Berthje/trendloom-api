@@ -25,26 +25,26 @@ class OrderService extends AuthenticatedService {
         "add" => [
             'customer_id' => 'required|exists:customers,id|integer',
             'address_id' => 'required|exists:addresses,id|integer',
-            'coupon_id' => 'sometimes|exists:coupons,id',
+            'coupon_id' => 'sometimes|nullable|exists:coupons,id',
             'order_date' => 'required|date',
             'status' => 'required|string|in:processing,shipped,delivered,cancelled,not_completed',
-            'amount_products' => 'required|integer|min:1',
+            'amount_products' => 'required|integer',
             'total_price' => 'required|numeric|min:0',
             'payment_method' => 'required|string',
             'shipping_method' => 'required|string',
-            'tracking_number' => 'sometimes|string'
+            'tracking_number' => 'sometimes|nullable|string'
         ],
         "update" => [
             'customer_id' => 'sometimes|exists:customers,id|integer',
             'address_id' => 'sometimes|exists:addresses,id|integer',
-            'coupon_id' => 'sometimes|exists:coupons,id',
+            'coupon_id' => 'sometimes|nullable|exists:coupons,id',
             'order_date' => 'sometimes|date',
             'status' => 'sometimes|string|in:processing,shipped,delivered,cancelled,not_completed',
-            'amount_products' => 'sometimes|integer|min:1',
+            'amount_products' => 'sometimes|integer',
             'total_price' => 'sometimes|numeric|min:0',
             'payment_method' => 'sometimes|string',
             'shipping_method' => 'sometimes|string',
-            'tracking_number' => 'sometimes|string'
+            'tracking_number' => 'sometimes|nullable|string'
         ],
         "get" => [
             'id' => 'required|exists:orders,id',

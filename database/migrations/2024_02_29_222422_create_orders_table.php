@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('order_date');
             $table->enum('status', ['shipping', 'paid', 'cancelled', 'delivered', 'returned', 'refunded', 'not_completed']);
             $table->integer('amount_products');
-            $table->decimal('total_price', 8, 2);
+            $table->decimal('total_price', 8, 2)->default(0.00);
             $table->string('payment_method');
             $table->string('shipping_method');
             $table->string('tracking_number')->nullable();
