@@ -37,7 +37,7 @@ return [
     "privacy_cookie_policy" => "Privacy- & cookiebeleid",
     "copyright" => "Copyright © 2024 Trendloom. Gemaakt door",
     "mens_shop" => "Mannen",
-    "home" => "Thuis",
+    "home" => "Home",
     "default_sorting" => "Standaard sortering",
     "sort_by_latest" => "Sorteer op nieuwste",
     "sort_by_price_low_high" => "Sorteer op prijs: laag naar hoog",
