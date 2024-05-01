@@ -39,7 +39,7 @@ class OrderService extends AuthenticatedService {
             'address_id' => 'sometimes|exists:addresses,id|integer',
             'coupon_id' => 'sometimes|exists:coupons,id',
             'order_date' => 'sometimes|date',
-            'status' => 'sometimes|string|in:processing,shipped,delivered,cancelled',
+            'status' => 'sometimes|string|in:processing,shipped,delivered,cancelled,unknown',
             'amount_products' => 'sometimes|integer|min:1',
             'total_price' => 'sometimes|numeric|min:0',
             'payment_method' => 'sometimes|string',
