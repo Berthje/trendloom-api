@@ -55,7 +55,15 @@ class CategoryFrontService extends FrontService
 
         $allProducts = $this->sortProducts($allProducts, $sort);
 
-        return $this->paginate($allProducts, $request->input('page', 1), $itemCount);
+        //This extra step is needed to get absolute paths in my links for pagination for this specific exception endpoint, laravel normally
+        //generates relative paths but because it is an exception endpoint I need to generate absolute paths (/brands and /products etc work fine without this step)
+        $paginator = $this->paginate($allProducts, $request->input('page', 1), $itemCount);
+
+        $paginator->setPath(url("api/categories/{$categoryId}/products"));
+
+        $paginator->appends('itemCount', $itemCount);
+
+        return $paginator;
     }
 
     private function getCategoryWithProducts($categoryId, $lang)
