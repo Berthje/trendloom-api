@@ -144,6 +144,7 @@ Route::group(["middleware" => ["auth:api", "auth.csrf.jwt"]], function () {
     Route::prefix('customers')->group(function () {
         Route::get('/{id}', [CustomerController::class, 'getCustomerById']);
         Route::get('/{id}/addresses', [CustomerController::class, 'getAddressesByCustomerId']);
+        Route::get('/{id}/orders', [CustomerController::class, 'getOrdersByCustomerId']);
         Route::get('/{id}/wishlist/products', [WishlistController::class, 'getProducts']);
         Route::put('/{id}', [CustomerController::class, 'updateCustomer']);
         Route::delete('/{id}', [CustomerController::class, 'deleteCustomer']);

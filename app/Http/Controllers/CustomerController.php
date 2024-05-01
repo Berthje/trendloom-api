@@ -41,4 +41,9 @@ class CustomerController extends ApiServiceController
     {
         return $this->service->getAddressesByCustomerId($customerId);
     }
+
+    public function getOrdersByCustomerId($customerId)
+    {
+        return $this->service->getOrdersByCustomerId($customerId);
+    }
 }

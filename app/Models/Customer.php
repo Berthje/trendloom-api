@@ -49,4 +49,8 @@ class Customer extends Authenticatable implements JWTSubject
     {
         return $this->roles->contains('name', 'admin');
     }
+
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }

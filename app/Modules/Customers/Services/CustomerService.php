@@ -103,4 +103,13 @@ class CustomerService extends AuthenticatedService
 
         return $this->model->find($customerId)->addresses;
     }
+
+    public function getOrdersByCustomerId($customerId)
+    {
+        if (!$this->isAllowed($customerId, auth('api')->user()->id)) {
+            throw new AuthorizationException('Unauthorized');
+        }
+
+        return $this->model->find($customerId)->orders;
+    }
 }
