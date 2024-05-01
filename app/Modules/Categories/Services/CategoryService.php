@@ -39,7 +39,7 @@ class CategoryService extends TranslatableService
     protected function getRelationFields()
     {
         return [
-            'parent'
+            'parent', 'media'
         ];
     }
 }

@@ -15,7 +15,7 @@ class CategoryFrontService extends FrontService
     protected function getTranslationQuery()
     {
         return $this->model
-            ->with(['parent'])
+            ->with('parent', 'media')
             ->join('category_languages', 'category_languages.category_id', '=', 'categories.id')
             ->join('languages', 'languages.id', '=', 'category_languages.language_id')
             ->select('categories.*', 'languages.*', 'category_languages.*');
