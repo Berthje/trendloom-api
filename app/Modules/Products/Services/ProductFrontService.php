@@ -28,7 +28,7 @@ class ProductFrontService extends FrontService
             ->where('products.id', $productId);
 
         if ($request->has('lang')) {
-            $query->where('languages.code', $request->input('lang'));
+            $query->where('languages.code', $request->input('lang', 'en'));
         }
 
         $product = $query->first();

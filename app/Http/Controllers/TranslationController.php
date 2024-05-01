@@ -12,7 +12,7 @@ class TranslationController extends ApiServiceController
         $this->service = $service;
     }
 
-    public function getTranslation(Request $request) {
-        return $this->service->getTranslation($request);
+    public function getTranslations(Request $request) {
+        return $this->service->getTranslations($request);
     }
 }

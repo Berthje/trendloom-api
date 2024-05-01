@@ -27,7 +27,7 @@ class CategoryFrontService extends FrontService
             ->where('categories.id', $categoryId);
 
         if ($request->has('lang')) {
-            $query->where('languages.code', $request->input('lang'));
+            $query->where('languages.code', $request->input('lang', 'en'));
         }
 
         $category = $query->first();
@@ -38,7 +38,7 @@ class CategoryFrontService extends FrontService
     public function getProductsByCategoryId($request, $categoryId)
     {
         $itemCount = $request->input('itemCount', 12);
-        $lang = $request->input('lang');
+        $lang = $request->input('lang', 'en');
         $sort = $request->input('sort', 'default');
 
         $category = $this->getCategoryWithProducts($categoryId, $lang);
@@ -83,7 +83,7 @@ class CategoryFrontService extends FrontService
         $query = $category->products();
 
         if ($request->has('lang')) {
-            $this->applyLanguageFilter($query, $request->input('lang'));
+            $this->applyLanguageFilter($query, $request->input('lang', 'en'));
         } else {
             $query->select('products.*');
         }

@@ -41,7 +41,7 @@ use App\Http\Controllers\BrandFrontController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/translations', [TranslationController::class, 'getTranslation']);
+Route::get('/translations', [TranslationController::class, 'getTranslations']);
 
 Route::prefix('brands')->group(function () {
     Route::get('/', [BrandFrontController::class, 'getAllBrands']);

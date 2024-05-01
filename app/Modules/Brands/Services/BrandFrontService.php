@@ -26,7 +26,7 @@ class BrandFrontService extends FrontService
             ->where('brands.id', $brandId);
 
         if ($request->has('lang')) {
-            $query->where('languages.code', $request->input('lang'));
+            $query->where('languages.code', $request->input('lang', 'en'));
         }
 
         $brand = $query->first();
@@ -37,7 +37,7 @@ class BrandFrontService extends FrontService
     public function getProductsByBrandId($request, $brandId)
     {
         $itemCount = $request->input('itemCount', 12);
-        $lang = $request->input('lang');
+        $lang = $request->input('lang', 'en');
         $sort = $request->input('sort', 'default');
 
         $productsQuery = $this->model->find($brandId)->products();

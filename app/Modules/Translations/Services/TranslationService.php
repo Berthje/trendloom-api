@@ -3,6 +3,7 @@
 namespace App\Modules\Translations\Services;
 
 use Illuminate\Support\Facades\App;
+use App\Models\Language;
 
 class TranslationService
 {
@@ -13,10 +14,16 @@ class TranslationService
         $this->lang = request('lang', 'en');
     }
 
-    public function getTranslation()
+    public function getTranslations()
     {
-        App::setLocale($this->lang);
+        $languages = Language::all()->pluck('code')->toArray();
+        $translations = [];
 
-        return trans('webshop');
+        foreach ($languages as $language) {
+            App::setLocale($language);
+            $translations[$language] = trans('webshop');
+        }
+
+        return $translations;
     }
 }
