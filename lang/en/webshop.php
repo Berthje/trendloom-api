@@ -135,5 +135,9 @@ return [
     "old_password_required" => "The old password field is required.",
     "new_password_required" => "The new password field is required.",
     "residential_business" => "Residential, Business",
-    "password_requirement" => "It must be a combination of minimum 8 letters and atleast 1 numbers."
+    "password_requirement" => "It must be a combination of minimum 8 letters and atleast 1 numbers.",
+    "belgian_telephone_number" => "BE (+32) 478 91 47",
+    "usa_telephone_number" => "US (+22) 156 7345",
+    "support_email" => "{'support@trendloom.com'}",
+    "sales_email" => "{'sales@trendloom.com'}"
 ];

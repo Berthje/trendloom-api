@@ -136,4 +136,8 @@ return [
     "new_password_required" => "Het veld nieuw wachtwoord is verplicht.",
     "residential_business" => "Woonhuis, Bedrijf",
     "password_requirement" => "Het wachtwoord moet minimaal 8 tekens lang zijn en minimaal 1 cijfer bevatten.",
+    "belgian_telephone_number" => "BE (+32) 478 91 47",
+    "usa_telephone_number" => "US (+22) 156 7345",
+    "support_email" => "{'support@trendloom.com'}",
+    "sales_email" => "{'sales@trendloom.com'}"
 ];
