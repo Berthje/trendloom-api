@@ -20,7 +20,7 @@ abstract class AuthenticatedService extends Service implements IsAllowed
             throw new AuthorizationException('Unauthorized');
         }
 
-        $model = $this->model->where('id', $id)->first()->with($this->getRelationFields());
+        $model = $this->model->where('id', $id)->first();
 
         return $model->$action($data);
     }

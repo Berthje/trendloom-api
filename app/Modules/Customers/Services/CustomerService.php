@@ -64,7 +64,9 @@ class CustomerService extends AuthenticatedService
 
     public function get($id, $ruleKey = "get")
     {
-        return $this->performAction($id, ['id' => $id], $ruleKey, 'find');
+        $customer = $this->performAction($id, ['id' => $id], $ruleKey, 'find');
+        $customer->load($this->getRelationFields());
+        return $customer;
     }
 
     public function update($id, $data, $ruleKey = "update")
