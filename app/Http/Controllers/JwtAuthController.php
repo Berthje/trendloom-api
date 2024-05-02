@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Modules\Customers\Services\CustomerService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Mail\WelcomeUser;
 
 class JwtAuthController extends ApiServiceController
 {
@@ -42,7 +41,7 @@ class JwtAuthController extends ApiServiceController
     public function profile()
     {
 
-        $userdata = auth()->user();
+        $userdata = auth('api')->user();
 
         return response()->json([
             "status" => true,

@@ -58,7 +58,7 @@ class CustomerService extends AuthenticatedService
     protected function getRelationFields()
     {
         return [
-            'addresses:id,address,city,state,zip,country'
+            'address'
         ];
     }
 
