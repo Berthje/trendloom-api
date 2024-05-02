@@ -32,10 +32,7 @@ class Product extends Model
 
     public function sizes()
     {
-        return $this->hasMany(ProductSize::class)
-            ->whereHas('productStock', function ($query) {
-                $query->where('quantity_in_stock', '>', 0);
-            });
+        return $this->hasMany(ProductSize::class);
     }
 
     public function media()
