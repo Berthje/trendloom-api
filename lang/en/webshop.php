@@ -43,6 +43,7 @@ return [
     "sort_by_price_low_high" => "Sort by price: low to high",
     "sort_by_price_high_low" => "Sort by price: high to low",
     "all" => "All",
+    "all_our_products" => "All our products",
     "previous" => "Previous",
     "next" => "Next",
     "womens_shop" => "Women",

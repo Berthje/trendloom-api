@@ -43,6 +43,7 @@ return [
     "sort_by_price_low_high" => "Sorteer op prijs: laag naar hoog",
     "sort_by_price_high_low" => "Sorteer op prijs: hoog naar laag",
     "all" => "Alle",
+    "all_our_products" => "Al onze producten",
     "previous" => "Vorige",
     "next" => "Volgende",
     "womens_shop" => "Vrouwen",
