@@ -86,6 +86,6 @@ class OrderService extends AuthenticatedService {
             throw new AuthorizationException('Unauthorized');
         }
 
-        return OrderItem::where('order_id', $orderId)->get();
+        return OrderItem::with('product', 'size', 'order')->where('order_id', $orderId)->get();
     }
 }
