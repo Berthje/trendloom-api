@@ -14,13 +14,16 @@ class ProductFrontService extends FrontService
 
 
     protected function getTranslationQuery()
-    {
-        return $this->model
-            ->with(['brand', 'category', 'sizes', 'media'])
-            ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
-            ->join('languages', 'languages.id', '=', 'product_languages.language_id')
-            ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags');
-    }
+{
+    return $this->model
+        ->with(['brand', 'category', 'sizes.productStock', 'media'])
+        ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
+        ->join('languages', 'languages.id', '=', 'product_languages.language_id')
+        ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags')
+        ->whereHas('sizes.productStock', function ($query) {
+            $query->where('quantity_in_stock', '>', 0);
+        });
+}
 
     public function getProductById($request, $productId)
     {
