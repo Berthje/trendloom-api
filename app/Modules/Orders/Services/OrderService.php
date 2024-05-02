@@ -29,7 +29,7 @@ class OrderService extends AuthenticatedService {
             'order_date' => 'required|date',
             'status' => 'required|string|in:processing,shipped,delivered,cancelled,not_completed',
             'amount_products' => 'required|integer',
-            'total_price' => 'required|numeric|min:0',
+            'total_price' => 'required|numeric',
             'payment_method' => 'required|string',
             'shipping_method' => 'required|string',
             'tracking_number' => 'sometimes|nullable|string'
@@ -41,7 +41,7 @@ class OrderService extends AuthenticatedService {
             'order_date' => 'sometimes|date',
             'status' => 'sometimes|string|in:processing,shipped,delivered,cancelled,not_completed',
             'amount_products' => 'sometimes|integer',
-            'total_price' => 'sometimes|numeric|min:0',
+            'total_price' => 'sometimes|numeric',
             'payment_method' => 'sometimes|string',
             'shipping_method' => 'sometimes|string',
             'tracking_number' => 'sometimes|nullable|string'
