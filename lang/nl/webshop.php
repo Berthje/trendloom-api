@@ -63,7 +63,7 @@ return [
     "invalid_details" => "Ongeldig emailadres of wachtwoord.",
     "email_address" => "E-mailadres",
     "phone_number" => "Telefoonnummer",
-    "sample_email" => "voornaam.achternaam@gmail.com",
+    "sample_email" => "{'voornaam.achternaam@gmail.com'}",
     "password" => "Wachtwoord",
     "your_password" => "Jouw wachtwoord",
     "forgot_password" => "Wachtwoord vergeten",

@@ -62,7 +62,7 @@ return [
     "logout" => "Logout",
     "email_address" => "Email address",
     "phone_number" => "Phone number",
-    "sample_email" => "firstname.lastname@gmail.com",
+    "sample_email" => "{'firstname.lastname@gmail.com'}",
     "password" => "Password",
     "your_password" => "Your password",
     "forgot_password" => "Forgot password",
