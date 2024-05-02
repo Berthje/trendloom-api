@@ -79,7 +79,10 @@ class OrderItemService extends AuthenticatedService
         if ($productStock) {
             if ($operation === 'decrease') {
                 if ($productStock->quantity_in_stock < $orderItem->quantity) {
-                    $this->errors->add('quantity', 'The requested quantity is not available in stock.');
+                    $errorMessage = $productStock->quantity_in_stock > 0
+                        ? 'The requested quantity is not available in stock. Only ' . $productStock->quantity_in_stock . ' left in stock.'
+                        : 'No more products in stock.';
+                    $this->errors->add('quantity', $errorMessage);
                     return;
                 }
                 $productStock->quantity_in_stock -= $orderItem->quantity;
