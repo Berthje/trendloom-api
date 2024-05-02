@@ -22,9 +22,9 @@ class ProductStockController extends ApiServiceController
         return $this->create($request);
     }
 
-    public function getProductStockById($productStockId)
+    public function getProductStockByProductId($productId)
     {
-        return $this->get($productStockId);
+        return $this->service->getProductStockByProductId($productId);
     }
 
     public function updateProductStock(Request $request, $productStockId)

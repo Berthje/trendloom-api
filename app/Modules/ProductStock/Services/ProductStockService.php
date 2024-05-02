@@ -30,6 +30,10 @@ class ProductStockService extends Service {
         parent::__construct($model);
     }
 
+    public function getProductStockByProductId($productId) {
+        return $this->model->where('product_id', $productId)->get();
+    }
+
     protected function getRelationFields() {
         return [
             'product:id,name,description,price,sku,status,ean_barcode,brand_id,category_id',

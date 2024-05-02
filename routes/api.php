@@ -122,7 +122,7 @@ Route::prefix('product-sizes')->group(function () {
 
 Route::prefix('product-stock')->group(function () {
     Route::get('/', [ProductStockController::class, 'getAllProductStocks']);
-    Route::get('/{id}', [ProductStockController::class, 'getProductStockById']);
+    Route::get('/{id}', [ProductStockController::class, 'getProductStockByProductId']);
 });
 
 Route::post('/register', [JwtAuthController::class, 'register']);
