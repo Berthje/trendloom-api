@@ -38,4 +38,8 @@ class Product extends Model
     public function media(){
         return $this->hasMany(ProductMedia::class);
     }
+
+    public function stock() {
+        return $this->hasMany(ProductStock::class);
+    }
 }

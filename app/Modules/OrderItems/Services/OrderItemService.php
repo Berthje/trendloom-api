@@ -1,12 +1,15 @@
 <?php
+
 namespace App\Modules\OrderItems\Services;
 
 use App\Models\OrderItem;
 use App\Models\Customer;
+use App\Models\ProductStock;
 use App\Modules\Core\Services\AuthenticatedService;
 
-class OrderItemService extends AuthenticatedService {
-    protected $fields= ['order_id', 'product_id', 'product_size_id', 'product_details', 'quantity'];
+class OrderItemService extends AuthenticatedService
+{
+    protected $fields = ['order_id', 'product_id', 'product_size_id', 'product_details', 'quantity'];
     protected $searchField = 'orderItem';
     protected $rules = [
         "add" => [
@@ -31,7 +34,8 @@ class OrderItemService extends AuthenticatedService {
         ]
     ];
 
-    public function __construct(OrderItem $model) {
+    public function __construct(OrderItem $model)
+    {
         parent::__construct($model);
     }
 
@@ -43,7 +47,52 @@ class OrderItemService extends AuthenticatedService {
         return $orderItem->order->customer_id === $userId || $user->isAdmin();
     }
 
-    protected function getRelationFields() {
+    public function create($data, $ruleKey = "add")
+    {
+        $orderItem = parent::create($data, $ruleKey);
+
+        if ($orderItem && !$this->hasErrors()) {
+            $this->updateProductStock($orderItem, 'decrease');
+        }
+
+        return $orderItem;
+    }
+
+    public function delete($id, $ruleKey = "delete")
+    {
+        $orderItem = $this->model->find($id);
+        $deleted = parent::delete($id, $ruleKey);
+
+        if ($deleted && !$this->hasErrors()) {
+            $this->updateProductStock($orderItem, 'increase');
+        }
+
+        return $deleted;
+    }
+
+    private function updateProductStock(OrderItem $orderItem, $operation)
+    {
+        $productStock = ProductStock::where('product_id', $orderItem->product_id)
+            ->where('size_id', $orderItem->product_size_id)
+            ->first();
+
+        if ($productStock) {
+            if ($operation === 'decrease') {
+                if ($productStock->quantity_in_stock < $orderItem->quantity) {
+                    $this->errors->add('quantity', 'The requested quantity is not available in stock.');
+                    return;
+                }
+                $productStock->quantity_in_stock -= $orderItem->quantity;
+            } elseif ($operation === 'increase') {
+                $productStock->quantity_in_stock += $orderItem->quantity;
+            }
+
+            $productStock->save();
+        }
+    }
+
+    protected function getRelationFields()
+    {
         return [
             'order',
             'product',
