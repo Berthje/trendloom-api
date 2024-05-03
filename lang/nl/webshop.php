@@ -139,5 +139,6 @@ return [
     "belgian_telephone_number" => "BE (+32) 478 91 47",
     "usa_telephone_number" => "US (+22) 156 7345",
     "support_email" => "{'support@trendloom.com'}",
-    "sales_email" => "{'sales@trendloom.com'}"
+    "sales_email" => "{'sales@trendloom.com'}",
+    "no_products_found" => "Geen producten gevonden.",
 ];
