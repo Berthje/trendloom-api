@@ -52,7 +52,7 @@ return [
     "brands" => "Merken",
     "brand" => "Merk",
     "what_are_you_looking_for" => "Waar ben je naar op zoek?",
-    "search_for_products" => "Zoek naar producten...",
+    "search_for_products" => "Zoek naar producten, merken of categorieën",
     "popular_searches" => "Populaire zoekopdrachten",
     "jeans" => "Jeans",
     "more" => "meer",

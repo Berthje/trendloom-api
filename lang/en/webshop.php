@@ -52,7 +52,7 @@ return [
     "brands" => "Brands",
     "brand" => "Brand",
     "what_are_you_looking_for" => "What are you looking for?",
-    "search_for_products" => "Search for products...",
+    "search_for_products" => "Search for products, brands or categories",
     "popular_searches" => "Popular searches",
     "jeans" => "Jeans",
     "more" => "more",
