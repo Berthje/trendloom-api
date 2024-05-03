@@ -16,6 +16,8 @@ class Customer extends Authenticatable implements JWTSubject
 
     protected $hidden = ['password', 'created_at', 'updated_at'];
 
+    protected $appends = ['is_admin'];
+
     protected $casts = [
         'password' => 'hashed',
     ];
@@ -50,7 +52,13 @@ class Customer extends Authenticatable implements JWTSubject
         return $this->roles->contains('name', 'admin');
     }
 
-    public function orders() {
+    public function getIsAdminAttribute()
+    {
+        return $this->isAdmin();
+    }
+
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 }
