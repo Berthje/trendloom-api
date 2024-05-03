@@ -3,6 +3,7 @@
 namespace App\Modules\Customers\Services;
 
 use App\Models\Customer;
+use App\Models\Role;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Nette\Utils\Random;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -66,6 +67,18 @@ class CustomerService extends AuthenticatedService
     {
         $customer = $this->performAction($id, ['id' => $id], $ruleKey, 'find');
         $customer->load($this->getRelationFields());
+        return $customer;
+    }
+
+    public function create($data, $ruleKey = "add")
+    {
+        $customer = parent::create($data, $ruleKey);
+        $userRole = Role::where('name', 'user')->first();
+
+        if ($customer && !$this->hasErrors()) {
+            $customer->roles()->attach($userRole);
+        }
+
         return $customer;
     }
 
