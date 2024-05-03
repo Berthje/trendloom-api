@@ -12,7 +12,7 @@ class CategoryFrontService extends FrontService
         parent::__construct($model);
     }
 
-    protected function getTranslationQuery()
+    protected function getTranslationQuery($request)
     {
         return $this->model
             ->with('parent', 'media')
@@ -23,7 +23,7 @@ class CategoryFrontService extends FrontService
 
     public function getCategoryById($request, $categoryId)
     {
-        $query = $this->getTranslationQuery()
+        $query = $this->getTranslationQuery($request)
             ->where('categories.id', $categoryId);
 
         if ($request->has('lang')) {

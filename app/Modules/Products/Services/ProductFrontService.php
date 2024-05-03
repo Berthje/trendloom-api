@@ -13,18 +13,24 @@ class ProductFrontService extends FrontService
     }
 
 
-    protected function getTranslationQuery()
-{
-    return $this->model
-        ->with(['brand', 'category', 'sizes', 'media'])
-        ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
-        ->join('languages', 'languages.id', '=', 'product_languages.language_id')
-        ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags');
-}
+    protected function getTranslationQuery($request)
+    {
+        $query = $this->model
+            ->with(['brand', 'category', 'sizes', 'media'])
+            ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
+            ->join('languages', 'languages.id', '=', 'product_languages.language_id')
+            ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags');
+
+        if ($request->search) {
+            $query->where('product_languages.name', 'like', '%' . $request->search . '%');
+        }
+
+        return $query;
+    }
 
     public function getProductById($request, $productId)
     {
-        $query = $this->getTranslationQuery()
+        $query = $this->getTranslationQuery($request)
             ->where('products.id', $productId);
 
         if ($request->has('lang')) {
@@ -43,9 +49,9 @@ class ProductFrontService extends FrontService
         return $this->paginateQuery($query, $request);
     }
 
-    private function prepareQuery()
+    private function prepareQuery($request)
     {
-        return $this->getTranslationQuery()->where('languages.code', $this->languageCode);
+        return $this->getTranslationQuery($request)->where('languages.code', $this->languageCode);
     }
 
     public function applySorting($query, $request, $defaultSort = 'default')

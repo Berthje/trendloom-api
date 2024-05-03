@@ -12,17 +12,17 @@ class BrandFrontService extends FrontService
         parent::__construct($model);
     }
 
-    protected function getTranslationQuery()
+    protected function getTranslationQuery($request)
     {
         return $this->model
-        ->select('brands.id', 'brand_languages.name', 'brand_languages.description', 'brands.logo_url', 'languages.id as language_id', 'languages.code')
+            ->select('brands.id', 'brand_languages.name', 'brand_languages.description', 'brands.logo_url', 'languages.id as language_id', 'languages.code')
             ->join('brand_languages', 'brands.id', '=', 'brand_languages.brand_id')
             ->join('languages', 'languages.id', '=', 'brand_languages.language_id');
     }
 
     public function getBrandById($request, $brandId)
     {
-        $query = $this->getTranslationQuery()
+        $query = $this->getTranslationQuery($request)
             ->where('brands.id', $brandId);
 
         if ($request->has('lang')) {

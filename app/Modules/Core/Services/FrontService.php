@@ -1,23 +1,27 @@
 <?php
+
 namespace App\Modules\Core\Services;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-abstract class FrontService {
+abstract class FrontService
+{
     protected $model;
     protected $languageCode;
 
-    public function __construct(Model $model) {
+    public function __construct(Model $model)
+    {
         $this->model = $model;
         $this->languageCode = App::getLocale();
     }
 
-    public function getTranslatedModel($request) {
+    public function getTranslatedModel($request)
+    {
         $itemCount = $request->input('itemCount', 12);
 
-        return $this->getTranslationQuery()
+        return $this->getTranslationQuery($request)
             ->where('languages.code', $this->languageCode)
             ->paginate($itemCount)->withQueryString();
     }
@@ -49,5 +53,5 @@ abstract class FrontService {
         }
     }
 
-    abstract protected function getTranslationQuery();
+    abstract protected function getTranslationQuery($request);
 }
