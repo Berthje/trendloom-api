@@ -22,7 +22,7 @@ abstract class AuthenticatedService extends Service implements IsAllowed
 
         $model = $this->model->where('id', $id)->first();
 
-        return $model->with($this->getRelationFields())->$action($data);
+        return $model->$action($data);
     }
 
     public function get($id, $ruleKey = "get")
@@ -38,9 +38,5 @@ abstract class AuthenticatedService extends Service implements IsAllowed
     public function delete($id, $ruleKey = "delete")
     {
         return $this->performAction($id, ['id' => $id], $ruleKey, 'delete');
-    }
-
-    public function getRelationFields(){
-        return $this->model->getRelationFields();
     }
 }
