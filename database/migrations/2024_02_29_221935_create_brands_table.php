@@ -17,7 +17,6 @@ return new class extends Migration
             $table->mediumText('description');
             $table->string('logo_url');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
