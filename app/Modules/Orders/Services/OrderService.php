@@ -63,11 +63,12 @@ class OrderService extends AuthenticatedService {
         return $order->customer_id === $userId || $user->isAdmin();
     }
 
-    protected function getRelationFields() {
+    public function getRelationFields() {
         return [
             'customer:id,first_name,last_name,email,phone_number',
             'address:id,address,city,state,zip,country',
-            'coupon:id,code,discount,start_date,end_date,minimum_purchase,maximum_discount,max_use'
+            'coupon:id,code,discount,start_date,end_date,minimum_purchase,maximum_discount,max_use',
+            'orderItems'
         ];
     }
 

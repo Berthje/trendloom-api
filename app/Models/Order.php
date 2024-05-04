@@ -26,4 +26,11 @@ class Order extends Model
     {
         return $this->belongsTo(Coupon::class);
     }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class)->whereHas('product', function ($query) {
+            $query->whereNull('deleted_at');
+        });
+    }
 }
