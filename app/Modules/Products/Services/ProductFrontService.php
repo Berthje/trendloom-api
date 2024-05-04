@@ -17,7 +17,7 @@ class ProductFrontService extends FrontService
 {
     $searchParameter = $request->search;
     $query = $this->model
-        ->with(['brand', 'category', 'sizes', 'media'])
+        ->with(['brand', 'category', 'sizes', 'media', 'stock'])
         ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
         ->join('languages', 'languages.id', '=', 'product_languages.language_id')
         ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags');
