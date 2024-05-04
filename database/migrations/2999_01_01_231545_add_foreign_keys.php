@@ -59,7 +59,7 @@ return new class extends Migration
         //Products
 
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
 
