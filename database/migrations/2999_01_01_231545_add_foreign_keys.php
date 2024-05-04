@@ -14,7 +14,7 @@ return new class extends Migration
         //Media
 
         Schema::table('product_media', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
 
         Schema::table('category_media', function (Blueprint $table) {
@@ -25,23 +25,23 @@ return new class extends Migration
 
         Schema::table('category_coupons', function (Blueprint $table) {
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('coupon_id')->references('id')->on('coupons');
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('cascade');
         });
 
         Schema::table('product_coupons', function (Blueprint $table) {
-            $table->foreign('coupon_id')->references('id')->on('coupons');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
 
         Schema::table('brand_coupons', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('coupon_id')->references('id')->on('coupons');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('cascade');
         });
 
         //Languages
 
         Schema::table('brand_languages', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
         });
 
@@ -51,7 +51,7 @@ return new class extends Migration
         });
 
         Schema::table('product_languages', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
             $table->unique(['product_id', 'language_id']);
         });
@@ -59,17 +59,17 @@ return new class extends Migration
         //Products
 
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
 
         Schema::table('product_sizes', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->unique(['product_id', 'size']);
         });
 
         Schema::table('product_stock', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('size_id')->references('id')->on('product_sizes')->onDelete('cascade');
         });
 
@@ -102,15 +102,15 @@ return new class extends Migration
 
         Schema::table('order_items', function (Blueprint $table) {
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('product_size_id')->references('id')->on('product_sizes');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade'); //I won't use soft deletes anymore and cascade delete it since keeping history requires more complex logic which is not my mvp here
+            $table->foreign('product_size_id')->references('id')->on('product_sizes')->onDelete('cascade');
         });
 
         //Wishlists
 
         Schema::table('wishlists', function (Blueprint $table) {
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
