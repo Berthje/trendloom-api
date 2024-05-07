@@ -33,7 +33,8 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function media() {
+    public function media()
+    {
         return $this->belongsTo(CategoryMedia::class, 'category_id');
     }
 }

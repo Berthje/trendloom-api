@@ -40,7 +40,8 @@ class ProductService extends TranslatableService
         ]
     ];
 
-    public function __construct(Product $model) {
+    public function __construct(Product $model)
+    {
         parent::__construct($model, new ProductLanguageService(new ProductLanguage()));
     }
 

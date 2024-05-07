@@ -30,7 +30,8 @@ class BrandService extends TranslatableService
         ]
     ];
 
-    public function __construct(Brand $model) {
+    public function __construct(Brand $model)
+    {
         parent::__construct($model, new BrandLanguageService(new BrandLanguage()));
     }
 }

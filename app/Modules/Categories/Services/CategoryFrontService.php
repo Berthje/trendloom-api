@@ -13,13 +13,13 @@ class CategoryFrontService extends FrontService
     }
 
     protected function getTranslationQuery($request)
-    {
-        return $this->model
-            ->with('parent', 'media')
-            ->join('category_languages', 'category_languages.category_id', '=', 'categories.id')
-            ->join('languages', 'languages.id', '=', 'category_languages.language_id')
-            ->select('categories.*', 'languages.*', 'category_languages.*');
-    }
+{
+    return $this->model
+        ->with('parent', 'media')
+        ->join('category_languages', 'category_languages.category_id', '=', 'categories.id')
+        ->join('languages', 'languages.id', '=', 'category_languages.language_id')
+        ->select('category_languages.category_id as id', 'languages.code', 'languages.name', 'category_languages.description', 'category_languages.language_id', 'categories.parent_category_id');
+}
 
     public function getCategoryById($request, $categoryId)
     {
@@ -31,6 +31,11 @@ class CategoryFrontService extends FrontService
         }
 
         $category = $query->first();
+
+        if ($category) {
+            $category->id = $category->category_id;
+            unset($category->category_id);
+        }
 
         return $category;
     }
