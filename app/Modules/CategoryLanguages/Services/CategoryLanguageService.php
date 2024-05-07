@@ -48,12 +48,10 @@ class CategoryLanguageService extends Service
     {
         foreach ($languages as $languageCode => $translationData) {
             $language = Language::where('code', $languageCode)->first();
-
             if ($language) {
                 $category->translations()->create([
                     'name' => $translationData['name'],
                     'description' => $translationData['description'],
-                    'category_id' => $translationData['category_id'],
                     'language_id' => $language->id
                 ]);
             }
