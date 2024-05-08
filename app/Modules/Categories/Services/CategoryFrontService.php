@@ -16,9 +16,9 @@ class CategoryFrontService extends FrontService
     {
         return $this->model
             ->with('parent', 'media')
+            ->select('categories.id', 'category_languages.*', 'categories.parent_category_id', 'languages.code')
             ->join('category_languages', 'category_languages.category_id', '=', 'categories.id')
-            ->join('languages', 'languages.id', '=', 'category_languages.language_id')
-            ->select('categories.name', 'categories.description', 'categories.parent_category_id', 'languages.code', 'category_languages.category_id as id', 'category_languages.language_id');
+            ->join('languages', 'languages.id', '=', 'category_languages.language_id');
     }
 
     public function getCategoryById($request, $categoryId)
