@@ -40,10 +40,9 @@ class WishlistController extends ApiServiceController
 
     public function getProducts($customerId)
     {
-        $customer = Customer::find($customerId);
+        $products = $this->service->getProductsByCustomerId($customerId);
 
-        if ($customer) {
-            $products = $customer->wishlist->flatMap->products;
+        if ($products) {
             return response()->json($products);
         }
 

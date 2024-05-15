@@ -37,6 +37,18 @@ class WishlistService extends AuthenticatedService {
         return $wishlist->customer_id === $userId || $user->isAdmin();
     }
 
+    public function getProductsByCustomerId($customerId)
+    {
+        $customer = Customer::find($customerId);
+
+        if ($customer) {
+            $products = $customer->wishlist->flatMap->products;
+            return $products;
+        }
+
+        return null;
+    }
+
     protected function getRelationFields() {
         return [
             'customer',
