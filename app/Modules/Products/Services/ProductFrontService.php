@@ -14,24 +14,24 @@ class ProductFrontService extends FrontService
 
 
     protected function getTranslationQuery($request)
-{
-    $searchParameter = $request->search;
-    $query = $this->model
-        ->with(['brand', 'category', 'sizes', 'media', 'stock'])
-        ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
-        ->join('languages', 'languages.id', '=', 'product_languages.language_id')
-        ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags');
+    {
+        $searchParameter = $request->search;
+        $query = $this->model
+            ->with(['brand', 'category', 'sizes', 'media', 'stock'])
+            ->join('product_languages', 'product_languages.product_id', '=', 'products.id')
+            ->join('languages', 'languages.id', '=', 'product_languages.language_id')
+            ->select('products.*', 'languages.code', 'product_languages.name', 'product_languages.description', 'product_languages.price', 'product_languages.tags');
 
-    if ($searchParameter) {
-        $searchParameter = strtolower($searchParameter);
-        $query->where(function ($query) use ($searchParameter) {
-            $query->whereRaw('LOWER(product_languages.name) LIKE ?', ['%' . $searchParameter . '%'])
-                ->orWhereRaw('JSON_CONTAINS(JSON_UNQUOTE(JSON_EXTRACT(LOWER(product_languages.tags), "$")), ?)', [json_encode($searchParameter)]);
-        });
+        if ($searchParameter) {
+            $searchParameter = strtolower($searchParameter);
+            $query->where(function ($query) use ($searchParameter) {
+                $query->whereRaw('LOWER(product_languages.name) LIKE ?', ['%' . $searchParameter . '%'])
+                    ->orWhereRaw('JSON_CONTAINS(JSON_UNQUOTE(JSON_EXTRACT(LOWER(product_languages.tags), "$")), ?)', [json_encode($searchParameter)]);
+            });
+        }
+
+        return $query;
     }
-
-    return $query;
-}
 
     public function getProductById($request, $productId)
     {
